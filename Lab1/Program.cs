@@ -9,7 +9,7 @@ public class Program
     {
         Program program = new Program();
 
-        //program.Task_1_1();
+        program.Task_1_1();
         //program.Task_1_2();
         //program.Task_1_3();
         //program.Task_1_4(0.9);
@@ -57,7 +57,7 @@ public class Program
         // code here
 
         // end
-
+        Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_2()
