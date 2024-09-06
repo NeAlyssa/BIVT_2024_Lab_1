@@ -47,7 +47,7 @@ public class Program
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
-        //program.Task_3_9(0.1);
+        program.Task_3_9(0.1);
     }
     #region Level 1
     public int Task_1_1()
