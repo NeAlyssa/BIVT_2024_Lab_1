@@ -7,7 +7,7 @@ public class Program
 {
     public static void Main()
     {
-        Program program = new Program();
+        Program program = new Program();   5
 
         //program.Task_1_1();
         //program.Task_1_2();
