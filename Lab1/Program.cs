@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 
 public class Program
@@ -8,6 +10,50 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
+
+        //program.Task_1_1();//+
+        //program.Task_1_2();//+
+        //program.Task_1_3();//+?
+        //program.Task_1_4(0.9);//+
+        //program.Task_1_5(0, 2);//+
+        //program.Task_1_6(4);//+
+        //program.Task_1_7();//+
+        //program.Task_1_8();//+
+        //program.Task_1_9();//+
+        //program.Task_1_10();//+
+        //program.Task_1_11();//+
+        //program.Task_1_12(0.9);//+
+        //program.Task_1_13(-1.5);//+-
+        //program.Task_1_14();//+
+        //program.Task_1_15();//+-
+        //program.Task_1_16();//+
+        //program.Task_1_17(10);//-?
+        //program.Task_1_18(24);//+?
+        //program.Task_2_1(0);
+        //program.Task_2_2();+
+        //program.Task_2_3(8, 2, 0);
+        //program.Task_2_4(0.8);+
+        //program.Task_2_5(11, 5);
+        //program.Task_2_6();+
+        //program.Task_2_7a();
+        //program.Task_2_7b();
+        //program.Task_2_7c();
+        //program.Task_2_8();+
+        //program.Task_2_9();
+        //program.Task_2_10();+
+        //program.Task_3_1(0.1);
+        //program.Task_3_2(0.1);
+        //program.Task_3_3(0.1);
+        //program.Task_3_4(0.1);
+        //program.Task_3_5(double.Pi/5);
+        //program.Task_3_6(0.1);
+        //program.Task_3_7(0.1);
+        //program.Task_3_8(0.1);
+        //program.Task_3_9(0.1);
+
+
+
+
 
         //program.Task_1_1();
         //program.Task_1_2();
@@ -56,8 +102,13 @@ public class Program
 
         // code here
 
+        int Summa = 0;
+        for (int i = 2; i<=35; i = i + 3)
+        {
+            Summa += i;
+        }
+        answer = Summa;
         // end
-        // Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_2()
@@ -65,7 +116,12 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double Summa = 1;
+        for (int i = 2; i <= 10; i++)
+        {
+            Summa = Summa + 1.0 / i;
+        }
+        answer = Summa;
         // end
 
         return answer;
@@ -76,6 +132,16 @@ public class Program
 
         // code here
 
+        double Summa = 0;
+        for (int i = 2; i <= 112; i = i + 2)
+        {
+            Summa = Summa + (i / (i + 1.0));
+            //Console.WriteLine($"{i} | {i+1.0} = {i/(i+1.0)}");
+        }
+
+
+        answer = Summa;
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -86,8 +152,26 @@ public class Program
 
         // code here
 
+        double Summa = 0;
+        double x1 = 0;
+        if (x1 == 0)
+        {
+            answer = 0;
+        }
+        else
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                double element = Math.Cos(i * x1) / Math.Pow(x1, i - 1);
+                //Console.WriteLine(element);
+                Summa += element;
+            }
+            
+            answer = Summa;
+            //Console.WriteLine(Math.Cos(1 * 0) / Math.Pow(0, 1 - 1));
+        }
         // end
-
+        //Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_5(double p, double h)
@@ -96,8 +180,16 @@ public class Program
 
         // code here
 
+        double p1 = 0;
+        double h1 = 2;
+        double summa = 0;
+        for (int i=0; i<10; i++)
+        {
+            summa += Math.Pow(p1 + i * h1, 2);
+        }
         // end
-
+        answer = summa;
+        //Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_6(double x)
@@ -106,6 +198,17 @@ public class Program
 
         // code here
 
+        const double s_start = -4, s_finish = 4, h = 0.5;
+        int n = (int) ((s_finish - s_start) / h + 1);
+        // Console.WriteLine(n);
+        double x1 = -4;
+        for (int i = 1; i <= n; i++)
+        {
+            double y = 0.5 * x1 * x1 - 7 * x1;
+            Console.WriteLine($"x = {x1,5} | y = {y,5}");
+            x1 += 0.5;
+        }
+
         // end
 
         return answer;
@@ -113,11 +216,15 @@ public class Program
     public int Task_1_7()
     {
         int answer = 0;
-
+        int fact = 1;
         // code here
-
+        for (int i = 1; i<=6; i++)
+        {
+            fact *= i;
+        }
         // end
-
+        answer = fact;
+        // Console.WriteLine(answer);
         return answer;
     }
     public int Task_1_8()
@@ -126,8 +233,17 @@ public class Program
 
         // code here;
 
-        // end
+        int summa = 0;
+        int fact = 1;
+        for (int i = 1; i<=6; i++)
+        {
+            fact *= i;
+            summa += fact;
+        }
 
+        // end
+        answer = summa;
+        //Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_9()
@@ -136,18 +252,33 @@ public class Program
 
         // code here;
 
-        // end
+        double summa = 0;
+        int fact = 1;
 
+        for (int i = 1; i<=6; i++)
+        {
+            fact *= i;
+            double numb = Math.Pow(-1.0, i) * Math.Pow(5.0, i) / fact;
+            summa += numb;
+        }
+
+        answer = summa;
+
+        // end
+        //Console.WriteLine(answer);
         return answer;
     }
     public int Task_1_10()
     {
-        int answer = 0;
+        int answer = 1;
 
         // code here
-
+        for (int i = 1; i <= 7; i++)
+        {
+            answer *= 3;
+        }
         // end
-
+        //Console.WriteLine(answer);
         return answer;
     }
     public void Task_1_11()
@@ -155,16 +286,37 @@ public class Program
         // There is no test for this task
 
         // code here
-
+        for (int i = 1; i<=6; i++)
+        {
+            Console.Write($"{i} ");
+        }
+        Console.WriteLine();
+        for (int i = 1; i<=6; i++)
+        {
+            Console.Write("5 ");
+        }
     }
     public double Task_1_12(double x)
     {
         double answer = 0;
-
+        double x1 = 0;
         // code here
 
-        // end
-
+        double summa = 0;
+        if (x1 == 0)
+        {
+            answer = 0;
+        }
+        else
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                summa += 1.0 / Math.Pow(x1, i);
+            }
+            answer = summa;
+            // end
+        }
+        //Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_13(double x)
@@ -173,6 +325,29 @@ public class Program
 
         // code here
 
+        double x_start = -1.5, x_finish = 1.5, h = 0.1;
+        decimal x1 = -1.5m, y = 0;
+        //double x1 = -1.5, y = 0;
+        int n = (int)((x_finish - x_start) / h + 1);
+        for (int i=1; i<=n; i++)
+        {
+            if (x1 <= -1)
+            {
+                y = 1;
+            }
+            else if (-1 < x1 && x1 <= 1)
+            {
+                y = -1 * x1;
+            }
+            else
+            {
+                y = -1;
+            }
+            Console.WriteLine($"x = {x1,5} | y = {y,5}");
+            //x1 += 0.1;
+            x1 += (decimal)0.1;
+        }
+
         // end
 
         return answer;
@@ -180,7 +355,15 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
-
+        int fib1 = 0, fib2 = 1, fib3 = 0;
+        for (int i = 1; i<=8; i++)
+        {
+            fib3 = fib1;
+            fib1 += fib2;
+            fib2 = fib3;
+            Console.WriteLine(fib1);
+        }
+            
         // code here
 
     }
@@ -190,6 +373,32 @@ public class Program
 
         // code here
 
+        //method 1
+
+        double numb1 = 1, numb2 = 1;
+        for (int i = 1; i <= 5; i++)
+        {
+            if (i == 5)
+            {
+                answer = numb1 / numb2;
+            }
+            double numb3 = numb1;
+            numb1 += numb2;
+            numb2 = numb3;
+        }
+
+        //method2
+
+        //double numb1 = 0, numb2 = 1;
+        //for (int i = 1; i <= 6; i++)
+        //{
+        //    double numb3 = numb1;
+        //    numb1 += numb2;
+        //    numb2 = numb3;
+        //    answer = numb1 / numb2;
+        //}
+
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -200,9 +409,18 @@ public class Program
         int power = 0;
 
         // code here
-
+        double sum_corn = 0;
+        for (int i = 1; i<=64; i++)
+        {
+            sum_corn += Math.Pow(2, i);
+        }
+        double weight_corn = sum_corn / 15.0;
+        //Console.WriteLine($"Количество зерна: {sum_corn}");
+        //Console.WriteLine($"Грамм зерна: {sum_corn/15}");
+        //Console.WriteLine($"Грамм зерна: {weight_corn}");
+        answer = weight_corn;
         // end
-
+        //Console.WriteLine(answer);
         return (answer, power);
     }
     public double Task_1_17(double x)
@@ -210,6 +428,14 @@ public class Program
         double answer = 0;
 
         // code here
+
+        const double r = 6350;
+        for (double h = 1; h <= 10; h++)
+        {
+            double s = Math.Pow(Math.Pow(r+h,2)-Math.Pow(r, 2), 0.5);
+            //double s = Math.Pow(2*r*h+h*h, 0.5);
+            Console.WriteLine($"{h} | {s}");
+        }
 
         // end
 
@@ -221,6 +447,14 @@ public class Program
 
         // code here
 
+        int count_ameb = 10;
+            
+        for (int hour = 3; hour <= 24; hour += 3)
+        {
+            count_ameb *= 2;
+            //Console.WriteLine($"hour: {hour} | count: {count_ameb}");
+        }
+        answer = count_ameb;
         // end
 
         return answer;
@@ -244,6 +478,14 @@ public class Program
 
         // code here
 
+        int p = 1, l = 30000, n = 1;
+
+        while (p*(n+3) <= l)
+        {
+            n += 3;
+            p *= n;
+        }
+        //Console.WriteLine($"{n}");
         // end
 
         return answer;
@@ -264,6 +506,24 @@ public class Program
 
         // code here
 
+        const double e = 0.0001;
+        double s = 0;
+        double x1 = -0.35;//!
+        int i = 0;
+        if (Math.Abs(x1) >= 1)
+        {
+            s = 0;  
+        }
+        else
+        { 
+        while (Math.Pow(x1, i) >= e) {
+            s = s + Math.Pow(x1, i);
+            //Console.WriteLine($"{x1}**{i} = {Math.Pow(x1, i)}, s = {s}");
+            i += 2;
+        }
+        }
+        answer = s;
+        //Console.WriteLine($"s = {answer}");
         // end
 
         return answer;
@@ -284,6 +544,17 @@ public class Program
 
         // code here
 
+        int hour = 0;
+        int count_ameb = 10;
+
+        while (count_ameb < Math.Pow(10, 5))
+        {
+            count_ameb *= 2;
+            hour += 3;
+            //Console.WriteLine($"hour: {hour} | count: {count_ameb}"); 
+        }
+        answer = hour;
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -324,6 +595,17 @@ public class Program
 
         // code here;
 
+        const double start_sum = 10000;
+        double now_sum = 10000;
+        int month = 0; 
+        while (now_sum < start_sum * 2)
+        {
+            month += 1;
+            now_sum *= 1.08;
+            //Console.WriteLine($"month: {month}  sum: {now_sum}");
+        }
+        answer = month;
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -344,6 +626,22 @@ public class Program
 
         // code here;
 
+        double znam = 1, chisl = 1, bottle;
+        double first_member = 1, second_member = 2;
+        int number = 0;
+
+        while (Math.Abs(second_member-first_member)>0.001)
+        {
+            number += 1;
+            //Console.WriteLine($"{number}. {znam}/{chisl}");
+            first_member = second_member;
+            second_member = znam / chisl;
+            bottle = znam;
+            znam += chisl;
+            chisl = bottle;      
+        }
+        answer = number;
+        //Console.WriteLine(answer);
         // end
 
         return answer;
