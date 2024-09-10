@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
 
@@ -53,9 +54,20 @@ public class Program
     public int Task_1_1()
     {
         int answer = 0;
-
+       
         // code here
+       /* for(int i=0;i<10;i++)
+        {
 
+        }*/
+        int a = 0;
+        int i = 1;
+        while(a<35)
+        {
+            a = 2 + 3 * (i - 1);
+            i++;
+            answer = answer + a;
+        }
         // end
 
         return answer;
