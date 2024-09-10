@@ -13,7 +13,7 @@ public class Program
 
         //program.Task_1_1();//+
         //program.Task_1_2();//+
-        //program.Task_1_3();//+?
+        //program.Task_1_3();//+
         //program.Task_1_4(0.9);//+
         //program.Task_1_5(0, 2);//+
         //program.Task_1_6(4);//+
@@ -23,12 +23,12 @@ public class Program
         //program.Task_1_10();//+
         //program.Task_1_11();//+
         //program.Task_1_12(0.9);//+
-        //program.Task_1_13(-1.5);//+-
+        //program.Task_1_13(-1.5);//+- (0.0, 1.0 . . .)
         //program.Task_1_14();//+
-        //program.Task_1_15();//+-
+        //program.Task_1_15();//+
         //program.Task_1_16();//+
-        //program.Task_1_17(10);//-?
-        //program.Task_1_18(24);//+?
+        //program.Task_1_17(10);//+
+        //program.Task_1_18(24);//+
         //program.Task_2_1(0);
         //program.Task_2_2();+
         //program.Task_2_3(8, 2, 0);
@@ -44,7 +44,7 @@ public class Program
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        //program.Task_3_4(0.1);
+        //program.Task_3_4(0.1); //по Y +, а по S в файле нет ответа
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -141,7 +141,7 @@ public class Program
 
 
         answer = Summa;
-        //Console.WriteLine(answer);
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -375,28 +375,28 @@ public class Program
 
         //method 1
 
+        //double numb1 = 1, numb2 = 1;
+        //for (int i = 1; i <= 5; i++)
+        //{
+        //    if (i == 5)
+        //    {
+        //        answer = numb1 / numb2;
+        //    }
+        //    double numb3 = numb1;
+        //    numb1 += numb2;
+        //    numb2 = numb3;
+        //}
+
+        //method2
+
         double numb1 = 1, numb2 = 1;
         for (int i = 1; i <= 5; i++)
         {
-            if (i == 5)
-            {
-                answer = numb1 / numb2;
-            }
+            answer = numb1 / numb2;
             double numb3 = numb1;
             numb1 += numb2;
             numb2 = numb3;
         }
-
-        //method2
-
-        //double numb1 = 0, numb2 = 1;
-        //for (int i = 1; i <= 6; i++)
-        //{
-        //    double numb3 = numb1;
-        //    numb1 += numb2;
-        //    numb2 = numb3;
-        //    answer = numb1 / numb2;
-        //}
 
         //Console.WriteLine(answer);
         // end
@@ -434,9 +434,11 @@ public class Program
         {
             double s = Math.Pow(Math.Pow(r+h,2)-Math.Pow(r, 2), 0.5);
             //double s = Math.Pow(2*r*h+h*h, 0.5);
-            Console.WriteLine($"{h} | {s}");
+            //Console.WriteLine($"{h} | {s}");
+            answer = s;
+            //Console.WriteLine(answer);
         }
-
+        
         // end
 
         return answer;
@@ -455,6 +457,7 @@ public class Program
             //Console.WriteLine($"hour: {hour} | count: {count_ameb}");
         }
         answer = count_ameb;
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -684,6 +687,36 @@ public class Program
         double S = 0, y = 0;
 
         // code here
+
+        int n; //количество итераций цикла
+        const double a = 0.1, b = 1, h = 0.1;
+        int i, factorial_i = 1;
+        double member=1;
+
+        n = (int) ((b - a) / h + 1);
+        //Console.WriteLine(n);
+        x = a;
+        i = 0;
+        
+        for (int k = 1; k<=n; k++)
+        {
+            //Console.WriteLine(x);
+            while (member > 0.0001)
+            {
+                member = (2 * i + 1) * Math.Pow(x, 2 * i) / factorial_i;
+                S += member;
+                //Console.WriteLine($"{i}   {member}");
+                i += 1;
+                factorial_i *= i;
+            }
+            y = (1 + 2 * Math.Pow(x, 2)) * Math.Pow(Math.E, Math.Pow(x, 2));
+            Console.WriteLine($"x = {x, -5} | y = {y, 5}");
+            x += h;
+        }
+        Console.WriteLine($"S = {S}");
+
+        
+
 
         // end
 
