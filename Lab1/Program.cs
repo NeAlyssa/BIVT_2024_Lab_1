@@ -8,6 +8,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
+        Console.WriteLine("Hello world");
 
         //program.Task_1_1();
         //program.Task_1_2();
