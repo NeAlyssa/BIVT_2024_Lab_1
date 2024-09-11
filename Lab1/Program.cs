@@ -262,7 +262,24 @@ public class Program
         int power = 0;
 
         // code here
-        
+        double zer = 1;
+        double pow = 1;
+        for (int i = 0; i < 64; ++i)
+        {
+            pow *= 2;
+            zer += pow;
+        }
+        zer /= 15;
+        //Console.WriteLine(zer);
+        //Console.WriteLine(power);
+        while (zer >= 10)
+        {
+            power++;
+            zer /= 10;
+        }
+        //Console.WriteLine(zer);
+        //Console.WriteLine(power);
+        answer = Math.Round(zer, 4);
         // end
 
         return (answer, power);
@@ -273,7 +290,7 @@ public class Program
 
         // code here
         int r = 6350;
-        answer = x*x+2*r*x;
+        answer = (x+r)*(x+r) + r*r;
         answer = Math.Sqrt(answer);
         answer = Math.Round(answer, 4);
         // end
@@ -543,12 +560,30 @@ public class Program
         // code here
         double f(double x)
         {
-            return Math.Exp(2 * x);
+            return Math.Round(Math.Exp(2 * x), 4);
         }
-        double now = 1, eps = 0.00001;
+        double now = 0, eps = 0.000005;
         double power2x = 1; int fact = 1;
-        int i = 0;
-
+        for (int i = 0; ; i++)
+        {
+            now = power2x / fact;
+            power2x *= 2 * x; fact *= (i+1);
+            if (Math.Abs(now) < eps) break;
+            S += now;
+        }
+        double CustomRound(double value, int decimals)
+        {
+            int val = (int)(value*Math.Pow(10, decimals+1));
+            if (val % 10 >= 5)
+            {
+                val += 10;
+                //val /= 10;
+            }
+            val /= 10;
+            return (double)val/ Math.Pow(10, decimals);
+        }
+        S = CustomRound(S, 4);
+        y = CustomRound(f(x), 4);
         // end
 
         return (S, y);
