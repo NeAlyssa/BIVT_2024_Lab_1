@@ -231,12 +231,18 @@ public class Program
     public double Task_2_1(double x)
     {
         double answer = 0;
+        double elem = 0;
+        double i = 1;
 
-        // code here
+        do
+        {
+            elem = Math.Cos(i * x) / Math.Pow(i, 2);
+            if (Math.Abs(elem) < 0.0001) break;
+            answer += elem;
+            i++;
+        } while (Math.Abs(elem) >= 0.0001);
 
-        // end
-
-        return answer;
+        return Math.Round(answer, 2);
     }
     public int Task_2_2()
     {
@@ -252,9 +258,16 @@ public class Program
     {
         int answer = 0;
 
-        // code here
+        if (h < 0 && p > 0) return answer;
 
-        // end
+        double s = 0;
+        do
+        {
+            s += a + answer * h;
+            if (s > p) break;
+            answer++;
+        }
+        while (s <= p);
 
         return answer;
     }
@@ -268,13 +281,18 @@ public class Program
 
         return answer;
     }
-    public (int, int) Task_2_5(int N, int M)
+    public (int, int) Task_2_5(int N, int M) // incorrect
     {
         int quotient = 0, remainder = 0;
 
-        // code here
-
-        // end
+        if (M == 0) return (quotient, remainder);
+        while (N > M)
+        {
+            if (N - M < 0) break;
+            N -= M;
+            quotient++;
+        }
+        remainder = N;
 
         return (quotient, remainder);
     }
@@ -291,30 +309,44 @@ public class Program
     public double Task_2_7a()
     {
         double answer = 0;
+        double curr = 10;
 
-        // code here
+        for (int i = 0; i <= 6; i++)
+        {
+            answer += curr;
+            curr *= 1.1;
+        }
 
-        // end
-
-        return answer;
+        return Math.Round(answer, 2);
     }
     public int Task_2_7b()
     {
         int answer = 0;
 
-        // code here
+        double sum = 0;
+        double curr = 10;
 
-        // end
+        do
+        {
+            sum += curr;
+            answer++;
+            if (sum >= 100) return answer;
+            curr *= 1.1;
+        } while (sum <= 100);
 
-        return answer;
+        return 0;
     }
     public int Task_2_7c()
     {
         int answer = 0;
 
-        // code here
+        double curr = 10;
 
-        // end
+        while (curr <= 20)
+        {
+            curr *= 1.1;
+            answer++;
+        }
 
         return answer;
     }
@@ -332,10 +364,13 @@ public class Program
     {
         int answer = 0;
 
-        // code here;
+        double len = 0.1;
 
-        // end
-
+        while (len > Math.Pow(10, -10))
+        {
+            len /= 2;
+            answer++;
+        }
         return answer;
     }
     public int Task_2_10()
@@ -393,13 +428,19 @@ public class Program
     }
     public (double, double) Task_3_5(double x)
     {
-        double S = 0, y = 0;
+        double S = 0, y = (Math.Pow(x, 2) - (Math.Pow(Math.PI, 2) / 3)) / 4;
 
-        // code here
+        double elem = 0, i = 1;
 
-        // end
+        do
+        {
+            elem = Math.Pow(-1, i) * Math.Cos(i * x) / Math.Pow(i, 2);
+            if (Math.Abs(elem) < 0.0001) break;
+            S += elem;
+            i++;
+        } while (Math.Abs(elem) >= 0.0001);
 
-        return (S, y);
+        return (Math.Round(S, 2), Math.Round(y, 2));
     }
     public (double, double) Task_3_6(double x)
     {
