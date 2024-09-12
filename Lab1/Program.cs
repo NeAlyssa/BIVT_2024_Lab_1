@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
@@ -14,7 +14,10 @@ public class Program
         //program.Task_1_3();
         //program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
-        //program.Task_1_6(4);
+        for (double x = -4; x <= 4; x += 0.5)
+        {
+            program.Task_1_6(4);
+        }
         //program.Task_1_7();
         //program.Task_1_8();
         //program.Task_1_9();
@@ -55,6 +58,8 @@ public class Program
         int answer = 0;
 
         // code here
+        for (int i = 2; i <= 35; i += 3) answer += i;
+
 
         // end
 
@@ -65,7 +70,8 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = 1; i <= 10; i++) answer += 1 / i;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -75,7 +81,8 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = 2; i <= 112; i += 2) answer += i / (i + 1);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -85,7 +92,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if (x!=0)
+            {
+                for (double i = 0; i <= 8; i++) answer += Math.Cos((i + 1) * x) / Math.Pow(x, i);
+                answer = Math.Round(answer, 2);
+            }
         // end
 
         return answer;
@@ -95,7 +106,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 0; i<=9; i++)
+            {
+            answer += Math.Pow((p + i * h), 2);
+            }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -105,7 +120,9 @@ public class Program
         double answer = 0;
 
         // code here
-
+        answer = 0.5 * Math.Pow(x, 2) - 7*x;
+        Console.WriteLine(x);
+        Console.WriteLine(answer);
         // end
 
         return answer;
