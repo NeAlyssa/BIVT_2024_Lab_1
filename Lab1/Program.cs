@@ -22,12 +22,12 @@ public class Program
         //program.Task_1_9();//+
         //program.Task_1_10();//+
         //program.Task_1_11();//+
-        //program.Task_1_12(0.9);//+
+        //program.Task_1_12(0);//+
         //program.Task_1_13(-1.5);//+- (0.0, 1.0 . . .)
         //program.Task_1_14();//+
         //program.Task_1_15();//+
-        //program.Task_1_16();//+
-        //program.Task_1_17(10);//+
+        //program.Task_1_16();//+ (how to round)
+        //program.Task_1_17(10);//+ (why in test 50, 100 . . .)
         //program.Task_1_18(24);//+
         //program.Task_2_1(0);
         //program.Task_2_2();+
@@ -76,7 +76,7 @@ public class Program
         //program.Task_2_1(0);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
-        //program.Task_2_4(0.8);
+        //program.Task_2_4(0);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
         //program.Task_2_7a();
@@ -88,7 +88,7 @@ public class Program
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        //program.Task_3_4(0.1);
+        program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -121,7 +121,8 @@ public class Program
         {
             Summa = Summa + 1.0 / i;
         }
-        answer = Summa;
+        answer = Math.Round(Summa, 4);
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -140,7 +141,7 @@ public class Program
         }
 
 
-        answer = Summa;
+        answer = Math.Round(Summa, 4);
         Console.WriteLine(answer);
         // end
 
@@ -153,8 +154,8 @@ public class Program
         // code here
 
         double Summa = 0;
-        double x1 = 0;
-        if (x1 == 0)
+        x = 0.9;
+        if (x == 0)
         {
             answer = 0;
         }
@@ -162,16 +163,16 @@ public class Program
         {
             for (int i = 1; i <= 9; i++)
             {
-                double element = Math.Cos(i * x1) / Math.Pow(x1, i - 1);
+                double element = Math.Cos(i * x) / Math.Pow(x, i - 1);
                 //Console.WriteLine(element);
                 Summa += element;
             }
-            
-            answer = Summa;
+
+            answer = Math.Round(Summa, 4);
             //Console.WriteLine(Math.Cos(1 * 0) / Math.Pow(0, 1 - 1));
         }
         // end
-        //Console.WriteLine(answer);
+        Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_5(double p, double h)
@@ -180,16 +181,16 @@ public class Program
 
         // code here
 
-        double p1 = 0;
-        double h1 = 2;
+        //p = 0;
+        //h = 2;
         double summa = 0;
         for (int i=0; i<10; i++)
         {
-            summa += Math.Pow(p1 + i * h1, 2);
+            summa += Math.Pow(p + i * h, 2);
         }
         // end
         answer = summa;
-        //Console.WriteLine(answer);
+        Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_6(double x)
@@ -224,7 +225,7 @@ public class Program
         }
         // end
         answer = fact;
-        // Console.WriteLine(answer);
+        //Console.WriteLine(answer);
         return answer;
     }
     public int Task_1_8()
@@ -262,7 +263,7 @@ public class Program
             summa += numb;
         }
 
-        answer = summa;
+        answer = Math.Round(summa, 4);
 
         // end
         //Console.WriteLine(answer);
@@ -278,7 +279,7 @@ public class Program
             answer *= 3;
         }
         // end
-        //Console.WriteLine(answer);
+        Console.WriteLine(answer);
         return answer;
     }
     public void Task_1_11()
@@ -299,11 +300,10 @@ public class Program
     public double Task_1_12(double x)
     {
         double answer = 0;
-        double x1 = 0;
         // code here
 
         double summa = 0;
-        if (x1 == 0)
+        if (x == 0)
         {
             answer = 0;
         }
@@ -311,9 +311,9 @@ public class Program
         {
             for (int i = 0; i <= 10; i++)
             {
-                summa += 1.0 / Math.Pow(x1, i);
+                summa += 1.0 / Math.Pow(x, i);
             }
-            answer = summa;
+            answer = Math.Round(summa, 4);
             // end
         }
         //Console.WriteLine(answer);
@@ -418,7 +418,7 @@ public class Program
         //Console.WriteLine($"Количество зерна: {sum_corn}");
         //Console.WriteLine($"Грамм зерна: {sum_corn/15}");
         //Console.WriteLine($"Грамм зерна: {weight_corn}");
-        answer = weight_corn;
+        answer = Math.Round(weight_corn, 4);
         // end
         //Console.WriteLine(answer);
         return (answer, power);
@@ -435,8 +435,8 @@ public class Program
             double s = Math.Pow(Math.Pow(r+h,2)-Math.Pow(r, 2), 0.5);
             //double s = Math.Pow(2*r*h+h*h, 0.5);
             //Console.WriteLine($"{h} | {s}");
-            answer = s;
-            //Console.WriteLine(answer);
+            answer = Math.Round(s, 4);
+            Console.WriteLine(answer);
         }
         
         // end
@@ -455,9 +455,10 @@ public class Program
         {
             count_ameb *= 2;
             //Console.WriteLine($"hour: {hour} | count: {count_ameb}");
+            //Console.WriteLine(count_ameb);
         }
         answer = count_ameb;
-        Console.WriteLine(answer);
+        
         // end
 
         return answer;
@@ -489,6 +490,8 @@ public class Program
             p *= n;
         }
         //Console.WriteLine($"{n}");
+        answer = n;
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -511,22 +514,21 @@ public class Program
 
         const double e = 0.0001;
         double s = 0;
-        double x1 = -0.35;//!
         int i = 0;
-        if (Math.Abs(x1) >= 1)
+        if (Math.Abs(x) >= 1)
         {
             s = 0;  
         }
         else
         { 
-        while (Math.Pow(x1, i) >= e) {
-            s = s + Math.Pow(x1, i);
-            //Console.WriteLine($"{x1}**{i} = {Math.Pow(x1, i)}, s = {s}");
+        while (Math.Pow(x, i) >= e) {
+            s = s + Math.Pow(x, i);
+            //Console.WriteLine($"{x}**{i} = {Math.Pow(x, i)}, s = {s}");
             i += 2;
         }
         }
-        answer = s;
-        //Console.WriteLine($"s = {answer}");
+        answer = Math.Round(s, 4);
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -608,7 +610,7 @@ public class Program
             //Console.WriteLine($"month: {month}  sum: {now_sum}");
         }
         answer = month;
-        Console.WriteLine(answer);
+        //Console.WriteLine(answer);
         // end
 
         return answer;
@@ -709,8 +711,8 @@ public class Program
                 i += 1;
                 factorial_i *= i;
             }
-            y = (1 + 2 * Math.Pow(x, 2)) * Math.Pow(Math.E, Math.Pow(x, 2));
-            Console.WriteLine($"x = {x, -5} | y = {y, 5}");
+            y = Math.Round((1 + 2 * Math.Pow(x, 2)) * Math.Pow(Math.E, Math.Pow(x, 2)), 4);
+            Console.WriteLine($"x = {Math.Round(x, 1), -5} | y = {y, 5}");
             x += h;
         }
         Console.WriteLine($"S = {S}");
