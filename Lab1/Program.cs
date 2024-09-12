@@ -41,7 +41,7 @@ public class Program
         //program.Task_2_8();
         //program.Task_2_9();
         //program.Task_2_10();
-        program.Task_3_1(0.1);
+        //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
@@ -125,7 +125,7 @@ public class Program
         double answer = 0;
 
         // code here
-        for (double i = -4; i <= 4; i += 0.5)
+        for (double i = -4; i <= 4.0005; i += 0.5)
         {
             double y = 0.5 * Math.Pow(i, 2) - 7 * i;
             Console.WriteLine($"y={y:f1}\tx={i:f1}");
@@ -231,7 +231,7 @@ public class Program
 
         // code here
 
-        for (double i = -1.5; i <= 1.5; i+=0.1)
+        for (double i = -1.5; i <= 1.50005; i+=0.1)
         {
             double y;
             if (i <= -1)
@@ -316,6 +316,11 @@ public class Program
 
         // code here
         const int Radius = 6350;
+        for (int i = 1; i <= 10; i++)
+        {
+            double distance = Math.Sqrt(i * (2 * Radius + i));
+            Console.WriteLine($"distance={distance:f2}");
+        }
         answer = Math.Sqrt(x * (2 * Radius + x));
         answer = Math.Round(answer, 2);
         // end
@@ -327,9 +332,19 @@ public class Program
         int answer = 0;
 
         // code here
-        answer = 10;
+        int amoebas = 10;
         for (int i = 3; i <= x; i += 3)
-            answer *= 2;
+        {
+            amoebas *= 2;
+            Console.WriteLine($"amoebas={amoebas}");
+        }
+        answer = amoebas;
+        for (int i = x; i <= 24; i += 3)
+        {
+            amoebas *= 2;
+            Console.WriteLine($"amoebas={amoebas}");
+        }
+
         // end
 
         return answer;
@@ -520,15 +535,40 @@ public class Program
         double S = 0, y = 0;
 
         // code here
+        const double eps = 0.0001;
         for (double j = 0.1; j <= 1.0005; j += 0.1)
         {
-            double tayCos = TaylorCos(j), mathcos = Math.Cos(j);
-            Console.WriteLine($"s={tayCos:f2}\ty={mathcos:f2}");
+            double mathcos = Math.Cos(j);
+            double res = 0;
+            double i = 0, denom = 1, num = 1, add = 1;
+            int sign = 1;
+            do
+            {
+                add = sign * num / denom;
+                res += add;
+                denom *= (2 * i + 1) * (2 * i + 2);
+                sign *= -1;
+                num *= j * j;
+                i += 1;
+            } while (Math.Abs(add) >= eps);
+
+            Console.WriteLine($"TaylorCos={res:f2}\ty={mathcos:f2}");
         }
-        S = TaylorCos(x);
-        y = Math.Cos(x);
+
+        double it = 0, den = 1, nm = 1, ad = 1;
+        int sig = 1;
+        do
+        {
+            ad = sig * nm / den;
+            S += ad;
+            den *= (2 * it + 1) * (2 * it + 2);
+            sig *= -1;
+            nm *= x * x;
+            it += 1;
+        } while (Math.Abs(ad) >= eps);
+
         S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
+        y = Math.Round(Math.Cos(x), 2);
         // end
 
         return (S, y);
@@ -612,24 +652,6 @@ public class Program
         // end
 
         return (S, y);
-    }
-    public double TaylorCos(double x)
-    {
-        double res = 0;
-        double i = 0, denom = 1, num = 1, add = 1;
-        int sign = 1;
-        const double eps = 0.0001;
-        do
-        {
-            add = sign * num / denom;
-            res += add;
-            denom *= (2 * i + 1) * (2 * i + 2);
-            sign *= -1;
-            num *= x * x;
-            i += 1;
-        } while (Math.Abs(add) >= eps);
-
-        return res;
     }
     #endregion
 }
