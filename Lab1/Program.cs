@@ -54,9 +54,10 @@ public class Program
     {
         int answer = 0;
 
-        // code here
-
-        // end
+        for(int i = 2; i <= 35; i += 3)
+        {
+            answer += i;
+        }
 
         return answer;
     }
@@ -64,20 +65,22 @@ public class Program
     {
         double answer = 0;
 
-        // code here
-
-        // end
-
+        for(double i = 1.0; i <= 10.0; i++)
+        {
+            answer += (1 / i);
+        }
+        answer = Math.Round(answer,2);
         return answer;
     }
     public double Task_1_3()
     {
         double answer = 0;
 
-        // code here
-
-        // end
-
+        for (double i = 2.0; i <= 112; i += 2)
+        {
+            answer += (i / (i+1));
+        }
+        answer = Math.Round(answer);
         return answer;
     }
     public double Task_1_4(double x)
