@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
@@ -55,7 +55,12 @@ public class Program
         int answer = 0;
 
         // code here
-
+        int i = 0;
+        for (i = 2; i <= 35; i = i + 3)
+        {
+            answer = answer + i;
+        }
+        
         // end
 
         return answer;
@@ -66,8 +71,12 @@ public class Program
 
         // code here
 
+        for (double i = 1; i <= 10; i++)
+        {
+            answer += 1 / i;
+        }
+        answer = Math.Round(answer, 2);
         // end
-
         return answer;
     }
     public double Task_1_3()
@@ -75,7 +84,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = 2; i <= 112; i += 2)
+        {
+            answer += i / (i + 1);
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -85,7 +98,12 @@ public class Program
         double answer = 0;
 
         // code here
-
+        answer = Math.Cos(x);
+        for (double i = 2; i <= 8; i++)
+        {   
+            answer += Math.Cos(x * i) / Math.Pow(x, i - 1);
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
