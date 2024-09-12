@@ -55,7 +55,9 @@ public class Program
         int answer = 0;
 
         // code here
-        
+        for (int i = 2; i<=35; i+=3){
+            answer += i;
+        }
         // end
 
         return answer;
@@ -65,9 +67,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 1; i<= 10; i++){
+            answer += 1.0/i;
+        }
         // end
-
+        answer = Math.Round(answer, 2);
         return answer;
     }
     public double Task_1_3()
@@ -75,9 +79,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = 2; i<=112; i+=2){
+            answer += i/(i+1);
+        }
         // end
-
+        answer = Math.Round(answer, 2);
         return answer;
     }
     public double Task_1_4(double x)
@@ -125,7 +131,7 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        
         // end
 
         return answer;
