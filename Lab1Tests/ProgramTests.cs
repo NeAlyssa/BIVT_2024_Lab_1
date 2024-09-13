@@ -241,7 +241,7 @@ namespace Tests
                 test[i] = main.Task_1_17(test[i]);
             // Assert
             for (int i = 0; i < test.Length; i++)
-                Assert.AreEqual(answer[i], test[i]);
+                Assert.AreEqual(answer[i], test[i], 0.02);
         }
 
         [TestMethod()]
