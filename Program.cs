@@ -10,7 +10,7 @@ public class Program
         Program program = new Program();
 
         //program.Task_1_1();
-        program.Task_1_2();
+        //program.Task_1_2();
         //program.Task_1_3();
         //program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
@@ -53,6 +53,9 @@ public class Program
     public int Task_1_1()
     {
         int answer = 0;
+        for (int i = 2; i <= 35; i += 3) {
+            answer += i;
+        }
 
         // code here
 
@@ -65,8 +68,7 @@ public class Program
         double answer = 0;
 
         // code here
-        answer = 52;
-        Console.WriteLine(answer);
+
         // end
 
         return answer;
