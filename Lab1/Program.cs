@@ -24,7 +24,7 @@ public class Program
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
-        //program.Task_1_16();
+        program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
         //program.Task_2_1(0);
@@ -66,7 +66,7 @@ public class Program
 
         // code here
         for (int i = 1; i <= 10; i++) answer += 1.0 / (double)i;
-        answer = Math.Round(answer, 3);
+        answer = Math.Round(answer, 2);
         // end
         //Console.WriteLine("Test 2 answer:{0:f4}", answer);
         return answer;
@@ -76,8 +76,8 @@ public class Program
         double answer = 0;
 
         // code here
-        for (int i = 3; i<=113; i++) answer += (double)(i-1) / (double)i;
-        answer = Math.Round(answer, 4);
+        for (int i = 3; i<=113; i+=2) answer += (double)(i-1) / (double)i;
+        answer = Math.Round(answer, 2);
 
         //Console.WriteLine("Test 2 answer:{0:f}", answer);
         // end
@@ -96,7 +96,7 @@ public class Program
             x_pow *= x;
         }
 
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         //Console.WriteLine("Test 4 answer:{0:f5}", answer);
         // end
 
@@ -121,6 +121,7 @@ public class Program
 
         // code here
         answer =  0.5 * x * x - 7 * x;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -164,7 +165,7 @@ public class Program
             even *= -1;
             pow5 *= 5;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -207,7 +208,7 @@ public class Program
             answer += 1.0/x_pow;
             x_pow *= x;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -251,7 +252,7 @@ public class Program
             h = sec_znam; sec_znam += fir_znam; fir_znam = h;
             answer = (double)fir_chisl/fir_znam;
         }
-        answer = (int)(answer*10)/10.0;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -262,9 +263,9 @@ public class Program
         int power = 0;
 
         // code here
-        double zer = 1;
-        double pow = 1;
-        for (int i = 0; i < 64; ++i)
+        double zer = 2;
+        double pow = 2;
+        for (int i = 2; i < 64; i++)
         {
             pow *= 2;
             zer += pow;
@@ -277,9 +278,9 @@ public class Program
             power++;
             zer /= 10;
         }
-        //Console.WriteLine(zer);
+        //Console.WriteLine(answer);
         //Console.WriteLine(power);
-        answer = Math.Round(zer, 4);
+        answer = Math.Round(zer, 2);
         // end
 
         return (answer, power);
@@ -290,9 +291,9 @@ public class Program
 
         // code here
         int r = 6350;
-        answer = (x+r)*(x+r) + r*r;
+        answer = (x+r)*(x+r) - r*r;
         answer = Math.Sqrt(answer);
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
         
         return answer;
@@ -303,7 +304,7 @@ public class Program
 
         // code here
         answer = 10;
-        for (int i =3; i<x; i += 3)
+        for (int i =3; i<=x; i += 3)
         {
             answer *= 2;
         }
@@ -328,7 +329,7 @@ public class Program
             answer += now;
             i++;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -376,7 +377,7 @@ public class Program
             now *= x*x;
             //Console.WriteLine(now);
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
         //Console.WriteLine("Answ: {0;f5}", answer);
         return answer;
@@ -582,8 +583,8 @@ public class Program
             val /= 10;
             return (double)val/ Math.Pow(10, decimals);
         }
-        S = CustomRound(S, 4);
-        y = CustomRound(f(x), 4);
+        S = Math.Round(S, 2);
+        y = Math.Round(f(x), 2);
         // end
 
         return (S, y);
