@@ -204,6 +204,7 @@ public class Program
         Console.WriteLine();
         for (int i = 1; i <= 6; i++)
             Console.Write("5 ");
+        Console.WriteLine();
 
     }
     public double Task_1_12(double x)
@@ -266,6 +267,7 @@ public class Program
             second += first;
             first = temp;
         }
+        Console.WriteLine();
 
     }
     public double Task_1_15()
@@ -357,7 +359,7 @@ public class Program
         double answer = 0;
 
         // code here
-        double eps = 0.0001;
+        double eps = 0.00010;
         double i = 1;
         double add = 1;
         do
@@ -365,7 +367,7 @@ public class Program
             add = Math.Cos(i * x) / Math.Pow(i, 2);
             i += 1;
             answer += add;
-        } while (Math.Abs(add) >= eps);
+        } while (Math.Abs(add) > eps);
         answer = Math.Round(answer, 2);
         // end
 
