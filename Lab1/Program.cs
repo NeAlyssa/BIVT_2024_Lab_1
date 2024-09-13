@@ -19,7 +19,7 @@ public class Program
         //program.Task_1_8();
         //program.Task_1_9();
         //program.Task_1_10();
-        program.Task_1_11();
+        //program.Task_1_11();
         //program.Task_1_12(0.9);
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
@@ -196,6 +196,11 @@ public class Program
             Console.Write(i);
             Console.Write(" ");
         }
+        Console.WriteLine();
+        for (int i =1; i<=6; i++){
+            Console.Write(5);
+            Console.Write(" ");
+        }
         // code here
 
     }
@@ -204,7 +209,12 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if (x > 0){
+        for (int i = 0; i <=10; i++){
+            answer += 1/Math.Pow(x, i);
+        }
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -214,7 +224,18 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = -1.5; i <= 1.5; i+=0.1){
+            if (i <= -1){
+                answer = 1;
+            }
+            else if (-1<i && i<=1){
+                answer = -i;
+            }
+            else if(x >1){
+                answer = -1;
+            }
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
