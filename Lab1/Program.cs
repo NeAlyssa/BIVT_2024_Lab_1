@@ -19,7 +19,7 @@ public class Program
         //program.Task_1_8();
         //program.Task_1_9();
         //program.Task_1_10();
-        //program.Task_1_11();
+        program.Task_1_11();
         //program.Task_1_12(0.9);
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
@@ -93,8 +93,10 @@ public class Program
         double answer = 0;
 
         // code here
+        if (x>0){
         for (int i = 1; i<= 9; i++){
             answer += Math.Cos(x*i)/Math.Pow(x, i-1);
+        }
         }
         answer = Math.Round(answer, 2);
         // end
@@ -106,7 +108,9 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 0; i <= 9; i++){
+            answer += (p+i*h)*(p+i*h);
+        }
         // end
 
         return answer;
@@ -116,7 +120,9 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = -4; i<4; i+=0.5){
+            answer = Math.Round(0.5*x*x - 7*x, 2);
+        }
         // end
 
         return answer;
@@ -126,7 +132,10 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 1;
+        for (int i = 2; i<=6; i++){
+            answer *= i;
+        }
         // end
 
         return answer;
@@ -136,7 +145,14 @@ public class Program
         int answer = 0;
 
         // code here;
-        
+        int f = 1;
+        for (int i=1; i<=6; i++){
+            for (int j = 2; j<=i; j++){
+                f *= j;
+            }
+            answer += f;
+            f = 1;
+        }
         // end
 
         return answer;
@@ -146,7 +162,16 @@ public class Program
         double answer = 0;
 
         // code here;
-
+        int p = 1, f = 1;
+        for (int n=1; n<=6; n++){
+            p = -p;
+            for (int j = 2; j<=n; j++){
+                f *= j;
+            }
+            answer += (p*Math.Pow(5, n))/f;
+            f = 1;
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -156,7 +181,10 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 3;
+        for (int i = 1; i<=6; i++){
+            answer *= 3;
+        }
         // end
 
         return answer;
@@ -164,7 +192,10 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
-
+        for (int i = 1; i<=6; i++){
+            Console.Write(i);
+            Console.Write(" ");
+        }
         // code here
 
     }
