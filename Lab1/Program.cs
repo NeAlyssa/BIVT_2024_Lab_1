@@ -224,18 +224,8 @@ public class Program
         double answer = 0;
 
         // code here
-        for (double i = -1.5; i <= 1.5; i+=0.1){
-            if (i <= -1){
-                answer = 1;
-            }
-            else if (-1<i && i<=1){
-                answer = -i;
-            }
-            else if(x >1){
-                answer = -1;
-            }
-        }
-        answer = Math.Round(answer, 2);
+
+
         // end
 
         return answer;
@@ -243,7 +233,16 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
-        //ksdagdiagsdgiaghsd
+        
+        int n1 = 1, n2 = 1, n = 0;
+        Console.WriteLine(n1);
+        Console.WriteLine(n2);
+        for (int i=3; i<=8; i++){
+            n = n1 + n2;
+            Console.WriteLine(n);
+            n1 = n2;
+            n2 = n;
+        }
         // code here
 
     }
@@ -252,7 +251,14 @@ public class Program
         double answer = 0;
 
         // code here
-
+        int n1 = 1, n2 = 1, n = 0;
+        for (int i=3; i<=5; i++){
+            n = n1 + n2;
+            n1 = n2;
+            n2 = n;
+        }
+        n = n1 + n2;
+        answer = n/Convert.ToDouble(n2);
         // end
 
         return answer;
@@ -263,7 +269,14 @@ public class Program
         int power = 0;
 
         // code here
-
+        for (int i = 0; i<64; i++){
+            if (answer > Math.Pow(10, power+1)){
+                power++;
+            }
+            answer += Math.Pow(2, i);
+        }
+        answer /= Math.Pow(10, power)*15;
+        answer = Math.Round(answer, 2);
         // end
 
         return (answer, power);
@@ -273,7 +286,10 @@ public class Program
         double answer = 0;
 
         // code here
-
+        int R = 6350;
+        for (int h = 1; h<=x; h++){
+            answer = Math.Round(Math.Sqrt((R+h)*(R+h) - R*R), 2);
+        }
         // end
 
         return answer;
@@ -283,7 +299,12 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 10;
+        for (int i = 3; i <= x; i+=3){
+            if (i%3==0){
+                answer *= 2;
+            }
+        }
         // end
 
         return answer;
@@ -296,7 +317,12 @@ public class Program
         double answer = 0;
 
         // code here
-
+        int n = 1;
+        while (Math.Abs(Math.Cos(n*x)/(n*n)) >= 0.0001){
+            answer += Math.Cos(n*x)/(n*n);
+            n++;
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -306,7 +332,18 @@ public class Program
         int answer = 0;
 
         // code here
-
+        int p = 0;
+        int n = 1;
+        while (p <= 30_000){
+            n += 3;
+            //then^
+            //if 
+            p = 1;
+            for(int i=4; i<=n; i+=3){
+                p *= i;
+            }
+        }
+        answer = n;
         // end
 
         return answer;
