@@ -30,7 +30,7 @@ public class Program
         //program.Task_2_1(0);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
-        //program.Task_2_4(0.8);
+        program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
         //program.Task_2_7a();
@@ -333,17 +333,19 @@ public class Program
 
         // code here
         int p = 0;
-        int n = 1;
+        answer = 1;
         while (p <= 30_000){
-            n += 3;
-            //then^
-            //if 
             p = 1;
-            for(int i=4; i<=n; i+=3){
+            for(int i=4; i<=answer; i+=3){
                 p *= i;
             }
+            if (p*(answer+3) < 30_000){
+                answer += 3;
+            }
+            else{
+                break;
+            }
         }
-        answer = n;
         // end
 
         return answer;
@@ -363,7 +365,14 @@ public class Program
         double answer = 0;
 
         // code here
-
+        int i = 0;
+        while (Math.Pow(x, i*2) >= 0.0001){
+            answer += Math.Pow(x, i*2);
+            Console.WriteLine(Math.Pow(x, i*2) >= 0.0001);
+            i++;
+        }
+        answer = Math.Round(answer, 2);
+        Console.WriteLine(answer);
         // end
 
         return answer;
