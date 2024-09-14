@@ -38,11 +38,11 @@ public class Program
         //program.Task_2_7c();
         //program.Task_2_8();
         //program.Task_2_9();
-        program.Task_2_10();
+        //program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        //program.Task_3_4(0.1);
+        program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -484,7 +484,7 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-
+        
         // end
 
         return (S, y);
@@ -514,7 +514,21 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-
+        int i = 0;
+        int f = 1;
+        while (Math.Abs((2*i + 1)*Math.Pow(x, 2*i)/f) >= 0.0001 && x <= 1){
+            f = 1;
+            for (int j = 2; j <= i; j++){
+                f *= j;
+            }
+            S += (2*i + 1)*Math.Pow(x, 2*i)/f;
+            Console.WriteLine(S);
+            y = (1+2*x*x)*Math.Exp(x*x);
+            x += 0.1;
+            i++;
+        }
+        S = Math.Round(S, 2);
+        Console.WriteLine(S);
         // end
 
         return (S, y);
