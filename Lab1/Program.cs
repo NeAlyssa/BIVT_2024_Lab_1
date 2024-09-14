@@ -30,7 +30,7 @@ public class Program
         //program.Task_2_1(0);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
-        program.Task_2_4(0.8);
+        //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
         //program.Task_2_7a();
@@ -38,7 +38,7 @@ public class Program
         //program.Task_2_7c();
         //program.Task_2_8();
         //program.Task_2_9();
-        //program.Task_2_10();
+        program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
@@ -366,13 +366,13 @@ public class Program
 
         // code here
         int i = 0;
+        if (Math.Abs(x) < 1){
         while (Math.Pow(x, i*2) >= 0.0001){
             answer += Math.Pow(x, i*2);
-            Console.WriteLine(Math.Pow(x, i*2) >= 0.0001);
             i++;
         }
+        }
         answer = Math.Round(answer, 2);
-        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -392,7 +392,11 @@ public class Program
         int answer = 0;
 
         // code here
-
+        int n = 10;
+        while (n < 100_000){
+            answer += 3;
+            n *= 2;
+        }
         // end
 
         return answer;
@@ -432,7 +436,11 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        double s = 10_000;
+        while (s < 20_000){
+            s *= 1.08;
+            answer += 1;
+        }
         // end
 
         return answer;
@@ -452,7 +460,18 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        answer = 2;
+        int n1 = 1, n2 = 1;
+        int n = n1 + n2;
+        double d1 = 1, d2 = 0;
+        while (Math.Abs(d1-d2) >= 0.001){
+            answer++;
+            n1 = n2;
+            n2 = n;
+            n = n1 + n2;
+            d1 = Convert.ToDouble(n2)/n1;
+            d2 = Convert.ToDouble(n)/n2;
+        }
         // end
 
         return answer;
