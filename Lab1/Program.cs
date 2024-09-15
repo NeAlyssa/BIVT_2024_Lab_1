@@ -224,8 +224,15 @@ public class Program
         double answer = 0;
 
         // code here
-
-
+        if(x <= -1){
+            answer = 1;
+        }
+        else if(x > -1 && x <= 1){
+            answer = -x;
+        }
+        else{
+            answer = -1;
+        }
         // end
 
         return answer;
@@ -522,13 +529,11 @@ public class Program
                 f *= j;
             }
             S += (2*i + 1)*Math.Pow(x, 2*i)/f;
-            Console.WriteLine(S);
             y = (1+2*x*x)*Math.Exp(x*x);
-            x += 0.1;
             i++;
         }
         S = Math.Round(S, 2);
-        Console.WriteLine(S);
+        y = Math.Round(y, 2);
         // end
 
         return (S, y);
