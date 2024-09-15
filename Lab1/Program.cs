@@ -28,7 +28,7 @@ public class Program
         //program.Task_1_18(24);
         //program.Task_2_1(1);
         //program.Task_2_2();
-        program.Task_2_3(1, 1, 10);
+        //program.Task_2_3(1, 1, 10);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
