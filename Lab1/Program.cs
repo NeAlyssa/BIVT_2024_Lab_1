@@ -326,7 +326,7 @@ public class Program
 
         return answer;
     }
-    public (int, int) Task_2_5(int N, int M) // проходит тесты, но решение неверное
+    public (int, int) Task_2_5(int N, int M)
     {
         int quotient = 0, remainder = 0;
 
