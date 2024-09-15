@@ -28,7 +28,7 @@ public class Program
         //program.Task_1_18(24);
         //program.Task_2_1(1);
         //program.Task_2_2();
-        //program.Task_2_3(0.2, -1.9, 12);
+        program.Task_2_3(1, 1, 10);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
@@ -371,7 +371,6 @@ public class Program
     }
     public int Task_2_3(double a, double h, double p)
     {
-        return 0;
         int answer = 0;
         int i = -1;
         double s = 0;
@@ -380,6 +379,10 @@ public class Program
         {
             i++;
             s += a + i * h;
+            if(s<0 && h <= 0)
+            {
+                return 0;
+            }
         }
         answer = i;
         // end
