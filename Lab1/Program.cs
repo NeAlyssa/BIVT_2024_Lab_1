@@ -72,7 +72,7 @@ public class Program
             answer += 1 / i;
         }
 
-        answer = Math.Round(answer, 3);
+        answer = Math.Round(answer, 2);
 
         // end
 
@@ -83,11 +83,11 @@ public class Program
         double answer = 0;
 
         // code here
-        for(double i = 2; i <= 112; ++i) {
+        for(double i = 2; i <= 112; i += 2) {
             answer += i / (i + 1);
         }
 
-        answer = Math.Round(answer, 3);
+        answer = Math.Round(answer, 2);
 
         // end
 
@@ -106,7 +106,7 @@ public class Program
             answer += Math.Cos(i * x) / x_pow;
             x_pow *= x;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -129,6 +129,7 @@ public class Program
 
         // code here
         answer = 0.5 * x * x - 7 * x;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -171,7 +172,7 @@ public class Program
             answer += sign * pows / fact; 
             sign *= -1;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -214,7 +215,7 @@ public class Program
             answer += 1 / pows;
             pows *= x;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -274,7 +275,7 @@ public class Program
         // code here
         double seeds = 1;
         double pow = 1;
-        for(int i = 0; i < 64; ++i) {
+        for(int i = 1; i < 64; ++i) {
             pow *= 2;
             seeds += pow;
         }
@@ -283,7 +284,7 @@ public class Program
             ++power;
             seeds /= 10;
         }
-        answer = Math.Round(seeds, 4);
+        answer = Math.Round(seeds, 2);
         // end
 
         return (answer, power);
@@ -293,8 +294,9 @@ public class Program
         double answer = 0;
 
         // code here
-        answer = Math.Sqrt(Math.Pow(6350 + x, 2) + 6350 * 6350);
-        answer = Math.Round(answer, 4);
+        double R = 6350;
+        answer = Math.Sqrt((R + x) * (R + x) - R * R);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -305,7 +307,7 @@ public class Program
 
         // code here
         int multiple = x / 3;
-        for(int i = 1; i < multiple; ++i) {
+        for(int i = 0; i < multiple; ++i) {
             answer *= 2;
         }
         // end
@@ -323,11 +325,11 @@ public class Program
         double eps = 0.0001;
         double j = 1, res = 0;
         do {
-            res = Math.Cos(x * j) / j / j;
             answer += res;
+            res = Math.Cos(j * x) / (j * j);
             ++j;
         } while(Math.Abs(res) >= eps);
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -408,7 +410,7 @@ public class Program
             answer += prev * 1.1;
             prev *= 1.1; 
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -511,8 +513,8 @@ public class Program
             ++i;
             fact *= i;
         }
-        y = Math.Round(Math.Pow(Math.E, Math.Cos(x)) * Math.Cos(Math.Sin(x)), 3);
-        S = Math.Round(S, 3);
+        y = Math.Round(Math.Pow(Math.E, Math.Cos(x)) * Math.Cos(Math.Sin(x)), 2);
+        S = Math.Round(S, 2);
         // end
 
         return (S, y);
