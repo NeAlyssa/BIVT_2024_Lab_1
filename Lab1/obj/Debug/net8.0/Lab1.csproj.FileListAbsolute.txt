@@ -22,7 +22,6 @@ C:/Users/Markosias/Documents/BIVT-24/Lab1/obj/Debug/net8.0/ref/Lab1.dll
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.AssemblyInfoInputs.cache
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.AssemblyInfo.cs
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.csproj.CoreCompileInputs.cache
-/Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.sourcelink.json
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.dll
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/refint/Lab1.dll
 /Users/macbook/RiderProjects/BIVT_2024_Lab_1/Lab1/obj/Debug/net8.0/Lab1.pdb
