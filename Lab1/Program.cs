@@ -219,15 +219,15 @@ public class Program
         double answer = 0;
         int power = 0;
         answer = 1.0 / 15;
-        // 1 + 2 + 4 + ... + 2^64 = 2^65 - 1 (-1 we ignore, because it is too small)
-        for (int i = 0; i < 65; i++)
+        // 1 + 2 + 4 + ... + 2^63 = 2^64 - 1 (-1 we ignore, because it is too small)
+        for (int i = 0; i < 64; i++)
         {
             answer *= 2;
             int teens = (int) Math.Log10(answer);
             answer = answer / Math.Pow(10, teens);
             power += teens;
         }
-        answer = Math.Round(answer, 4);
+        answer = Math.Round(answer, 3);
         return (answer, power);
     }
     public double Task_1_17(double x)
@@ -392,16 +392,16 @@ public class Program
     #endregion
 
     #region Level 3
-    //public (double, double) Task_3_1(double x)
-    //{
-    //    double S = 0, y = 0;
+    public (double, double) Task_3_1(double x)
+    {
+        double S = 0, y = 0;
 
-    //    // code here
+        // code here
 
-    //    // end
+        // end
 
-    //    return (S, y);
-    //}
+        return (S, y);
+    }
     public (double, double) Task_3_2(double x)
     {
         // does not pass test, but only because of accuracy. Teacher said it`s ok
