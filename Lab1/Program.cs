@@ -22,7 +22,7 @@ public class Program
         //program.Task_1_11();
         //program.Task_1_12(0.9);
         //program.Task_1_13(-1.5);
-        //program.Task_1_14();
+        program.Task_1_14();
         //program.Task_1_15();
         //program.Task_1_16();
         //program.Task_1_17(10);
@@ -53,34 +53,36 @@ public class Program
     public int Task_1_1()
     {
         int answer = 0;
-
-        for(int i = 2; i <= 35; i += 3)
+        // code here
+        for (int i = 2; i <= 35; i += 3)
         {
             answer += i;
         }
-
+        // end
         return answer;
     }
     public double Task_1_2()
     {
         double answer = 0;
-
-        for(double i = 1.0; i <= 10.0; i++)
+        // code here
+        for (double i = 1.0; i <= 10.0; i++)
         {
             answer += (1 / i);
         }
         answer = Math.Round(answer,2);
+        // end
         return answer;
     }
     public double Task_1_3()
     {
         double answer = 0;
-
-        for (double i = 2.0; i <= 112; i += 2)
+        // code here
+        for (double i = 2; i <= 112; i += 2)
         {
-            answer += (i / (i+1));
+            answer += i / (i + 1);
         }
         answer = Math.Round(answer);
+        // end
         return answer;
     }
     public double Task_1_4(double x)
@@ -88,7 +90,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 1; i < 10; i++)
+        {
+            answer += Math.Cos(i * x) / Math.Pow(x, i - 1);
+        }
+        //answer = Math.Round(answer,2);
         // end
 
         return answer;
@@ -98,7 +104,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 0; i < 10; i++)
+        {
+            double term = p + i * h;
+             answer += term * term;
+        }
         // end
 
         return answer;
@@ -108,7 +118,7 @@ public class Program
         double answer = 0;
 
         // code here
-
+        answer = Math.Round(0.5 * x * x - 7 * x, 2);
         // end
 
         return answer;
@@ -118,7 +128,11 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 1;
+        for(int i = 1; i <= 6; i ++)
+        {
+            answer *= i;
+        }
         // end
 
         return answer;
@@ -128,7 +142,15 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        for (int i = 1; i <= 6; i++)
+        {
+            int factorial = 1;
+            for (int j = 1; j <= i; j++)
+            {
+                factorial *= j;
+            }
+            answer += factorial;
+        }
         // end
 
         return answer;
@@ -138,7 +160,28 @@ public class Program
         double answer = 0;
 
         // code here;
+        for (int i = 1; i <= 6; i++)
+        {
+            double term = (i % 2 == 0) ? 1 : -1; // (-1)^i
+            int fivePower = 1;
 
+            for (int k = 1; k <= i; k++)
+            {
+                fivePower *= 5;
+            }
+
+            int factorial = 1;
+
+            for (int j = 1; j <= i; j++)
+            {
+                factorial *= j;
+            }
+
+            term *= fivePower;
+            term /= factorial;
+            answer += term;
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -148,7 +191,11 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 1;
+        for (int i = 1; i <= 7; i ++)
+        {
+            answer *= 3; 
+        }
         // end
 
         return answer;
@@ -156,16 +203,29 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
-
         // code here
+        for (int i = 1; i <= 6; i++)
+        {
+            Console.Write(i + " ");
+        }
 
+        Console.WriteLine();
+
+        for (int i = 1; i <= 6; i++)
+        {
+            Console.Write("5 ");
+        }
     }
     public double Task_1_12(double x)
     {
         double answer = 0;
 
         // code here
-
+        for (double i = 0; i < 11; i++)
+        {
+            answer += 1 / Math.Pow(x, i);
+        }
+        //answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -175,7 +235,21 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double h = -1.5; h <= 1.5; h += 0.1)
+        {
+            if (x > 1)
+            {
+                answer = -1;
+            }
+            else if (x <= -1)
+            {
+                answer = 1;
+            }
+            else
+            {
+                answer = -x;
+            }
+        }
         // end
 
         return answer;
@@ -183,16 +257,31 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
+        int a = 1, b = 1;
+        Console.Write(a + " " + b + " ");
+        for (int i = 2; i < 8; i ++)
+        {
+            int temp = a + b;
+            a = b;
+            b = temp;
+            Console.Write(temp + " ");
+        }
+            // code here
 
-        // code here
-
-    }
+        }
     public double Task_1_15()
     {
         double answer = 0;
 
         // code here
-
+        double numerator = 1, denominator = 1;
+        for (int i = 1; i < 5; i++)
+        {
+            answer = numerator + denominator;
+            numerator = answer;
+            denominator = answer - denominator;
+        }
+        answer = numerator / denominator;
         // end
 
         return answer;
@@ -203,7 +292,7 @@ public class Program
         int power = 0;
 
         // code here
-
+        
         // end
 
         return (answer, power);
@@ -213,6 +302,9 @@ public class Program
         double answer = 0;
 
         // code here
+        const double R = 6350;
+
+        answer = Math.Round(Math.Sqrt(2 * R * x + Math.Pow(x, 2)),2);
 
         // end
 
