@@ -8,11 +8,11 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        Console.WriteLine("Hello World");
-        //program.Task_1_1();
-        //program.Task_1_2();
-        //program.Task_1_3();
-        //program.Task_1_4(0.9);
+
+        program.Task_1_1();
+        program.Task_1_2();
+        program.Task_1_3();
+        program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
         //program.Task_1_6(4);
         //program.Task_1_7();
@@ -55,7 +55,10 @@ public class Program
         int answer = 0;
 
         // code here
-
+        int i, s = 0;
+        for (i = 2; i <= 35; i = i + 3)
+            s = s + i;
+        answer = s;
         // end
 
         return answer;
@@ -65,7 +68,10 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double s = 0;
+        for (double i=1; i<=10; i=i+1)
+            s = s + 1.0/i;
+        answer = (Math.Round(s,2));
         // end
 
         return answer;
@@ -75,7 +81,10 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double s = 0;
+        for (double i = 2; i <= 112; i = i + 2)
+            s = s + i / (i + 1.0);
+        answer = (Math.Round(s,0));
         // end
 
         return answer;
@@ -85,7 +94,15 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double s = Math.Cos(x);
+        double x1 = 1;
+        for (int i = 2; i <= 9; i++)
+        {
+            x1 = x1 * x;
+            s = s + Math.Cos(x * i) / x1;
+        }
+        if (s >= 0)  answer =(Math.Round(s,2));
+        if (s < 0) answer = (-1 * Math.Round(Math.Abs(s), 2));
         // end
 
         return answer;
