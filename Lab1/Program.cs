@@ -511,7 +511,6 @@ public class Program
 
         do
         {
-            S += next;
 
             int fact = 1;
             for (int j = 1; j <= 2 * i; j++)
@@ -521,13 +520,14 @@ public class Program
             next = Math.Pow(x, 2 * i) / fact;
             
             i++;
-        } while (Math.Abs(next) >= 1e-4);
+            
+            S += next;
+
+        } while (next >= 1e-4);
 
         y = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2;
         
-        S = (double)(Math.Round((decimal)S * 100, MidpointRounding.AwayFromZero) / 100);  // for correct rounding (otherwise in the first test 1.005 is rounded to 1.00, not to 1.01)
-        
-        return (S, Math.Round(y, 2));
+        return (Math.Round(S, 2), Math.Round(y, 2));
     }
     public (double, double) Task_3_8(double x)
     {
