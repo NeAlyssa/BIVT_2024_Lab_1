@@ -8,7 +8,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        Console.WriteLine("Hello world!!");
+        Console.WriteLine("Hello world");
 
         //program.Task_1_1();
         //program.Task_1_2();
@@ -55,8 +55,10 @@ public class Program
     {
         int answer = 0;
 
-        // code here
-
+        for (int i = 2; i<=35; i+=3)
+        {
+            answer += i;
+        }
         // end
 
         return answer;
@@ -65,8 +67,12 @@ public class Program
     {
         double answer = 0;
 
-        // code here
-
+        for (double i = 1; i<= 10; i++)
+        {
+            answer += 1/i;
+            
+        }
+        answer = Math.Round(answer, 3);
         // end
 
         return answer;
@@ -75,7 +81,13 @@ public class Program
     {
         double answer = 0;
 
-        // code here
+        for (double i = 2; i<=112; i+=2)
+        {
+            double i1 = (i + 1);
+            answer += (i / i1);
+            
+        }
+        answer = Math.Round(answer, 3);
 
         // end
 
