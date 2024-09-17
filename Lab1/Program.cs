@@ -8,9 +8,8 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        Console.WriteLine("Hello world!");
         //program.Task_1_1();
-        //program.Task_1_2();
+        program.Task_1_2();
         //program.Task_1_3();
         //program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
@@ -55,7 +54,9 @@ public class Program
         int answer = 0;
 
         // code here
-
+        for (int i = 2; i <= 35; i += 3)
+            answer += i;
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -65,7 +66,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double ans = 0;
+        for (double i = 1; i <= 10; i++)
+            ans += (1 / i);
+        answer = Math.Round(ans, 2);
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -75,7 +80,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double ans = 0;
+        for (double i = 2; i <= 112; i += 2)
+            ans += (i / (i + 1));
+        Console.WriteLine(ans);
+        answer = Math.Round(ans, 1);
         // end
 
         return answer;
@@ -95,9 +104,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double ans = 0;
+        for (int i = 0; i <= 9; i++)
+            ans += (p + i * h) * (p + i * h);
         // end
-
+        answer = ans;
         return answer;
     }
     public double Task_1_6(double x)
@@ -180,7 +191,6 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
-
         // code here
 
     }
