@@ -299,16 +299,16 @@ public class Program
     #region Level 2
     public double Task_2_1(double x)
     {
-        double answer = 0,buf;
+        double answer = 0,buf = 1;
         int cnt = 1;
 
-        do
+        while (Math.Abs(buf) >= 0.0001)
         {
             buf = Math.Cos(x * cnt) / Math.Pow(cnt, 2);
+            if (Math.Abs(buf) < 0.0001) break;
             answer += buf;
             cnt++;
         }
-        while (Math.Abs(buf) >= 0.0001);
         answer = Math.Round(answer, 2);
 
         return answer;
