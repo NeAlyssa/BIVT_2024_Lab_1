@@ -29,7 +29,7 @@ public class Program
         //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
-        //program.Task_2_1(0);
+        program.Task_2_1(1.6);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
@@ -359,16 +359,17 @@ public class Program
         double answer = 0;
 
         // code here
-        double eps = 0.00010;
+        double eps = 0.0001;
         double i = 1;
         double add = 1;
         do
         {
-            add = Math.Cos(i * x) / Math.Pow(i, 2);
+            add = Math.Cos(i * x) / (i * i);
             i += 1;
             answer += add;
-        } while (Math.Abs(add) > eps);
-        answer = Math.Round(answer, 2);
+        } while (Math.Abs(add) >= eps);
+        answer -= add;
+        Console.WriteLine(answer);
         // end
 
         return answer;
