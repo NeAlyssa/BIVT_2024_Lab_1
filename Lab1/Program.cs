@@ -347,12 +347,12 @@ public class Program
         while (true)
         {
             ans = Math.Cos(i * x) / (i * i);
-            answer += ans;
-            i++;
-            if (Math.Abs(ans) <= 0.0001)
+            if (Math.Abs(ans) < 0.0001)
             {
                 break;
             }
+            answer += ans;
+            i++;
         }
         answer = Math.Round(answer, 2);
         // end
