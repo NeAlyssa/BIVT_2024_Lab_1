@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
@@ -732,7 +732,7 @@ public class Program
         //for (int k = 1; k<=n; k++)
         //{
             //Console.WriteLine(x);
-        while (member > 0.0001)
+        while (Math.Abs(member) > 0.0001)
         {
             member = (2 * i + 1) * Math.Pow(x, 2 * i) / factorial_i;
             S += member;
