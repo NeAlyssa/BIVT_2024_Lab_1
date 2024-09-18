@@ -295,11 +295,11 @@ public class Program
         double answer = 0;
 
         // code here
-        double eps = 0.0001, i = 0, nextSum = eps;
+        double eps = 0.0001, i = 1, nextSum = Math.Cos(x);
         while (Math.Abs(nextSum) >= eps) {
+            answer += nextSum;
             i += 1;
             nextSum = Math.Cos(i * x) / Math.Pow(i, 2);
-            answer += nextSum;
         }
 
         answer = Math.Round(answer, 2);
