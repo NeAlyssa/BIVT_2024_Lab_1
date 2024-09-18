@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 
 public class Program
 {
@@ -53,30 +54,33 @@ public class Program
     public int Task_1_1()
     {
         int answer = 0;
-
-        // code here
-
-        // end
-
+        for (int s = 2; s <= 35; s += 3)
+        {
+            answer += s;
+        }
         return answer;
     }
     public double Task_1_2()
     {
-        double answer = 0;
+        double answer = 1;
 
-        // code here
-
-        // end
+        for (double s = 2; s <= 10; s++)
+        {
+            answer += 1/s;
+        }
+        answer = Math.Round(answer,2);
 
         return answer;
     }
     public double Task_1_3()
     {
         double answer = 0;
-
-        // code here
-
-        // end
+        
+        for(double ch = 2,zn = 3; ch <= 112;ch += 2,zn += 2)
+        {
+            answer += ch / zn;
+        }
+        answer = Math.Round(answer);
 
         return answer;
     }
@@ -84,19 +88,22 @@ public class Program
     {
         double answer = 0;
 
-        // code here
-
-        // end
+        for(double cnt = 1; cnt <= 9 && x != 0; cnt++)
+        {
+            answer += Math.Cos(x * cnt) / Math.Pow(x,cnt - 1);
+        }
+        answer = Math.Round(answer, 2);
 
         return answer;
     }
     public double Task_1_5(double p, double h)
     {
-        double answer = 0;
+        double answer = Math.Pow(p,2);
 
-        // code here
-
-        // end
+        for(int cnt = 1;cnt < 10; cnt++)
+        {
+            answer += Math.Pow(p + h * cnt, 2);
+        }     
 
         return answer;
     }
@@ -104,19 +111,20 @@ public class Program
     {
         double answer = 0;
 
-        // code here
+        answer += x*(0.5 * x  - 7);
+        answer = Math.Round(answer, 2);
 
-        // end
 
         return answer;
     }
     public int Task_1_7()
     {
-        int answer = 0;
+        int answer = 1;
 
-        // code here
-
-        // end
+        for(int fact = 2; fact <= 6; fact++)
+        {
+            answer *= fact;
+        }
 
         return answer;
     }
@@ -124,9 +132,16 @@ public class Program
     {
         int answer = 0;
 
-        // code here;
+        for(int chislo = 1;chislo <= 6; chislo++)
+        {
+            int buf = 1;
+            for (int fact = 2; fact <= chislo; fact++)
+            {
+                buf *= fact;
+            }
+            answer += buf;
 
-        // end
+        }
 
         return answer;
     }
@@ -134,36 +149,61 @@ public class Program
     {
         double answer = 0;
 
-        // code here;
+        for (int cnt = 1; cnt <= 6; cnt++)
+        {
+            int buf = 1;
+            for (int fact = 2; fact <= cnt; fact++)
+            {
+                buf *= fact;
+            }
+            answer += Math.Pow(-5,cnt)/buf;
 
-        // end
-
+        }
+        answer = Math.Round(answer, 2);
         return answer;
     }
     public int Task_1_10()
     {
-        int answer = 0;
+        int answer = 1;
 
-        // code here
-
-        // end
+        for(int cnt = 0;cnt < 7;cnt++)
+        {
+            answer *= 3;
+        }
 
         return answer;
     }
     public void Task_1_11()
     {
-        // There is no test for this task
-
-        // code here
+        for (int chisolo = 1; chisolo <= 6; chisolo++)
+        {
+            if (chisolo != 6)
+            {
+                Console.Write("{0:d} ", chisolo);
+            }
+            else
+            {
+                Console.Write("{0:d}\n", chisolo);
+            }
+        }
+        for (int cnt = 0; cnt < 6; cnt++)
+        {
+            if (cnt != 6)
+            {
+                Console.Write("{0:d} ", 5);
+            }
+        }
 
     }
     public double Task_1_12(double x)
     {
         double answer = 0;
 
-        // code here
-
-        // end
+        for(int cnt = 0;cnt <= 10 && x != 0;cnt++)
+        {
+            answer += 1 / Math.Pow(x, cnt);
+        }
+        answer = Math.Round(answer, 2);
 
         return answer;
     }
@@ -171,26 +211,48 @@ public class Program
     {
         double answer = 0;
 
-        // code here
-
-        // end
+        if (x <= -1)
+        {
+            answer = 1;
+        }
+        else if (-1 < x && x <= 1)
+        {
+            answer = -x;
+        }
+        else
+        {
+            answer = -1;
+        }
 
         return answer;
     }
     public void Task_1_14()
     {
-        // There is no test for this task
-
-        // code here
-
+        int a1 = 1, a2 = 1, a3 = 1;
+        Console.Write("{0:d} {0:d} ", a1, a2);
+        for (int cnt = 0; cnt < 6; cnt++)
+        {
+            a3 = a2;
+            a2 = a1 + a2;
+            a1 = a3;
+            Console.Write("{0:d} ", a2);
+        }
     }
     public double Task_1_15()
     {
         double answer = 0;
+        int chisl = 1, chisl2 = 2, znam = 1, znam2 = 1, bufch, bufzn;
+        for (int cnt = 0;cnt < 3; cnt++)
+        {
+            bufch = chisl2;
+            chisl2 = chisl2 + chisl;
+            chisl = bufch;
 
-        // code here
-
-        // end
+            bufzn = znam2;
+            znam2 = znam2 + znam;
+            znam = bufzn;
+        }
+        answer = Math.Round((double) chisl2 / znam2, 1);
 
         return answer;
     }
@@ -199,29 +261,36 @@ public class Program
         double answer = 0;
         int power = 0;
 
-        // code here
-
-        // end
+        for(int cnt = 0;cnt < 64; cnt++)
+        {
+            answer += Math.Pow(2, cnt);
+        }
+        answer = answer / 15;
+        while (answer / Math.Pow(10,power) >= 1)
+        {
+            power++;
+        }
+        power--;
+        answer = Math.Round(answer / Math.Pow(10, power), 2);
 
         return (answer, power);
     }
     public double Task_1_17(double x)
     {
         double answer = 0;
-
-        // code here
-
-        // end
+        int R = 6350;
+        answer = Math.Round(Math.Sqrt(x * (2 * R + x)),2);
 
         return answer;
     }
     public int Task_1_18(int x)
     {
-        int answer = 0;
-
-        // code here
-
-        // end
+        int answer = 10;
+        int cnt = x / 3;
+        for (int cnt2 = 0;cnt2 < cnt; cnt2++)
+        {
+            answer *= 2;
+        }
 
         return answer;
     }
@@ -230,11 +299,17 @@ public class Program
     #region Level 2
     public double Task_2_1(double x)
     {
-        double answer = 0;
+        double answer = 0,buf = 1;
+        int cnt = 1;
 
-        // code here
-
-        // end
+        while (Math.Abs(buf) >= 0.0001)
+        {
+            buf = Math.Cos(x * cnt) / Math.Pow(cnt, 2);
+            if (Math.Abs(buf) < 0.0001) break;
+            answer += buf;
+            cnt++;
+        }
+        answer = Math.Round(answer, 2);
 
         return answer;
     }
@@ -251,10 +326,20 @@ public class Program
     public int Task_2_3(double a, double h, double p)
     {
         int answer = 0;
+        double s = a, buf;
 
-        // code here
 
-        // end
+        while (s <= p)
+        {
+            answer++;
+            buf = a + h * answer;
+            if (buf < 0)
+            {
+                answer = 0;
+                break;
+            }
+            s += buf;
+        }
 
         return answer;
     }
@@ -272,9 +357,17 @@ public class Program
     {
         int quotient = 0, remainder = 0;
 
-        // code here
-
-        // end
+        N = Math.Abs(N);
+        M = Math.Abs(M);
+        while (N >= M && M != 0 && N != 0)
+        {
+            N -= M;
+            quotient++;
+        }
+       if( M != 0 && N != 0)
+        {
+            remainder = N;
+        }
 
         return (quotient, remainder);
     }
@@ -290,31 +383,41 @@ public class Program
     }
     public double Task_2_7a()
     {
-        double answer = 0;
+        double answer = 0, V = 10;
 
-        // code here
+        for(int day = 1;day <= 7; day++) {
 
-        // end
+        answer += V;
+        V = V * 1.1;
+        }
+        answer = Math.Round(answer, 2);
 
         return answer;
     }
     public int Task_2_7b()
     {
-        int answer = 0;
+        int answer = 1;
+        double s = 10, V = 10;
 
-        // code here
-
-        // end
+        while (s < 100)
+        {
+            s += V;
+            V = V * 1.1;
+            answer++;
+        }
 
         return answer;
     }
     public int Task_2_7c()
     {
         int answer = 0;
+        double V = 10;
 
-        // code here
-
-        // end
+        while (V < 20)
+        {
+            V = V * 1.1;
+            answer++;
+        }
 
         return answer;
     }
@@ -331,10 +434,13 @@ public class Program
     public int Task_2_9()
     {
         int answer = 0;
+        double l = 0.1, Da = Math.Pow(10,-10);
 
-        // code here;
-
-        // end
+        while (l > Da)
+        {
+            l /= 2;
+            answer++;
+        }
 
         return answer;
     }
@@ -413,12 +519,25 @@ public class Program
     }
     public (double, double) Task_3_7(double x)
     {
-        double S = 0, y = 0;
+        double S = 0, y = 0, ai = 0, i =0,fac = 1;
 
-        // code here
+        do
+        {
+            for (int j = 1; j <= 2 * i; j++)
+            {
+                fac *= j;
+            }
+            ai = Math.Pow(x, 2 * i) / fac;
+            i++;
+            S += ai;
+            fac = 1;
 
-        // end
+        }
 
+        while (ai > 0.0001);
+        y = (Math.Exp(x) + Math.Exp(-x)) / 2;
+        S = Math.Round(S,2);
+        y = Math.Round(y, 2);
         return (S, y);
     }
     public (double, double) Task_3_8(double x)
