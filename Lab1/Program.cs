@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
@@ -435,12 +435,14 @@ public class Program
                 //Console.WriteLine($"{i}   {Math.Pow(2, i)} {sum_corn}");
             }
             double weight_corn = sum_corn / 15.0;
+            answer = Math.Round(weight_corn, 2);
         while (answer > 10)
         {
             power += 1;
             answer /= 10;
         }
         answer = Math.Round(answer, 2);
+        Console.WriteLine($"{answer}  {power}");
             //Console.WriteLine(Math.Round(answer/Math.Pow(10, 18), 2));
 
         // end
