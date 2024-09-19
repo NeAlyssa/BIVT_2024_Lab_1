@@ -24,10 +24,10 @@ public class Program
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
-        program.Task_1_16();
+        //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
-        //program.Task_2_1(0);
+        program.Task_2_1(1.6);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
         //program.Task_2_4(1); program.Task_2_4(0.8);
@@ -46,7 +46,7 @@ public class Program
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
-        program.Task_3_8(1);
+        //program.Task_3_8(1);
         //program.Task_3_9(0.1);
     }
     #region Level 1
@@ -250,7 +250,8 @@ public class Program
         {
             int h = sec_chisl; sec_chisl += fir_chisl; fir_chisl = h;
             h = sec_znam; sec_znam += fir_znam; fir_znam = h;
-            answer = (double)fir_chisl/fir_znam;
+            answer = (double)sec_chisl/sec_znam;
+            //Console.WriteLine("{0:f}/{1:f}", sec_chisl, sec_znam);
         }
         answer = Math.Round(answer, 2);
         // end
@@ -321,15 +322,15 @@ public class Program
 
         // code here
         double now = Math.Cos(x), eps = 0.0001;
-        int i = 2; answer = now;
-        while (Math.Abs(now) >= eps)
-        { 
-            now = (Math.Cos(i * x)) / (i * i);
-            Console.WriteLine(now);
+        double i = 2; answer = now;
+        while (Math.Abs(now) > eps)
+        {
+            double sq = i * i;
+            now = (Math.Cos(i * x)) / sq;
             answer += now;
-            i++;
+            i+=1;
         }
-        answer = Math.Round(answer, 2);
+        //answer = Math.Round(answer, 2);
         // end
 
         return answer;
