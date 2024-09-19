@@ -328,19 +328,21 @@ public class Program
     public double Task_2_4(double x)
     {
         double answer = 1;
+        double Change = 1;
 
         // code here
         if (x >= 1 || x <= -1) {
             answer = 0;
         }
         else { 
-            while(x >= 0.0001)
+            while(Change >= 0.0001)
         {
-            x = x * x;
-            answer += x;
+            Change *= x * x;
+            answer += Change;
         }
         }
-        
+        answer = Math.Round(answer, 2);
+    
         // end
 
         return answer;
