@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 public class Program
@@ -171,7 +172,14 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
-
+        for (int i = 1; i < 7; i++)
+        {
+            Console.WriteLine(i);
+        }
+        for (int i = 1; i < 7; i++)
+        {
+            Console.WriteLine(5);
+        }
         // code here
 
     }
@@ -180,7 +188,14 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if (x != 0) { double x_pow = 1;
+        for(int i=0; i<=10;i++)
+        {
+            answer += 1 / x_pow;
+            x_pow *= x;
+        }
+        answer = Math.Round(answer, 2);}
+        
         // end
 
         return answer;
@@ -190,7 +205,9 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if(x <= -1) { answer = 1; }
+        else if (x <= 1) { answer = -x; }
+        else { answer = -1; }
         // end
 
         return answer;
@@ -198,7 +215,16 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
-
+        int one = 1, two = 1, three = 0;
+        Console.WriteLine(1);
+        Console.WriteLine(1);
+        for (int i=0; i<=5; i++)
+        {
+            three = two;
+            two = one + two;
+            one = three;
+            Console.WriteLine(two);
+        }
         // code here
 
     }
@@ -207,7 +233,15 @@ public class Program
         double answer = 0;
 
         // code here
+        double one = 1, two = 1, three = 0;
+        for (int i = 0; i <= 4; i++)
+        {
+            answer = two / one;
+            three = two;
+            two = one + two;
+            one = three;
 
+        }
         // end
 
         return answer;
@@ -218,7 +252,12 @@ public class Program
         int power = 0;
 
         // code here
-
+        for (int i = 0; i < 8*8; i++)
+        {
+            power *= 2;
+            answer += power;
+        }
+        answer = Math.Round(answer / 15, 2);
         // end
 
         return (answer, power);
@@ -228,17 +267,21 @@ public class Program
         double answer = 0;
 
         // code here
-
+        int R = 6350;
+        answer = Math.Round(Math.Sqrt((R+x)*(R+x) - R * R), 2);
         // end
 
         return answer;
     }
     public int Task_1_18(int x)
     {
-        int answer = 0;
+        int answer = 10;
 
         // code here
-
+        for(int i = x;i>0;i -= 3)
+        {
+            answer *= 2;
+        }
         // end
 
         return answer;
@@ -258,10 +301,16 @@ public class Program
     }
     public int Task_2_2()
     {
-        int answer = 0;
+        int answer = 1;
 
         // code here
-
+        int L = 30000;
+        int p = 1;
+        while(p * (answer + 3) < L)
+        {
+            answer += 3;
+            p *= answer;
+        }
         // end
 
         return answer;
@@ -278,10 +327,20 @@ public class Program
     }
     public double Task_2_4(double x)
     {
-        double answer = 0;
+        double answer = 1;
 
         // code here
-
+        if (x >= 1 || x <= -1) {
+            answer = 0;
+        }
+        else { 
+            while(x >= 0.0001)
+        {
+            x = x * x;
+            answer += x;
+        }
+        }
+        
         // end
 
         return answer;
