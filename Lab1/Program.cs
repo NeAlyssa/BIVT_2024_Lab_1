@@ -12,7 +12,7 @@ public class Program
         //program.Task_1_1();
         //program.Task_1_2();
         //program.Task_1_3();
-        //program.Task_1_4(0.9);
+        program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
         //program.Task_1_6(4);
         //program.Task_1_7();
@@ -53,10 +53,10 @@ public class Program
     public int Task_1_1()
     {
         int answer = 0;
-
-        // code here
-
-        // end
+        for (int i = 2; i < 36; i += 3)
+        {
+            answer += i;
+        }
 
         return answer;
     }
@@ -64,31 +64,36 @@ public class Program
     {
         double answer = 0;
 
-        // code here
+        for (double i = 1.0; i < 11.0; i ++)
+        {
+            answer += (1.0 / i);
+        }
 
-        // end
-
-        return answer;
+        return Math.Round(answer, 2);
     }
     public double Task_1_3()
     {
         double answer = 0;
-
-        // code here
-
-        // end
-
-        return answer;
+        double b = 3;
+        for (double a = 2; a < 113; a+= 2)
+        {
+            answer += (a / b);
+            b+= 2;
+        }
+        Console.WriteLine(Math.Round(answer, 2));
+        return Math.Round(answer, 2);
     }
     public double Task_1_4(double x)
     {
-        double answer = 0;
+        double answer = Math.Cos(x);
 
-        // code here
+        for (int i = 2; i < 10; i++)
+        {
+            answer += ((Math.Cos(x * i)) / (Math.Pow(x, i - 1)));
+        }
 
-        // end
-
-        return answer;
+        Console.WriteLine(Math.Round(answer, 2));
+        return Math.Round(answer, 2);
     }
     public double Task_1_5(double p, double h)
     {
