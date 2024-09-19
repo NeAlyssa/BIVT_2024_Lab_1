@@ -82,7 +82,7 @@ public class Program
     public double Task_1_3()
     {
         double answer = 0;
-        for (double k = 2; k<113; k++) {
+        for (double k = 2; k<113; k+=2) {
             answer += k/(k+1);
         }
         WriteLine(Math.Round(answer,2));
@@ -432,13 +432,24 @@ public class Program
     public (double, double) Task_3_6(double x)
     {
         double S = 0, y = 0;
-        for (double i = 1; Math.Pow(-1,i+1)*Math.Pow(x,2*i+1)/(4*i*i-1) >= 0.0001; i+=0.1) {
-            S += Math.Pow(-1,i+1)*Math.Pow(x,2*i+1)/(4*i*i-1);
+        for (double i = 1; ; i+=1) {
+            double num = 1/(4*i*i-1);
+            for (int j = 0; j < 2*i+1; j++) {
+                num *= x;
+            }
+            if (i % 2 == 0) {
+                num = -num;
+            }
+            if (Math.Abs(num) < 0.0001) {
+                break;
+            }
+            else {
+                S += num;
+            }
         }
         WriteLine(Math.Round(S,2));
         y = Math.Round((1+x*x)*Math.Atan(x)/2 - x/2,2);
-        WriteLine(y);
-        
+        WriteLine(y);        
         return (Math.Round(S,2), y);
     }
     public (double, double) Task_3_7(double x)
