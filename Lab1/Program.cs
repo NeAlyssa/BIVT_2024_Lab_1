@@ -57,7 +57,7 @@ public class Program
 
         // code here
         for (int i = 2; i <= 35; i += 3)
-                answer += i;
+            answer += i;
         // end
 
         return answer;
@@ -103,7 +103,7 @@ public class Program
             }
             answer = Math.Round(answer, 2);
         }
-        
+
         // end
 
         return answer;
@@ -115,7 +115,7 @@ public class Program
         // code here
         for (int i = 0; i <= 9; i++)
             answer += (p + h * i) * (p + h * i);
-        answer = Math.Round(answer,2);
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -152,7 +152,7 @@ public class Program
         {
             p *= i;
             answer += p;
-        }    
+        }
         // end
 
         return answer;
@@ -278,9 +278,12 @@ public class Program
         int power = 0;
 
         // code here
-        for (int i = 9; i <= 63; i++)
+        double a = 1;
+        for (int i = 0; i <= 63; i++)
         {
-            answer += Math.Pow(2, i);
+            answer += a;
+            a *= 2;
+
         }
         answer /= 15;
         double ans = answer;
@@ -365,15 +368,16 @@ public class Program
         // code here
         answer = 1;
         int i = 2;
+        double a = 1;
         if (x >= 1)
             answer = 0;
         else
         {
             do
             {
-                answer += Math.Pow(x, i);
-                i += 2;
-            } while (Math.Pow(x, i) >= 0.0001);
+                a = a * x * x;
+                answer += a;
+            } while (a >= 0.0001);
             answer = Math.Round(answer, 2);
         }
         // end
@@ -544,15 +548,16 @@ public class Program
 
         // code here
         int i = 0;
-        double c;
-        c = x;
+        double c, a;
+        c = -x;
         do
         {
             i += 1;
             c = -c * x * x;
-            c = c / (4 * i * i - 1);
-            y = 
-        }
+            a = c / (4 * i * i - 1);
+            S += a;
+        } while (Math.Abs(a) >= 0.0001);
+        y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
         // end
 
         return (S, y);
