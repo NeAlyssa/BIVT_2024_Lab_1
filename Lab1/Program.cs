@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
@@ -8,12 +9,12 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        Console.WriteLine("Hello world");
 
-        //program.Task_1_1();
-        //program.Task_1_2();
-        //program.Task_1_3();
-        //program.Task_1_4(0.9);
+
+        program.Task_1_1();
+        program.Task_1_2();
+        program.Task_1_3();
+        program.Task_1_4(0.9);
         //program.Task_1_5(0, 2);
         //program.Task_1_6(4);
         //program.Task_1_7();
@@ -56,6 +57,10 @@ public class Program
         int answer = 0;
 
         // code here
+        for(int i = 2; i <= 35; i += 3)
+        {
+            answer += i;
+        }
 
         // end
 
@@ -66,6 +71,11 @@ public class Program
         double answer = 0;
 
         // code here
+        for(double i = 1; i <= 10; i += 1)
+        {
+            answer += 1/i;
+        }
+        answer = Math.Round(answer, 3);
 
         // end
 
@@ -76,7 +86,12 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for(double i = 2; i <= 112; i += 2)
+        {
+            answer += i / (i + 1);
+            
+        }
+        answer = Math.Round(answer, 3);
         // end
 
         return answer;
@@ -86,7 +101,16 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if (x == 0)
+        {
+            answer = 0;
+        }
+        else for (int i = 1; i <= 9; i += 1)
+        {
+            answer += Math.Cos(x * i) / Math.Pow(x, (i - 1));
+        }
+  
+        answer = Math.Round(answer, 4);
         // end
 
         return answer;
@@ -96,7 +120,10 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i = 0; i <= 9; i+=1)
+        {
+            answer += Math.Pow(p + i*h, 2);
+        }
         // end
 
         return answer;
@@ -106,7 +133,7 @@ public class Program
         double answer = 0;
 
         // code here
-
+        answer = 0.5 * Math.Pow(x, 2) - (7 * x);
         // end
 
         return answer;
@@ -116,7 +143,11 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 1;
+        for (int i = 1; i <=6; i++)
+        {
+            answer *= i;
+        }
         // end
 
         return answer;
@@ -126,7 +157,15 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        for (int i = 1; i <= 6; i++)
+        {
+            int f = 1;
+            for(int j = 1; j <= i; j++)
+            {
+                f *= j;
+            }
+            answer += f;
+        }
         // end
 
         return answer;
@@ -136,7 +175,16 @@ public class Program
         double answer = 0;
 
         // code here;
-
+        for (int i = 1; i <= 6; i++)
+        {
+            int f = 1;
+            for (int j = 1; j <= i; j++)
+            {
+                f *= j;
+            }
+            answer += Math.Pow(-1, i)*Math.Pow(5,i)/f;
+        }
+        answer = Math.Round(answer, 4);
         // end
 
         return answer;
@@ -146,7 +194,11 @@ public class Program
         int answer = 0;
 
         // code here
-
+        answer = 1;
+        for (int i = 1; i <= 7; i++)
+        {
+            answer *= 3; 
+        }
         // end
 
         return answer;
@@ -154,7 +206,26 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
+        List<int> numbers = new List<int>();
+        for (int i = 1; i <= 6; i++)
+        {
+            numbers.Add(i);
+        }
+        string answer = string.Join(" ", numbers);
+        Console.WriteLine(answer);
 
+        answer = "";
+
+        for (int i = 0; i < 5; i++)
+        {
+            answer += "5";
+            if (i < 4)      
+            {
+                answer += " ";
+            }
+        }
+
+        Console.WriteLine(answer);
         // code here
 
     }
@@ -163,7 +234,15 @@ public class Program
         double answer = 0;
 
         // code here
-
+        if (x == 0)
+        {
+            answer = 0;
+        }
+        else for (double i = 0; i <= 10; i += 1)
+        {
+            answer += 1 / Math.Pow(x,i);
+        }
+        answer = Math.Round(answer, 4);
         // end
 
         return answer;
