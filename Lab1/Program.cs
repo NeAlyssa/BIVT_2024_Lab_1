@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 public class Program
 {
@@ -29,7 +30,7 @@ public class Program
         // program.Task_1_16();
         // program.Task_1_17(10);
         // program.Task_1_18(24);
-        //program.Task_2_1(0);
+        // program.Task_2_1(0);
         // program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
         // program.Task_2_4(0.8);
@@ -46,7 +47,7 @@ public class Program
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
-        program.Task_3_6(0.1);
+        program.Task_3_6(0.2);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         // program.Task_3_9(0.1);
@@ -117,11 +118,12 @@ public class Program
     {
         double answer = 0;
 
-        for (double i=-4;i<=4;i+=0.5)
-        {
-            Console.WriteLine(Math.Round(0.5*Math.Pow(i,2)-7*i,2));
-        }
-
+        // for (double i=-4;i<=4;i+=0.5)
+        // {
+        //     answer = Math.Round((0.5*Math.Pow(i,2)-7*i),2);
+        //     Console.WriteLine(answer);
+        // }
+        answer = Math.Round((0.5*Math.Pow(x,2)-7*x),2);
         return answer;
     }
     public int Task_1_7()
@@ -227,22 +229,28 @@ public class Program
     public double Task_1_13(double x)
     {
         double answer = 0;
+        // for (double i=-1.5; i<=1.5;i+=0.1)
+        // {
+        //     if(i<=-1)
+        //     {
+        //         Console.WriteLine(1);
+        //     }
+        //     else if(i>-1 & i<=1)
+        //     {
+        //         Console.WriteLine(Math.Round(-i,1));
+        //     }
+        //     else if(i>1)
+        //     {
+        //         Console.WriteLine(-1);
+        //     }
+        // }
 
-        for (double i=-1.5; i<=1.5;i+=0.1)
-        {
-            if(i<=-1)
-            {
-                Console.WriteLine(1);
-            }
-            else if(i>-1 & i<=1)
-            {
-                Console.WriteLine(Math.Round(-i,1));
-            }
-            else if(i>1)
-            {
-                Console.WriteLine(-1);
-            }
-        }
+        if (x <= -1)
+            answer = 1;
+        else if (x>-1 & x<=1)
+            answer = -x;
+        else
+            answer = -1;
 
         return answer;
     }
@@ -292,7 +300,7 @@ public class Program
 
         double ch1=1,ch2=2;
         double zn1=1,zn2=1;
-        for (int i=0;i<=2;i++)
+        for (int i=0;i<=1;i++)
         {
             double ch3=ch1+ch2;
             double zn3=zn1+zn2;
@@ -323,23 +331,24 @@ public class Program
     public double Task_1_17(double x)
     {
         double answer = 0;
-        for (int height=1;height<=10;height++)
-        {
-        answer = Math.Round(Math.Sqrt(Math.Pow(6350+height,2) - Math.Pow(6350,2)),2);
-        System.Console.WriteLine(answer);
-        }
-
+        // for (int height=1;height<=10;height++)
+        // {
+        // answer = Math.Round(Math.Sqrt(Math.Pow(6350+height,2) - Math.Pow(6350,2)),2);
+        // System.Console.WriteLine(answer);
+        // }
+        answer = Math.Round(Math.Sqrt(Math.Pow(6350+x,2) - Math.Pow(6350,2)),2);
         return answer;
-    }
+        
+    }   
     public int Task_1_18(int x)
     {
         int answer = 0;
         answer+=10;
-        for (int i=3;i<=24;i+=3)
+        for (int i=3;i<=x;i+=3)
         {
             answer*=2;
-            System.Console.WriteLine(answer);
         }
+        System.Console.WriteLine(answer);
         return answer;
     }
     #endregion
@@ -477,36 +486,21 @@ public class Program
     public int Task_2_10()
     {
         int answer = 0;
-
+        
         double ch1=1,ch2=2;
         double zn1=1,zn2=1;
-        while(true)
+        while(Math.Abs(ch1/zn1-ch2/zn2)>=0.001)
         {
             double ch3=ch1+ch2;
             double zn3=zn1+zn2;
-            System.Console.Write(ch1);
-            System.Console.Write(" ");
-            System.Console.Write(zn1);
-            System.Console.WriteLine();
-            System.Console.Write(ch2);
-            System.Console.Write(" ");
-            System.Console.Write(zn2);
-            System.Console.WriteLine();
-            System.Console.WriteLine();
-            // System.Console.WriteLine(ch1/zn1);
-            // System.Console.WriteLine(ch3/zn3);
-            // System.Console.WriteLine(ch2/zn2);
-            if (Math.Abs(ch3/zn3-ch2/zn2)<0.001)
-            {
-                break;
-            }
-            answer+=1;
             ch1=ch2;
             ch2=ch3;
             zn1=zn2;
             zn2=zn3;
+            answer+=1;
         }
-        System.Console.WriteLine(answer);
+        answer+=2;
+        // +2 тк уже было 2 числа в переди то есть 1/1 и 2/1
 
         return answer;
     }
@@ -566,20 +560,20 @@ public class Program
     public (double, double) Task_3_6(double x)
     {
         double S = 0, y = 0;
-        for (x=0.1;x<1;x+=0.1)
+        int i=1;
+        while(true)
         {
-            int i=1;
-            while(true)
-            {
-            if ((Math.Pow(-1,i+1)*Math.Pow(x,2*i+1)/(4*i*i-1))<0.0001)
+            double sugma=Math.Pow(-1,i+1)*Math.Pow(x,2*i+1)/(4*i*i-1);
+            if (Math.Abs(sugma)<0.00001)
             break;
-            S+=Math.Pow(-1,i+1)*Math.Pow(x,2*i+1)/(4*i*i-1);
-            y=(i+x*x)*Math.Atan(x)/2-x/2;
-            // System.Console.WriteLine(Math.Round(S,2));
-            System.Console.WriteLine(Math.Round(y,2));
+            S+=sugma;
             i++;
-            }
         }
+        y=(1+Math.Pow(x,2))*Math.Atan(x)/2-x/2;
+        // y=Math.Round(y,2);
+        // S=Math.Round(S,2);
+        System.Console.WriteLine(S);
+        System.Console.WriteLine(y);
 
 
         return (S, y);
