@@ -300,7 +300,7 @@ public class Program
 
         double ch1=1,ch2=2;
         double zn1=1,zn2=1;
-        for (int i=0;i<=1;i++)
+        for (int i=0;i<=2;i++)
         {
             double ch3=ch1+ch2;
             double zn3=zn1+zn2;
@@ -310,23 +310,30 @@ public class Program
             zn2=zn3;
         }
         answer=ch2/zn2;
-
+        answer=Math.Round(answer,2);
         return answer;
     }
     public (double, int) Task_1_16()
     {
-        double answer = 0;
-        int power = 18;
-
-        answer+=1;
-
-        for (int i = 1; i<=63; i++)
+double answer = 0;
+        int power = 0;
+        double zer = 2;
+        double pow = 2;
+        for (int i = 2; i < 64; i++)
         {
-            answer += Math.Pow(2,i);
+            pow *= 2;
+            zer += pow;
         }
-        answer=Math.Round(answer/15/Math.Pow(10,power),2);
+        zer /= 15;
+        while (zer >= 10)
+        {
+            power++;
+            zer /= 10;
+        }
+        answer = Math.Round(zer, 2);
 
         return (answer, power);
+
     }
     public double Task_1_17(double x)
     {
