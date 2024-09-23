@@ -31,13 +31,13 @@ public class Program
         //program.Task_2_2();
         program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
-        //program.Task_2_5(11, 5);
+        program.Task_2_5(11, 5);
         //program.Task_2_6();
-        //program.Task_2_7a();
-        //program.Task_2_7b();
-        //program.Task_2_7c();
+        program.Task_2_7a();
+        program.Task_2_7b();
+        program.Task_2_7c();
         //program.Task_2_8();
-        //program.Task_2_9();
+        program.Task_2_9();
         //program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
@@ -442,6 +442,9 @@ public class Program
         int quotient = 0, remainder = 0;
 
         // code here
+        if (N == 0 || M == 0) return (0,0);
+        quotient = N / M;
+        remainder = Math.Abs(N- (N / M * M));
 
         // end
 
@@ -462,9 +465,15 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double s = 0;
+        double y = 10;
+        for (int i=1; i<=7;i++)
+        {
+            s += y;
+            y = 1.1 * y;
+        }
         // end
-
+        answer = Math.Round(s,2);
         return answer;
     }
     public int Task_2_7b()
@@ -472,9 +481,18 @@ public class Program
         int answer = 0;
 
         // code here
-
+        double s = 0;
+        double y = 10;
+        int d = 0;
+        do
+        {
+            s += y;
+            y = 1.1 * y;
+            d++;
+        }
+        while (s < 100);
         // end
-
+        answer = d;
         return answer;
     }
     public int Task_2_7c()
@@ -482,8 +500,18 @@ public class Program
         int answer = 0;
 
         // code here
-
+        double s = 0;
+        double y = 10;
+        int d = 0;
+        do
+        {
+            s += y;
+            y = 1.1 * y;
+            d++;
+        }
+        while (y<=20);
         // end
+        answer = d;
 
         return answer;
     }
@@ -502,9 +530,17 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        double L = 0.1;
+        double y = 0;
+        int i = 0;
+        do
+        {
+            y = Math.Round(L / 2.0, 10);
+            i++;
+        }
+        while (y > Math.Pow(10, -10));
         // end
-
+        answer = i;
         return answer;
     }
     public int Task_2_10()
