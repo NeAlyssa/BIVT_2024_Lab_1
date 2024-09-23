@@ -17,7 +17,7 @@ public class Program
         //program.Task_1_5(0, 2);
         //program.Task_1_6(4);
         //program.Task_1_7();
-        //program.Task_1_8();
+        program.Task_1_8();
         //program.Task_1_9();
         //program.Task_1_10();
         //program.Task_1_11();
@@ -56,10 +56,7 @@ public class Program
         int answer = 0;
        
         // code here
-       /* for(int i=0;i<10;i++)
-        {
-
-        }*/
+       
         int a = 0;
         int i = 1;
         while(a<35)
@@ -77,7 +74,13 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double slagaemoe = 0;
+        for (int i = 1; i <= 10; i++)
+        {
+            slagaemoe = 1.0 / i;
+            answer += slagaemoe;
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -87,9 +90,14 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i=2;i<=112;i+=2)
+        {
+            answer += i / (i + 1.0);
+        }
+        answer = Math.Round(answer);
+        //Console.WriteLine(answer);
         // end
-
+        
         return answer;
     }
     public double Task_1_4(double x)
@@ -97,7 +105,13 @@ public class Program
         double answer = 0;
 
         // code here
-
+        double p = 1;
+        for (int i=1; i<=9;i++)
+        {
+            answer += Math.Cos(i * x) / p;
+             p *= x;
+        }
+        answer = Math.Round(answer,2);
         // end
 
         return answer;
@@ -107,7 +121,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (int i=0;i<=9;i++)
+        {
+            answer += (p + i * h) * (p + i * h);
+        }
+        //answer = Math.Round(answer);
         // end
 
         return answer;
@@ -124,12 +142,15 @@ public class Program
     }
     public int Task_1_7()
     {
-        int answer = 0;
+        int answer = 1;
 
         // code here
-
+        for (int i=1;i<=6;i++)
+        {
+            answer *= i;
+        }
         // end
-
+        //Console.WriteLine(answer);
         return answer;
     }
     public int Task_1_8()
@@ -137,9 +158,19 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        int slagaemoe = 1;
+        for (int i = 1; i<=6; i++)
+        {
+            for (int j = 1;j<(i+1); j++)
+            {
+                slagaemoe *= j;
+                
+            }
+            Console.WriteLine(slagaemoe);
+            answer += slagaemoe;
+        }
         // end
-
+        Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_9()
