@@ -133,13 +133,8 @@ public class Program
         double answer = 0;
 
         // code here
-        double i = -4;
-        while (i <= 4)
-        {
-            double y = (0.5 * x * x - 7 * x);
-            answer = Math.Round(y,2);
-            i += 0.5;
-        }
+        double y = (0.5 * x * x - 7 * x);
+        answer = Math.Round(y,2);    
         // end
 
         return answer;
