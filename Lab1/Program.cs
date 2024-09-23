@@ -128,15 +128,21 @@ public class Program
     }
     public double Task_1_6(double x)
     {
-        //double answer = 0;
+        double answer = 0;
         //for (x=-4; x<=4; x+=0.5)
         //{
         //    answer = 0.5 * x * x - 7 * x;
         //    return answer;
         //}
+        double i = -4;
+        while (i<=4)
+        {
+            double y = (0.5 * x * x - 7 * x);
+            answer=Math.Round(y,2);
+            i += 0.5;
+        }
         
-        
-        double answer = 0.5 * x * x + 7 * x;
+        //double answer = 0.5 * x * x + 7 * x;
         return answer;
 
 
@@ -241,10 +247,15 @@ public class Program
     public double Task_1_13(double x)
     {
         double answer = 0;
-
-        if (x <= -1) answer = 1;
-        if (x > -1 || x <= 1) answer = -x;
-        if (x > 1) answer = -1;
+        double i = -1.5;
+        while (i<=1.5)
+        {
+            if (i <= -1) answer = 1;
+            if (i > -1 || i <= 1) answer = -i;
+            if (i > 1) answer = -1;
+            i += 0.1;
+        }
+       
         // code here
        // double y = 0;
        // while (x<=1.5)
@@ -322,19 +333,22 @@ public class Program
         int power = 0;
 
         // code here
-        int x = 1;
-        int s = 0;
-        for (int i=1;i<=64;i++)
+        double x = 1;
+        double s = 1;
+        for (int i=1;i<=63;i++)
         {
+            x = x * 2;
             s =s+x;
-            x=x* 2;
-            Console.WriteLine(s);
+            
         }
         // end
-        Console.WriteLine(s);
         double r = s / 15.0;
-        //power = (r * 15.0) - s;
-        answer = Math.Round(r,2);
+        power = (int)Math.Log10(r);
+        for (int g=1; g<=power; g++)
+        {
+            r /= 10;
+        }
+        answer = Math.Round(r,3);
         return (answer, power);
     }
     public double Task_1_17(double x)
