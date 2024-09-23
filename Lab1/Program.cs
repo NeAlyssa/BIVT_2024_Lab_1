@@ -61,7 +61,7 @@ public class Program
         {
             answer = answer + i;
         }
-        
+
         // end
 
         return answer;
@@ -99,12 +99,17 @@ public class Program
         double answer = 0;
 
         // code here
-        answer = Math.Cos(x);
-        for (double i = 2; i <= 8; i++)
-        {   
-            answer += Math.Cos(x * i) / Math.Pow(x, i - 1);
+        if (x != 0)
+        {
+            answer = Math.Cos(x);
+            double x1 = x;
+            for (double i = 2; i <= 9; i++)
+            {
+                answer += Math.Cos(x * i) / x1;
+                x1 *= x;
+            }
+            answer = Math.Round(answer, 2);
         }
-        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -114,7 +119,11 @@ public class Program
         double answer = 0;
 
         // code here
-
+        for (double i = 1; i <= 10; i++)
+        {
+            answer += (p + h * (i - 1)) * (p + h * (i - 1));
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -124,17 +133,21 @@ public class Program
         double answer = 0;
 
         // code here
-
+        answer = 0.5 * x * x - 7 * x;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
     }
     public int Task_1_7()
     {
-        int answer = 0;
+        int answer = 1;
 
         // code here
-
+        for (int i = 1; i < 7; i++)
+        {
+            answer *= i;
+        }
         // end
 
         return answer;
@@ -144,7 +157,12 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        int j = 1;
+        for (int i = 1; i < 7; i++)
+        {
+            j *= i;
+            answer += j;
+        }
         // end
 
         return answer;
@@ -154,17 +172,28 @@ public class Program
         double answer = 0;
 
         // code here;
-
+        double one = 1;
+        double two = 1;
+        double three = 1;
+        for (double i = 1; i < 7; i++)
+        {
+            one *= (-1);
+            two *= 5;
+            three *= i;
+            answer += one * two / three;
+        }
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
     }
     public int Task_1_10()
     {
-        int answer = 0;
+        int answer = 1;
 
         // code here
-
+        for (int i = 1; i < 8; i++)
+            answer *= 3;
         // end
 
         return answer;
@@ -174,12 +203,16 @@ public class Program
         // There is no test for this task
         for (int i = 1; i < 7; i++)
         {
-            Console.WriteLine(i);
+            Console.Write(i);
+            Console.Write(' ');
         }
+        Console.WriteLine();
         for (int i = 1; i < 7; i++)
         {
-            Console.WriteLine(5);
+            Console.Write(5);
+            Console.Write(' ');
         }
+
         // code here
 
     }
@@ -188,14 +221,17 @@ public class Program
         double answer = 0;
 
         // code here
-        if (x != 0) { double x_pow = 1;
-        for(int i=0; i<=10;i++)
+        if (x != 0)
         {
-            answer += 1 / x_pow;
-            x_pow *= x;
+            double x_pow = 1;
+            for (int i = 0; i <= 10; i++)
+            {
+                answer += 1 / x_pow;
+                x_pow *= x;
+            }
+            answer = Math.Round(answer, 2);
         }
-        answer = Math.Round(answer, 2);}
-        
+
         // end
 
         return answer;
@@ -205,7 +241,7 @@ public class Program
         double answer = 0;
 
         // code here
-        if(x <= -1) { answer = 1; }
+        if (x <= -1) { answer = 1; }
         else if (x <= 1) { answer = -x; }
         else { answer = -1; }
         // end
@@ -216,14 +252,16 @@ public class Program
     {
         // There is no test for this task
         int one = 1, two = 1, three = 0;
-        Console.WriteLine(1);
-        Console.WriteLine(1);
-        for (int i=0; i<=5; i++)
+        Console.Write(1);
+        Console.Write(' ');
+        Console.Write(1);
+        for (int i = 0; i <= 5; i++)
         {
             three = two;
             two = one + two;
             one = three;
-            Console.WriteLine(two);
+            Console.Write(' ');
+            Console.Write(two);
         }
         // code here
 
@@ -252,12 +290,20 @@ public class Program
         int power = 0;
 
         // code here
-        for (int i = 0; i < 8*8; i++)
+        double seed = 1;
+        double one = 1;
+        for (int i = 0; i < 8 * 8 - 1; i++)
         {
-            power *= 2;
-            answer += power;
+            one *= 2;
+            seed += one / 15;
         }
-        answer = Math.Round(answer / 15, 2);
+        while (seed >= 10.0)
+        {
+            power += 1;
+            seed /= 10;
+        }
+        answer = Math.Round(seed, 2);
+
         // end
 
         return (answer, power);
@@ -268,7 +314,7 @@ public class Program
 
         // code here
         int R = 6350;
-        answer = Math.Round(Math.Sqrt((R+x)*(R+x) - R * R), 2);
+        answer = Math.Round(Math.Sqrt((R + x) * (R + x) - R * R), 2);
         // end
 
         return answer;
@@ -278,7 +324,7 @@ public class Program
         int answer = 10;
 
         // code here
-        for(int i = x;i>0;i -= 3)
+        for (int i = x; i > 0; i -= 3)
         {
             answer *= 2;
         }
@@ -306,7 +352,7 @@ public class Program
         // code here
         int L = 30000;
         int p = 1;
-        while(p * (answer + 3) < L)
+        while (p * (answer + 3) < L)
         {
             answer += 3;
             p *= answer;
@@ -331,18 +377,20 @@ public class Program
         double Change = 1;
 
         // code here
-        if (x >= 1 || x <= -1) {
+        if (x >= 1 || x <= -1)
+        {
             answer = 0;
         }
-        else { 
-            while(Change >= 0.0001)
+        else
         {
-            Change *= x * x;
-            answer += Change;
-        }
+            while (Change >= 0.0001)
+            {
+                Change *= x * x;
+                answer += Change;
+            }
         }
         answer = Math.Round(answer, 2);
-    
+
         // end
 
         return answer;
