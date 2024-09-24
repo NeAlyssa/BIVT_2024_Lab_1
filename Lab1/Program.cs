@@ -98,15 +98,11 @@ public class Program
         }
         else 
         {
+            double delitel = 1;
             for (int i = 1; i <= 9; i++)
             {
-                double power = i - 1;
-                double delitel = 1;
-                for (int j = 0; j < power; j++)
-                {
-                    delitel *= x;
-                }
                 answer += Math.Cos(i * x) / delitel;
+                delitel *= x;
             }
 
             return Math.Round(answer, 2);
@@ -141,18 +137,15 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
+        int slagaemoe = 1;
         for (int i = 1; i <= 6; i++)
-        {
-            int slagaemoe = 1;
-            for (int j = 1; j <= i; j++)
             {
-                slagaemoe = slagaemoe * j; 
+                answer += slagaemoe;
+                slagaemoe *= (i + 1);
             }
-            answer += slagaemoe;
-        }
 
         return answer;
-    }
+    
     public double Task_1_9()
     {
         double answer = 0;
@@ -555,27 +548,20 @@ public class Program
     public (double, double) Task_3_9(double x)
     {
         double S = 0, y = 0;
-
-        for (int i = 0;; i++)
+        double one = 1;
+        for (int i = 0; ; i++)
         {
             double znamenatel = 2 * i + 1;
-            double one = 1;
-            for (int j = 0; j < i ; j++)
-            {
-                one *= -1;
-            }
-            double chislitel = 1;
-            for (int k = 0; k < znamenatel; k++)
-            {
-                chislitel *= x;
-            }
+            double chislitel = x;
             double slagaemoe = one * chislitel / znamenatel;
             if (Math.Abs(slagaemoe) < 0.0001)
-            { 
+            {
                 break;
             }
             y = Math.Round(Math.Atan(x), 2);
             S += slagaemoe;
+            one *= -1;
+            chislitel *= x * x;
         }
         return (Math.Round(S, 2), y);
     }
