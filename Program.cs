@@ -360,9 +360,9 @@ public class Program
 
         int n = 1;
 
-        double variable1;
+        double variable1 = 1;
 
-        do
+        while (Math.Abs(variable1) >= 0.0001)
         {
             s += Math.Cos(n * x) / (n * n);
 
@@ -370,8 +370,6 @@ public class Program
 
             n += 1;
         }
-
-        while (Math.Abs(variable1) >= 0.0001);
 
         return Math.Round(s, 2);
     }
@@ -547,44 +545,38 @@ public class Program
     #region Level 3
     public (double, double) Task_3_1(double x)
     {
-        double sum = 1, n = 1, denominator = 1, numerator = x * x;
+        double S = 0, y = 0;
 
-        int p = 1;
-
-        double y = Math.Cos(x);
-
-        for (int i = 1; Math.Abs(n) >= 0.0001; i++)
+        S = 0;
+        double i = 0;
+        double n1 = 1;
+        double n2 = 1;
+        double factorial = 1;
+        double part = n1 * n2 / factorial;
+        while (Math.Abs(part) >= 0.0001)
         {
-            p = -p;
-
-            for (int j = 1; j <= 2 * i; j++)
-            {
-                denominator *= j;
-            }
-
-            n = p * numerator / denominator;
-
-            numerator *= numerator;
-
-            denominator = 1; 
-
-            sum += n;
+            S += part;
+            i++;
+            n1 *= -1;
+            n2 *= x * x;
+            factorial *= (2 * i - 1) * (2 * i);
+            part = n1 * n2 / factorial;
         }
-
-        sum = Math.Round(sum, 2);
-
+        y = Math.Cos(x);
+        S = Math.Round(S, 2);
         y = Math.Round(y, 2);
-
-        Console.WriteLine("sum = {0}", sum);
+        Console.WriteLine("sum = {0}", S);
 
         Console.WriteLine("y = {0}", y);
 
         Console.WriteLine();
 
-        return (sum, y);
+        return (S, y);
     }
 
+
     public (double, double) Task_3_2(double x)
+
     {
         double S = 0, y = 0;
 
