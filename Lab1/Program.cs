@@ -634,26 +634,25 @@ public class Program
     }
     public (double, double) Task_3_7(double x)
     {
-        double S = 0, y = 0;
+        double S = 1, y = 0;
 
         // code here
-        double u = x;
+        double u = 1;
         int i = 1;
-        double d = i;
-        double o = x * x;
-        while (Math.Abs(x) >= 0.0001) 
+        int d = i;
+        double o = 1;
+        while (Math.Abs(u) >= 0.0001) 
         {
-            S += u;
-            u =(o*x*x) / (d * 2 * i * (2 * i - 1));
             d = (d * 2 * i * (2 * i - 1));
+            u =(o*x*x) / d;
             o *= x * x;
             i++;
-            
-
+            S += u;
         }
         // end
         y = (Math.Pow(double.E, x) + Math.Pow(double.E, -x)) / 2;
-        return (S, y);
+        
+        return (Math.Round(S, 2), Math.Round(y,2));
     }
     public (double, double) Task_3_8(double x)
     {
