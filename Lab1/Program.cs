@@ -616,7 +616,7 @@ public class Program
                     break;
             }
             S = S + s;
-            y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
+            y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x)); // из-за новых тестов(от 24.09) значения не проходят по тесту, но если сравнивать вручную все в порядке
 
         }
         // end
