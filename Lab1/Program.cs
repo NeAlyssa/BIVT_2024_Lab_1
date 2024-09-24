@@ -25,7 +25,7 @@ public class Program
         //program.Task_1_9();
         //program.Task_1_10();
         //program.Task_1_11();
-        //program.Task_1_12(0.9);
+        program.Task_1_12(0.9);
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
@@ -198,14 +198,18 @@ public class Program
     }
     public double Task_1_12(double x)
     {
-        double answer = 1;
+        double answer = 0;
         double numinpow = 1;
-        for (double i = 1; i<=10; i++)
+        if (x == 0)
+            return 0;
+        for (double i = 0; i<=10; i++)
         {
+            
             answer += 1 / numinpow;
             numinpow *= x;
+
         }
-        
+        Console.WriteLine(answer);
         return Math.Round(answer,2);
     }
     public double Task_1_13(double x)
