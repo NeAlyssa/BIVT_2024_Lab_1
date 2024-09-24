@@ -25,7 +25,7 @@ public class Program
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
-        //program.Task_1_16();
+        program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
         //program.Task_2_1(0);
@@ -45,11 +45,10 @@ public class Program
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
-        //program.Task_3_6(0.1);
+        program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
-
     }
     #region Level 1
     public int Task_1_1()
@@ -58,9 +57,7 @@ public class Program
         for(int st=2;st<=35;st+=3)
         {
             answer += st;
-                }
-
-
+        }
         return answer;
     }
     public double Task_1_2()
@@ -79,11 +76,11 @@ public class Program
     public double Task_1_3()
     {
         double answer = 0;
-        for(double i=2,j=3;i<=112;i+=2,j+=2)
+        for (double i = 2, j = 3; i <= 112; i += 2, j += 2)
         {
             answer += i / j;
         }
-        answer=Math.Round(answer,2);
+        answer = Math.Round(answer, 2);
         return answer;
     }
     public double Task_1_4(double x)
@@ -127,14 +124,10 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
-        for (int i = 1; i <= 6; i += 1)
+        for (int i = 1,f=1; i <= 6; i += 1)
         {
-            int p = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                p *= j;
-            }
-            answer += p;
+            answer += f;
+            f *= (i + 1);
         }
 
         return answer;
@@ -230,9 +223,9 @@ public class Program
     {
         double answer = 0;
         int power = 0;
-        for (int counter = 1, p = 0; counter <= 64; counter++, p++)
+        for (double counter = 1, tw = 1; counter <= 64; counter++, tw *= 2)
         {
-            answer += Math.Pow(2, p);
+            answer += tw;
         }
         answer /= 15;
         while (answer > 10)
@@ -298,12 +291,11 @@ public class Program
     public double Task_2_4(double x)
     {
         double answer = 0, slag = 0;
-        for (double n=0;n<=10000000000;n+=2)
+        for (double p=1;;p*=x*x)
         {
             if (Math.Abs(x) >= 1) break;
-            slag=Math.Pow(x,n);
-            if (slag<0.0001) break;
-            answer += slag;
+            if (p<0.0001) break;
+            answer +=p;
         }
         answer = Math.Round(answer, 2);
         return answer;
@@ -455,18 +447,17 @@ public class Program
     public (double, double) Task_3_6(double x)
     {
         double S = 0, y = 0;
-        for (double i = 1, sl; ; i++)
+        for (double i = 1, num = x, dum, sl1 = -1, sl; ; i++)
         {
-            sl = Math.Pow(-1, i + 1) * Math.Pow(x, 2 * i + 1) / (4 * i * i - 1);
-            if (Math.Abs(sl) < 0.0001) break;
+            sl1 *= (-1);
+            num = num * x * x;
+            dum = 4 * i * i - 1;
+            sl = sl1 * num / dum;
+            if (Math.Abs(sl) < 0.00001) break;
             S += sl;
         }
-        S = Math.Round(S, 2);
-        y = Math.Round((1 + x * x) * Math.Atan(x) / 2 - x / 2, 2);
-        if (S != y)
-        {
-            S = y;
-        }
+        y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
+
         return (S, y);
     }
     public (double, double) Task_3_7(double x)
