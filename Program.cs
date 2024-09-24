@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 
 public class Program
 {
@@ -142,19 +143,14 @@ public class Program
     public double Task_1_9()
     {
         double answer = 0; double c_1 = 1; double c_5 = 1;
-        static int fuct(int length)
-        {
-            int result = 1;
-            for(int i = 1; i <=length;i++)
-            {
-                result *= i;
-            }
-            return result;
-        }
+        int result = 1;
+        
+        
         for (int l = 1; l <= 6; l++) {
-            c_1 *= (-1);
+            c_1 *= (-1); 
             c_5 *= 5;
-            answer += c_1 * c_5 / (double)fuct(l);
+            result *= l;
+            answer += c_1 * c_5 / (double)result;
         }
         
 
@@ -237,17 +233,14 @@ public class Program
     }
     public void Task_1_14()
     {
-        static long Fib(int n)
+        int elpr = 0, eln = 1;
+        Console.WriteLine(eln +" ");
+        for (int i = 1; i < 8; i++)
         {
-            if (n < 3)
-            {
-                return 1;
-            }
-            else { return Fib(n - 2) + Fib(n - 1); }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            Console.Write(Fib(i) + " ");
+            int a = elpr + eln;
+            Console.Write(a + " ");
+            elpr = eln;
+            eln = a;
           
         }
 
