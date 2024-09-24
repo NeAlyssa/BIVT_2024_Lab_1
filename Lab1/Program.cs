@@ -410,7 +410,12 @@ public class Program
         int answer = 0;
 
         // code here
-
+        int cells = 10;
+        while (cells < 100000) {
+            cells *= 2;
+            answer += 1;
+        }
+        answer *= 3;
         // end
 
         return answer;
@@ -450,7 +455,12 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        double money = 10000;
+        while (money < 20000)
+        {
+            money *= 1.08;
+            answer += 1;
+        }
         // end
 
         return answer;
@@ -467,10 +477,24 @@ public class Program
     }
     public int Task_2_10()
     {
-        int answer = 0;
+        int answer = 2;
 
         // code here;
-
+        double one = 1, two = 1, three = 0;
+        double answer1 = two / one;
+        three = two;
+        two = one + two;
+        one = three;
+        double answer2 = two / one;
+        while (Math.Abs(answer2 - answer1) > 0.001)
+        {
+            answer1 = answer2;
+            three = two;
+            two = one + two;
+            one = three;
+            answer2 = two / one;
+            answer += 1;
+        }
         // end
 
         return answer;
@@ -513,9 +537,22 @@ public class Program
         double S = 0, y = 0;
 
         // code here
+        double e = 1;
 
+        y = (1 + 2 * x * x) * Math.Pow(Math.E, x * x);
+        double S1 = 1;
+        double j = 1, x1 = 1, factorial_j = 1;
+        while (S1 >= 0.0001)
+        {
+            x1 *= x * x;
+            S += S1;
+            S1 = (2 * j + 1) * x1 / factorial_j;
+            j++;
+            factorial_j *= j;
+        }
         // end
-
+        S = Math.Round(S, 2);
+        y = Math.Round(y, 2);
         return (S, y);
     }
     public (double, double) Task_3_5(double x)
