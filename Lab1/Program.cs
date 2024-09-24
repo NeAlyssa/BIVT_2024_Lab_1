@@ -32,7 +32,7 @@ public class Program
         //program.Task_1_18(24);
         //program.Task_2_1(0);
         //program.Task_2_2();
-        //program.Task_2_3(8, 2, 0);
+        program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
@@ -349,7 +349,7 @@ public class Program
 
         // code here
         const double R = 6350;
-        answer = Math.Round(Math.Sqrt(((R + x))*(R+x) - Math.Pow(R, 2)),2);
+        answer = Math.Round(Math.Sqrt(((R + x))*(R+x) - R*R),2);
         // end
 
         return answer;
@@ -430,9 +430,11 @@ public class Program
             answer = 0;
             return answer;
         }
-        for (int i = 2; Math.Pow(x, i) >= e; i+=2)
+        double pow = x;
+        for (int i = 2; pow >= e; i+=2)
         {
-            s += Math.Pow(x, i);
+            s += pow*x;
+            pow *= x;
         }
         answer =Math.Round( s,2);
         // end
@@ -570,20 +572,14 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-        S = 0;
-        int i = 1;
-        double v1 = 0;
-        double y2 = 0;
-        while (Math.Abs((Math.Pow(x, i) * Math.Sin((i * Math.PI) / 4))) >= 0.0001)
+        double pow = x;
+        for (int i =1; pow >= 0.0001; i++)
         {
-            y2 = y;
-            S += (Math.Pow(x, i) * Math.Sin((i * Math.PI) / 4));
-            y = ((x * Math.Sin(Math.PI / 4)) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x));
-            i++;
+            S += pow*Math.Sin(i*Math.PI/4);
+            pow *= x;
         }
-
-        y = Math.Round(y2, 2);
-        S = Math.Round(((x * Math.Sin(Math.PI / 4)) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x)), 2);
+        S = Math.Round(S, 2);
+        y = Math.Round( (x * Math.Sin(Math.PI / 4)) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x),2);
         // end
 
         return (S, y);
