@@ -49,7 +49,7 @@ public class Program
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
-        program.Task_3_6(0.4);
+        program.Task_3_6(1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
@@ -121,35 +121,49 @@ public class Program
     }
     public int Task_1_7()
     {
-        int answer = 0;
+        int answer = 1;
 
-        answer = Fact(6);
+        // code here
+        for (int i = 1; i <= 6; i++)
+            answer *= i;
+        // end
 
         return answer;
     }
     public int Task_1_8()
     {
         int answer = 0;
-        for (int i = 1; i<=6; i++)
+        int fact = 1;
+        // code here;
+        for (int i = 2; i <= 7; i++)
         {
-            answer += Fact(i);
+            answer += fact;
+            fact *= i;
         }
-        
+        // end
+
         return answer;
     }
     public double Task_1_9()
     {
         double answer = 0;
-        double num1inpow = 1;
-        double num2inpow = 1;
-        for (int i = 1; i<=6; i++)
+        double a = -1;
+        double b = 5;
+        double fact = 1;
+        // code here;
+        for (int i = 2; i <= 7; i++)
         {
-            answer += num1inpow * num2inpow / Fact(i);
-            num1inpow *= -1;
-            num2inpow *= 5;
+
+
+            answer += (a * b) / fact;
+            a *= -1;
+            b *= 5;
+            fact *= i;
+
         }
-        
-        return Math.Round(answer,2);
+        // end
+
+        return Math.Round(answer, 2);
     }
     public int Task_1_10()
     {
@@ -509,33 +523,27 @@ public class Program
     }
     public (double, double) Task_3_6(double x)
     {
-        double S = 0, y = 0,z =1, i=1;
+        double S = 0, y = 0,z =1;
 
         
-            y = ((1 + x*x) * Math.Atan(x)) / 2 - (x / 2);
-            
+        y = ((1 + x*x) * Math.Atan(x)) / 2 - (x / 2);
+        double num1 = -1, num2 = x;
+        for (int i = 1; i<100000000; i++)
+        {
+            num1 *= -1;
+            num2 *= x * x;
+            z = num1 * num2 / (4 * i * i - 1);
+            S += z;
+            if (Math.Abs(z) < 0.0001)
+            {
+                return (S, y);
+            }
+        }    
                 
-           while (Math.Abs(z) >= 0.0001)
-           {
-            double num1, num2=1;
-            if (i % 2 == 0)
-            {
-                num1 = -1;
-            }
-            else
-            {
-                num1 = 1;
-            }
-            for (int j = 0; j < 2 * i + 1; j++)
-            {
-                num2 *= x;
-            }
-              
-           z = num1*num2 / (4 * i * i - 1);
-               
-           S += z;
-           i++;
-           }
+           
+           
+           
+           
             
         
         
@@ -574,18 +582,5 @@ public class Program
     }
     #endregion
 
-    public int Fact(int x)
-    {
-       
-        int count = 1;
-        int a = 1;
-        
-        while (count<=x)
-        {
-            a *= count;
-            count++;
-        }
-        return (a);
-    }
-    
+  
 }
