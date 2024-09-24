@@ -43,7 +43,7 @@ public class Program
         //program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
-        //program.Task_3_3(0.1);
+        program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
@@ -596,7 +596,29 @@ public class Program
         double S = 0, y = 0;
 
         // code here
+        double E = 0.0001;
+        double a = 0.1;
+        double b = 1;
+       
 
+        for (double h = 0.1; x >= a && x <= b ; x += h) 
+        {
+            S = 1;
+            double i = 1;
+            double f = 1;
+            double s = 0;
+            while (true)
+            {
+                s += Math.Cos(i * x) / f;
+                i++;
+                f *= i;
+                if (Math.Abs(Math.Cos(i * x) / f) < E)
+                    break;
+            }
+            S = S + s;
+            y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
+
+        }
         // end
 
         return (S, y);
