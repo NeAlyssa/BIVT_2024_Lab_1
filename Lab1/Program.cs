@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
+using System.Transactions;
 
 public class Program
 {
@@ -45,7 +46,7 @@ public class Program
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
-        //program.Task_3_7(0.1);
+        program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
     }
@@ -247,34 +248,45 @@ public class Program
     public double Task_1_13(double x)
     {
         double answer = 0;
-        double i = -1.5;
-        while (i<=1.5)
+        //double i = -1.5;
+        // while (i<=1.5)
+        //{
+        //    if (i <= -1) answer = 1;
+        //    if (i > -1 || i <= 1) answer = -i;
+        //     if (i > 1) answer = -1;
+        //    i += 0.1;
+        // }
+        if (x <= -1)
         {
-            if (i <= -1) answer = 1;
-            if (i > -1 || i <= 1) answer = -i;
-            if (i > 1) answer = -1;
-            i += 0.1;
+            answer = 1;
         }
-       
+        if (x > -1 && x <= 1)
+        {
+            answer = -x;
+        }
+        if (x > 1)
+        {
+            answer = -1;
+        }
         // code here
-       // double y = 0;
-       // while (x<=1.5)
-      //  {
-          //  if (x <= -1) y = 1;
-           // if (x > -1 || x <= 1) y = -x;
-          //  if (x>1) y = -1;
-           // x += 0.1;
-           // Console.WriteLine(y);
-           // return y;
+        // double y = 0;
+        // while (x<=1.5)
+        //  {
+        //  if (x <= -1) y = 1;
+        // if (x > -1 || x <= 1) y = -x;
+        //  if (x>1) y = -1;
+        // x += 0.1;
+        // Console.WriteLine(y);
+        // return y;
 
-       // }
-       // for (x=-1.5;x<=1.5; x += 0.1)
-      //  {
-     //       if (x <= -1) y = 1;
+        // }
+        // for (x=-1.5;x<=1.5; x += 0.1)
+        //  {
+        //       if (x <= -1) y = 1;
         //    if (x > -1 || x <= 1) y = -x;
         //    if (x>1) y = -1;
-       //     return y;
-       // }
+        //     return y;
+        // }
         // end
 
         return answer;
@@ -421,10 +433,15 @@ public class Program
         {
             s += (a + h * n);
             n++;
+            if (h < 0)
+            {
+                answer = 0;
+                s = p + 1;
+            }
         }
         while (s <= p);
-            // end
-        answer = n;
+        // end
+        answer = n - 1;
         return answer;
     }
     public double Task_2_4(double x)
@@ -531,14 +548,13 @@ public class Program
 
         // code here;
         double L = 0.1;
-        double y = 0;
         int i = 0;
         do
         {
-            y = Math.Round(L / 2.0, 10);
+            L = Math.Round(L / 2.0, 10);
             i++;
         }
-        while (y > Math.Pow(10, -10));
+        while (L > Math.Pow(10, -10));
         // end
         answer = i;
         return answer;
@@ -621,9 +637,22 @@ public class Program
         double S = 0, y = 0;
 
         // code here
+        double u = x;
+        int i = 1;
+        double d = i;
+        double o = x * x;
+        while (Math.Abs(x) >= 0.0001) 
+        {
+            S += u;
+            u =(o*x*x) / (d * 2 * i * (2 * i - 1));
+            d = (d * 2 * i * (2 * i - 1));
+            o *= x * x;
+            i++;
+            
 
+        }
         // end
-
+        y = (Math.Pow(double.E, x) + Math.Pow(double.E, -x)) / 2;
         return (S, y);
     }
     public (double, double) Task_3_8(double x)
