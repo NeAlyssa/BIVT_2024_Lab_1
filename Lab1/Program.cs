@@ -148,13 +148,10 @@ public class Program
         int answer = 0;
 
         // code here;
+        int factorial = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int factorial = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                factorial *= j;
-            }
+            factorial *= i;
             answer += factorial;
         }
         // end
@@ -166,23 +163,14 @@ public class Program
         double answer = 0;
 
         // code here;
+        int fivePower = 1;
+        int factorial = 1;
+
         for (int i = 1; i <= 6; i++)
         {
             double term = (i % 2 == 0) ? 1 : -1; // (-1)^i
-            int fivePower = 1;
-
-            for (int k = 1; k <= i; k++)
-            {
-                fivePower *= 5;
-            }
-
-            int factorial = 1;
-
-            for (int j = 1; j <= i; j++)
-            {
-                factorial *= j;
-            }
-
+            fivePower *= 5;
+            factorial *= i;
             term *= fivePower;
             term /= factorial;
             answer += term;
@@ -400,19 +388,17 @@ public class Program
 
         // code here
         const double eps = 0.0001;
-        double a;
-        int term = 0;
+        double a = 1;
         
         if (x == 1)
         {
-            return answer = 0;
+            return answer;
         }
 
         do
         {
-            a = Math.Pow(x, term);
             answer += a;
-            term += 2;
+            a *= x * x;
         }
         while (Math.Abs(a) > eps);
         // end
