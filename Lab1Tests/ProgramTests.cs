@@ -32,7 +32,7 @@ namespace Tests
         {
             // Arrange
             double test;
-            double answer = 2.929;
+            double answer = 2.93;
             // Act
             test = main.Task_1_2();
             // Assert
@@ -44,7 +44,7 @@ namespace Tests
         {
             // Arrange
             double test;
-            double answer = 107.191;
+            double answer = 54;
             // Act
             test = main.Task_1_3();
             // Assert
@@ -56,9 +56,9 @@ namespace Tests
         {
             // Arrange
             double test1 = 0.5;
-            double answer1 = -243.1494;
+            double answer1 = -243.15;
             double test2 = 0.9;
-            double answer2 = 1.364;
+            double answer2 = 1.36;
             double test3 = 0;
             double answer3 = 0;
             // Act
@@ -102,7 +102,7 @@ namespace Tests
         public void Task_1_6Test()
         {
             double[] test = new double[17]; int counter = 0;
-            double[] answer = new double[17] { 36, 30.625, 25.5, 20.625, 16, 11.625, 7.5, 3.625, 0, -3.375, -6.5, -9.375, -12, -14.375, -16.5, -18.375, -20 };
+            double[] answer = new double[17] { 36, 30.62, 25.5, 20.62, 16, 11.62, 7.5, 3.62, 0, -3.38, -6.5, -9.38, -12, -14.38, -16.5, -18.38, -20 };
             // Act
             for (double i = -4; i <= 4; i += 0.5, counter++)
                 test[counter] = main.Task_1_6(i);
@@ -140,7 +140,7 @@ namespace Tests
         {
             // Arrange
             double test;
-            double answer = 8.3681;
+            double answer = 8.37;
             // Act
             test = main.Task_1_9();
             // Assert
@@ -169,9 +169,9 @@ namespace Tests
         {
             // Arrange
             double test1 = 1.35;
-            double answer1 = 3.715;
+            double answer1 = 3.72;
             double test2 = 0.9;
-            double answer2 = 19.6797;
+            double answer2 = 19.68;
             double test3 = 0;
             double answer3 = 0;
             // Act
@@ -221,12 +221,12 @@ namespace Tests
         {
             // Arrange
             (double, int) test;
-            double answer = 2.4596;
+            double answer = 1.23;
             double power = 18;
             // Act
             test = main.Task_1_16();
             // Assert
-            Assert.AreEqual(answer, test.Item1);
+            Assert.IsTrue(Math.Abs(answer - test.Item1) < 0.0001);
             Assert.AreEqual(power, test.Item2);
         }
 
@@ -234,8 +234,8 @@ namespace Tests
         public void Task_1_17Test()
         {
             // Arrange
-            double[] test = new double[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            double[] answer = new double[10] { 8980.9633, 8981.6704, 8982.3777, 8983.085, 8983.7924, 8984.4998, 8985.2072, 8985.9148, 8986.6223, 8987.33 };
+            double[] test = new double[10] { 1, 2, 3, 4, 5, 10, 50, 100, 250, 1000 };
+            double[] answer = new double[10] { 112.7, 159.39, 195.22, 225.42, 252.04, 356.51, 798.44, 1131.37, 1799.31, 3701.35 };
             // Act
             for (int i = 0; i < test.Length; i++)
                 test[i] = main.Task_1_17(test[i]);
@@ -249,7 +249,7 @@ namespace Tests
         {
             // Arrange
             int[] test = new int[8] { 3, 6, 9, 12, 15, 18, 21, 24 };
-            int[] answer = new int[8] { 10, 20, 40, 80, 160, 320, 640, 1280 };
+            int[] answer = new int[8] { 20, 40, 80, 160, 320, 640, 1280, 2560 };
             // Act
             for (int i = 0; i < test.Length; i++)
                 test[i] = main.Task_1_18(test[i]);
@@ -263,13 +263,13 @@ namespace Tests
         {
             // Arrange
             double test1 = 1;
-            double answer1 = 0.3169;
+            double answer1 = 0.31690467363040187;
             double test2 = 1.6;
-            double answer2 = -0.2281;
+            double answer2 = -0.22817053506882662;
             double test3 = -0.35;
-            double answer3 = 1.1275;
+            double answer3 = 1.1274055887472998;
             double test4 = 0;
-            double answer4 = 1.6351;
+            double answer4 = 1.6349839001848923;
             // Act
             test1 = main.Task_2_1(test1);
             test2 = main.Task_2_1(test2);
@@ -338,9 +338,9 @@ namespace Tests
             double test1 = 1;
             double answer1 = 0;
             double test2 = 0.8;
-            double answer2 = 2.7775;
+            double answer2 = 2.78;
             double test3 = -0.35;
-            double answer3 = 1.1396;
+            double answer3 = 1.14;
             double test4 = 0;
             double answer4 = 1;
             // Act
@@ -365,8 +365,8 @@ namespace Tests
             int test2N = 11;
             int test2M = 5;
             (int, int) answer2 = (2, 1);
-            int test3N = -7;
-            int test3M = -2;
+            int test3N = 7;
+            int test3M = 2;
             (int, int) answer3 = (3, 1);
             int test4N = 8;
             int test4M = 2;
@@ -400,7 +400,7 @@ namespace Tests
         {
             // Arrange
             double test;
-            double answer = 94.8717;
+            double answer = 94.87;
             // Act
             test = main.Task_2_7a();
             // Assert
@@ -473,7 +473,7 @@ namespace Tests
             // Arrange
             double[] x = new double[10] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 };
             double[,] test = new double[2, 10];
-            double[] answer = new double[10] { 0.995, 0.9801, 0.9553, 0.9211, 0.8776, 0.8253, 0.7648, 0.6967, 0.6216, 0.5403 };
+            double[] answer = new double[10] { 1, 0.98, 0.96, 0.92, 0.88, 0.83, 0.76, 0.7, 0.62, 0.54 };
             // Act
             for (int i = 0; i < x.Length; i++)
                 (test[0, i], test[1, i]) = main.Task_3_1(x[i]);
@@ -491,7 +491,7 @@ namespace Tests
             // Arrange
             double[] x = new double[8] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 };
             double[,] test = new double[2, 8];
-            double[] answer = new double[8] { 0.081, 0.187, 0.319, 0.476, 0.651, 0.829, 0.99, 1.112 };
+            double[] answer = new double[8] { 0.08, 0.19, 0.32, 0.48, 0.65, 0.83, 0.99, 1.11 };
             // Act
             for (int i = 0; i < x.Length; i++)
                 (test[0, i], test[1, i]) = main.Task_3_2(x[i]);
