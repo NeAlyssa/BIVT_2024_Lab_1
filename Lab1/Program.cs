@@ -40,7 +40,7 @@ public class Program
         //program.Task_2_8();
         //program.Task_2_9();
         //program.Task_2_10();
-        //program.Task_3_1(0.1);
+        // program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
@@ -96,12 +96,14 @@ public class Program
     {
         double answer = 0;
         // code here
+        double k = 1;
         if (x != 0)
         {
             for (int i = 1; i <= 9; ++i)
             {
-                double a = Math.Cos(x * i) / (Math.Pow(x, (i - 1)));
+                double a = Math.Cos(x * i) / (k);
                 answer += a;
+                k *= x;
             }
         }
 
@@ -168,11 +170,15 @@ public class Program
 
         int s = 1;
         // code here;
+        int z = -1;
+        double k = 5.0;
         for(int i = 1;i <= 6; ++i)
         {
             s *= i;
-            answer += (Math.Pow((-1), i)*Math.Pow(5,i))/s;
+            answer += (double)z*k/s;
             answer = Math.Round(answer, 2);
+            z *= (-1);
+            k *= 5;
         }
         // end
 
@@ -329,14 +335,14 @@ public class Program
         double e = 0.0001;
         double s = Math.Cos(x);
         // code here
-        int i = 2;
-        answer = s;
-        while(Math.Abs(s) >= e)
+        double i = 2;
+        while(Math.Abs(s) >= (double)e)
         {
-            s = Math.Cos(i * x)/(i * i);
-            i++;
             answer += s;
+            s = (double)Math.Cos(i * x)/((double)i * i);
+            i++;
         }
+        answer += s;
         answer = Math.Round(answer, 2);
         // end
 
