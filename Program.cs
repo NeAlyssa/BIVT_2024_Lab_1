@@ -575,17 +575,16 @@ public class Program
         double num = 1;
         double fact = 1;
         S += 1;
+        num = Math.Cos(i * x) / fact;
         while (Math.Abs(num) >= 0.0001)
         {
-            fact *= i;
-            num = Math.Cos(i * x) / fact;
             S += num;
             i++;
+            fact *= i;
+            num = Math.Cos(i * x) / fact;
         }
         y = Math.Exp(Math.Cos(x))*Math.Cos(Math.Sin(x));
-        S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
-        Console.WriteLine("{0:f2} {1:f2}", S, y);
+        Console.WriteLine("{0} {1}", S, y);
         // end
 
         return (S, y);
