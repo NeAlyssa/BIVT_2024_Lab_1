@@ -152,15 +152,11 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
-
+        int proizved = 1;
         // code here;
-        for(int i = 1; i<=6; i++)
+        for (int i = 1; i<=6; i++)
         {
-            int proizved = 1;
-            for(int j = 1; j<=i; j++)
-            {
-                proizved *= j;
-            }
+            proizved *= i;
             answer += proizved;
         }
         Console.WriteLine(answer);
@@ -171,15 +167,11 @@ public class Program
     public double Task_1_9()
     {
         double answer = 0;
-
+        int fact = 1;
         // code here;
         for (int i = 1; i <= 6; i++)
         {
-            int fact = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                fact *= j;
-            }
+            fact *= i;
             answer += Math.Pow(-1,i)*Math.Pow(5,i)/ fact;
         }
         answer = Math.Round(answer, 2);
@@ -368,15 +360,13 @@ public class Program
 
         // code here
         double num = Math.Cos(x);
-        answer += num;
         double n = 1;
         while (Math.Abs(num)>=0.0001)
         {
+            answer += num;
             n++;
             num = Math.Cos(x * n) / (n * n);
-            answer += num;
         }
-        answer = Math.Round(answer, 2);
         Console.WriteLine("{0:f2}", answer);
         // end
 
@@ -583,14 +573,11 @@ public class Program
         // code here
         double i = 1;
         double num = 1;
+        double fact = 1;
         S += 1;
         while (Math.Abs(num) >= 0.0001)
         {
-            double fact = 1;
-            for (int j=1; j<=i; j++)
-            {
-                fact *= j;
-            }
+            fact *= i;
             num = Math.Cos(i * x) / fact;
             S += num;
             i++;
