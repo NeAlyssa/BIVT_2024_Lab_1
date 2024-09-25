@@ -39,7 +39,7 @@ public class Program
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
-        //program.Task_3_6(1);
+        program.Task_3_6(1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
@@ -559,17 +559,19 @@ public class Program
        
             do
             {   
-               if(Math.Abs(v)<0.0001)
-                {
-                    break;
-                }
+               
                 u *= k;
                 o = b * b;
+                
                 v = u * p / (4 * o - 1);
                 p = p * x * x;
                 b++;
-                
+                if (Math.Abs(v) < 0.0001)
+                {
+                 break;
+                }
                 S += v;
+
             }
             while (Math.Abs(v)>= 0.0001);
             y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
