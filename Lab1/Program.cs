@@ -578,15 +578,14 @@ public class Program
         double l = 1, m = 1, p = -1, i = 1, s = 0, nx = x*x*x;
         while(Math.Abs(l) >= 0.0001)
         {
+            s += l;
             p = -p;
             l = p * (nx / (4 * i * i - 1));
-            s += l;
             nx *= x * x;
             i++;
         }
-        m = ((1 + x * x) * Math.Atan(x) / 2) - (x/2);
-        S = Math.Round(s, 2);
-        y = Math.Round(m, 2);
+        y = ((1 + x * x) * Math.Atan(x) / 2) - (x/2);
+        S = s - 1;
 
         // end
 
