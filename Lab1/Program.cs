@@ -25,7 +25,7 @@ public class Program
         //program.Task_1_11();
         //program.Task_1_12(0.9);
         //program.Task_1_13(-1.5);
-        program.Task_1_14();
+        //program.Task_1_14();
         //program.Task_1_15();
         //program.Task_1_16();
         //program.Task_1_17(10);
@@ -47,7 +47,7 @@ public class Program
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
-        //program.Task_3_6(0.1);
+        program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
@@ -90,18 +90,14 @@ public class Program
     public double Task_1_4(double x)
     {
         double answer = 0;
-
+        double b = 1;
         // code here
         if (x!=0)
             {
-                for (int i = 0; i <= 8; i++) 
+                for (int i = 1; i <= 9; i++) 
                 {
-                double b = 1;
-                for (int k = 0; k < i; k++)
-                {
-                    b *= x;
-                }
-                answer += Math.Cos((i + 1) * x) / b;
+                answer += Math.Cos(x*i) / b;
+                b *= x;
                 }
                 answer = Math.Round(answer, 2);
             }
@@ -150,15 +146,11 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
-
+        int l = 1;
         // code here;
         for (int i = 1; i<=6; i++)
         {
-            int l = 1;
-            for (int c = 1; c <= i; c++)
-            {
-                l = c*l;
-            }
+            l *= i;
             answer += l;
         }
         // end
@@ -168,20 +160,14 @@ public class Program
     public double Task_1_9()
     {
         double answer = 0;
+        double a = 1, b = 1;
+        double l = 1;
         // code here;
         for (double i = 1; i <= 6; i++)
         {
-            double a = 1, b = 1;
-            double l = 1;
-            for (double c = 1; c <= i; c++)
-            {
-                l *= c;
-            }
-            for (int k = 1; k <= i; k++)
-            {
-                a *= -1;
-                b *= 5;
-            }
+            l *= i;
+            a *= -1;
+            b *= 5;
             answer += a * b / l;
         }
         answer = Math.Round(answer, 2);
@@ -217,15 +203,14 @@ public class Program
     public double Task_1_12(double x)
     {
         double answer = 0;
-
+        double a = 1;
         // code here
         if (x != 0)
         {
             for (double i = 0; i <= 10; i++)
             {
-                double a = 1;
-                for (int k = 1; k <= i; k++) a *= x;
                 answer += 1 / a;
+                a *= x;
             }
             answer = Math.Round(answer, 2);
         }        
@@ -384,9 +369,8 @@ public class Program
             double a = 1;
             do
             {
-                a = 1;
-                for (int i = 1; i <= n * 2; i++) a *= x;
                 answer += a;
+                a *= x * x;
                 n++;
             } while (a >= 0.0001);
         }
@@ -564,20 +548,19 @@ public class Program
     {
         double S = 0, y = 0;
         double t = 1;
-        double i = 1;
+        double a1 = -1, a2 = x, a3 = 4;
+        int i = 1;
         // code here
         y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
-        while (Math.Abs(t)>0.0001)
+        while (Math.Abs(t) >= 0.0001)
         {
-            double a1 = 1; for (int l = 1; l <= i + 1; l++) a1 *= -1;
-            double a2 = 1; for (int l = 1; l <= 2 * i + 1; l++) a2 *= x;
-            double a3 = 4 * i * i - 1;
+            a1 *= -1;
+            a2 *= x * x;
+            a3 = 4 * i * i - 1;
             t = a1 * a2 / a3;
-            S += t;
+            if (Math.Abs(t) >= 0.0001) S += t;
             i++;
         }
-        S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
         // end
 
         return (S, y);
