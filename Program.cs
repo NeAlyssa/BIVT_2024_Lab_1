@@ -146,7 +146,7 @@ public class Program
         {
             answer = f(i);
         }
-        answer = Math.Round(f(x));
+        answer = Math.Round(f(x), 2);
         // end
 
         return answer;
