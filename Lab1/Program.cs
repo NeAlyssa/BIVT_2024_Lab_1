@@ -163,15 +163,12 @@ public class Program
     {
         int answer = 0;
         long sum = 0;
+        int factor = 1;
         // code here;
         for (int i = 1; i <= 6; i++)
         {
-            long fac = 1;
-            for (int k = 1; k <= i; k++)
-            {
-                fac *= k;
-            }
-            sum += fac;
+            factor *= i; 
+            sum += factor;
         }
         answer = (int)sum;
         
@@ -415,17 +412,17 @@ public class Program
         // code here
         const double e = 0.0001;
         double s = 0;
-        int i = 0;
+        double a = 1;
         if (Math.Abs(x) >= 1)
         {
             s = 0;
         }
         else
         {
-            while (Math.Pow(x, i) >= e)
+            while (a >= e)
             {
-                s = s + Math.Pow(x, i);
-                i += 2;
+                s = s + a;
+                a *= x * x;
             }
         }
         answer = Math.Round(s, 2);
