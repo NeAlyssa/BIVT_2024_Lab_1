@@ -399,17 +399,17 @@ public class Program
 
         // code here
         double s = 0;
-        double y = 0;
-        int i = 1;
-        do
+        double y = Math.Cos(x);
+        int i = 2;
+        while (Math.Abs(y) >= 0.0001)
         {
+            s += y;
             y = (Math.Cos(i * x) / (i * i));
             i++;
-            s += y;
         }
-        while (Math.Abs(y) >= 0.0001);
+        
             // end
-            answer = Math.Round(s,2);
+            answer = s;
         return answer;
     }
     public int Task_2_2()
@@ -634,7 +634,7 @@ public class Program
     }
     public (double, double) Task_3_7(double x)
     {
-        double S = 1, y = 0;
+        double S = 0, y = 0;
 
         // code here
         double u = 1;
@@ -643,16 +643,17 @@ public class Program
         double o = 1;
         while (Math.Abs(u) >= 0.0001) 
         {
+            S += u;
             d = (d * 2 * i * (2 * i - 1));
             u =(o*x*x) / d;
             o *= x * x;
             i++;
-            S += u;
+            
         }
         // end
         y = (Math.Pow(double.E, x) + Math.Pow(double.E, -x)) / 2;
         
-        return (Math.Round(S, 2), Math.Round(y,2));
+        return (S, y);
     }
     public (double, double) Task_3_8(double x)
     {
