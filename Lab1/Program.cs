@@ -42,7 +42,7 @@ public class Program
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        program.Task_3_4(0.1);
+        //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -91,15 +91,24 @@ public class Program
     public double Task_1_4(double x)
     {
         double answer = 0;
-
+        
         // code here
         if (x>0){
         for (int i = 1; i<= 9; i++){
-            answer += Math.Cos(x*i)/Math.Pow(x, i-1);
+
+            double result = 1;
+            double num = x;
+            for (int j = 1; j <= i-1; ++j)
+            {
+                result *= num;
+            }
+
+            answer += Math.Cos(x*i)/result;
         }
         }
         answer = Math.Round(answer, 2);
         // end
+
 
         return answer;
     }
@@ -168,7 +177,13 @@ public class Program
             for (int j = 2; j<=n; j++){
                 f *= j;
             }
-            answer += (p*Math.Pow(5, n))/f;
+            double result = 1;
+            double num = 5;
+            for (int j = 1; j <= n; ++j)
+            {
+                result *= num;
+            }
+            answer += (p*result)/f;
             f = 1;
         }
         answer = Math.Round(answer, 2);
@@ -211,7 +226,13 @@ public class Program
         // code here
         if (x > 0){
         for (int i = 0; i <=10; i++){
-            answer += 1/Math.Pow(x, i);
+        double result = 1;
+        double num = x;
+        for (int j = 1; j <= i; ++j)
+        {
+            result *= num;
+        }
+            answer += 1/result;
         }
         }
         answer = Math.Round(answer, 2);
@@ -274,15 +295,21 @@ public class Program
     {
         double answer = 0;
         int power = 0;
-
         // code here
         for (int i = 0; i<64; i++){
-            if (answer > Math.Pow(10, power+1)){
+            double result = 1;
+            double num = 10;
+            for (int j = 1; j <= power+1; ++j)
+            {
+                result *= num;
+            }
+
+            if (answer > result){
                 power++;
             }
             answer += Math.Pow(2, i);
         }
-        answer /= Math.Pow(10, power)*15;
+        answer /= Math.Pow(10, power)*15.0;
         answer = Math.Round(answer, 2);
         // end
 
@@ -372,12 +399,15 @@ public class Program
         double answer = 0;
 
         // code here
-        int i = 0;
+        int i = 1;
+        double n = 1;
         if (Math.Abs(x) < 1){
-        while (Math.Pow(x, i*2) >= 0.0001){
-            answer += Math.Pow(x, i*2);
-            i++;
-        }
+            while (n >= 0.0001){
+                n *= x*x;
+                answer += n;
+                i++;
+            }
+            answer++;
         }
         answer = Math.Round(answer, 2);
         // end
