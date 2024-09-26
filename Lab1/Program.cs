@@ -537,18 +537,14 @@ public class Program
             num1 *= -1;
             num2 *= x * x;
             z = num1 * num2 / (4 * i * i - 1);
-            S += z;
+            
             if (Math.Abs(z) < 0.0001)
             {
                 return (S, y);
             }
+            S += z;
         }    
-                
-           
-           
-           
-           
-            
+                       
         
         
         Console.WriteLine(Math.Round(S, 10)+"   "+ Math.Round(y, 2));
