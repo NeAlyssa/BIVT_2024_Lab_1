@@ -398,20 +398,18 @@ public class Program
 
         // code here
         double s = 0;
-        do
+        if (a + h <= p & h > 0)
         {
-            if (p > a + answer * h)
+            while (s <= p) 
             {
                 answer++;
                 s += a + answer * h;
             }
-            else
-            {
-                answer = 0;
-                break;
-            }
-        } while (s <= p);
-        Console.WriteLine(answer);
+        }
+        else
+        {
+            answer = 0;
+        }
         // end
 
         return answer;
@@ -637,9 +635,7 @@ public class Program
             n2 *= (2 * i - 1) * (2 * i);
             p = n1 / n2;
         }
-        y = (Math.Pow(2.718, x) + Math.Pow(2.718, -x)) / 2;
-        S = Math.Round(S);
-        y = Math.Round(y);
+        y = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2;
         Console.WriteLine(S);
         // end
         return (S, y);
