@@ -28,9 +28,9 @@ public class Program
         //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
-        //program.Task_2_1(0);
+        //program.Task_2_1(1.6);
         //program.Task_2_2();
-        //program.Task_2_3(8, 2, 0);
+        program.Task_2_3(0.2, -1.9, 12);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
@@ -315,9 +315,9 @@ public class Program
         {
             e = Math.Cos(x * i) / Math.Pow(i, 2);
             i++;
+            if (Math.Abs(e) >= 0.0001)
             answer += e;
-        } while (Math.Abs(e) > 0.0001);
-        answer = Math.Round(answer, 2);
+        } while (Math.Abs(e) >= 0.0001);
         // end
         return answer;
     }
@@ -346,7 +346,11 @@ public class Program
                 answer++;
                 i++;
             }
-
+            if (-s >= p)
+            {
+                answer = 0;
+                break;
+            }
         }
         // end
         return answer;
@@ -496,7 +500,6 @@ public class Program
 
         // code here
         y = Math.Pow(Math.E, Math.Cos(x)) * Math.Cos(Math.Sin(x));
-        y = Math.Round(y, 2);
         int i = 1;
         double summer = 0;
         S++;
@@ -508,10 +511,12 @@ public class Program
                 fact = fact * j;
             }
             summer = Math.Cos(i * x) / fact;
-            S += summer;
+            if (Math.Abs(summer) > 0.0001)
+            {
+                S += summer;
+            }
             i++;
         } while (Math.Abs(summer) > 0.0001);
-        S = Math.Round(S, 2);
         // end
         return (S, y);
     }
