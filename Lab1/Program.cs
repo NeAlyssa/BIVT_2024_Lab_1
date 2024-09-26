@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 public class Program
 {
@@ -99,11 +100,13 @@ public class Program
         double answer = 0;
 
         // code here
-        if (x > 0)
+        double xs = 1;
+        if (x != 0)
         {
             for (int i = 1; i <= 9; i++)
             {
-                answer += Math.Cos(i * x) / (Math.Pow(x, (i - 1)));
+                answer += Math.Cos(i * x) / xs;
+                xs *= x;
             }
         }
         else
@@ -202,19 +205,24 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
+
+        for (int i = 0; i < 6; i++)
         {
-            for (int i = 0; i < 6; i++)
-                Console.Write(i + 1 + " ");
+            Console.Write(i + 1 + " ");
         }
+        
         Console.WriteLine();
+
+        for (int j = 0; j < 6; j++)
         {
-            for (int j = 0; j < 6; j++)
-                Console.Write(5 + " ");
+            Console.Write(5 + " ");
         }
+        
         Console.WriteLine();
         // code here
 
     }
+
     public double Task_1_12(double x)
     {
         double answer = 0;
@@ -222,21 +230,17 @@ public class Program
         // code here
         if (x != 0)
         {
-            double s = 1.0;
-
+            answer += 1;
+            double xs = x;
             for (int i = 1; i <= 10; i++)
             {
-                double cashe_x = 1;
-                for (int j = 1; j <= i; j++)
-                {
-                    cashe_x *= x;
-                }
-                s += 1.0 / cashe_x;
-                answer = Math.Round(s, 2);
+                answer += 1 /xs;
+                xs *= x;
             }
         }
         else 
             answer = 0;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -299,6 +303,10 @@ public class Program
 
         return answer;
     }
+    /// <summary>
+    /// Задача про шахматы и рис
+    /// </summary>
+    /// <returns></returns>
     public (double, int) Task_1_16()
     {
         double answer = 0;
@@ -577,18 +585,17 @@ public class Program
     {
         double S = 0, y = 0;
         // code here
-        bool isTrue = true;
-        double powered = 1;
-        for (int i = 1; isTrue; i++)
+        double num1 = x;
+        int i = 1;
+        double num2 = Math.Sin(Math.PI * i / 4);
+        while (num1 >= 0.0001)
         {
-            for (int j = 0; j < i; j++)
-            {
-                powered *= x;
-            }
-            S += powered * Math.Sin(Math.PI * i / 4);
-            y = x * Math.Sin(Math.PI / 4) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x);
-            isTrue = powered > 0.0001;
+            S += num1 * num2;
+            num1 *= x;
+            i++;
+            num2 = Math.Sin(Math.PI * i / 4);
         }
+        y = x * Math.Sin(Math.PI / 4) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x);
         // end
 
         return (S, y);
