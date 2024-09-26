@@ -32,7 +32,7 @@ public class Program
         //program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
-        //program.Task_2_6();
+        program.Task_2_6();
         //program.Task_2_7a();
         //program.Task_2_7b();
         //program.Task_2_7c();
@@ -418,7 +418,13 @@ public class Program
         int answer = 0;
 
         // code here
-        
+        int ans = 10;
+        while (ans <= 100000)
+        {
+            ans *= 2;
+            answer += 3;
+        }
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -484,7 +490,26 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        double ans;
+        double ch0 = 1;
+        double zn0 = 1;
+        double ch1 = 2;
+        double zn1 = 1;
+        double ch;
+        double zn;
+        answer = 2;
+        while (Math.Abs((ch1 / zn1) - (ch0 / zn0)) > 0.001)
+        {
+            ch = ch0 + ch1;
+            ch0 = ch1;
+            ch1 = ch;
+            zn = zn0 + zn1;
+            zn0 = zn1;
+            zn1 = zn;
+            ans = ch1/zn1;
+            answer++;
+        }
+        Console.WriteLine(answer);
         // end
 
         return answer;
