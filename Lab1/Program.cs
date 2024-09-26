@@ -43,7 +43,7 @@ public class Program
         //program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
-        //program.Task_3_3(0.1);
+        program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
@@ -599,30 +599,30 @@ public class Program
         double E = 0.0001;
         double a = 0.1;
         double b = 1;
-       
 
-        for (double h = 0.1; x >= a && x <= b ; x += h) 
+        S = 1;
+        double i = 1;
+        double f = 1;
+        double s = 0;
+
+        while (true)
         {
-            S = 1;
-            double i = 1;
-            double f = 1;
-            double s = 0;
-            while (true)
-            {
-                s += Math.Cos(i * x) / f;
-                i++;
-                f *= i;
-                if (Math.Abs(Math.Cos(i * x) / f) < E)
-                    break;
-            }
-            S = S + s;
-            y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x)); // из-за новых тестов(от 24.09) значения не проходят по тесту, но если сравнивать вручную все в порядке
-
+            s += Math.Cos(i * x) / f;
+            i++;
+            f *= i;
+            if (Math.Abs(Math.Cos(i * x) / f) < E)
+                break;
         }
-        // end
-
+        S = Math.Round(S + s, 15);
+        y = Math.Round(Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x)), 15);
+        Console.WriteLine(S); Console.WriteLine(y);
+        
         return (S, y);
     }
+        // end
+     
+
+    
     public (double, double) Task_3_4(double x)
     {
         double S = 0, y = 0;
