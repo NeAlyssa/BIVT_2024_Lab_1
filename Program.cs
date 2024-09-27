@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -28,9 +28,9 @@ public class Program
         //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
-        //program.Task_2_1(0);
+        //program.Task_2_1(1.6);
         //program.Task_2_2();
-        //program.Task_2_3(8, 2, 0);
+        program.Task_2_3(0.2, -1.9, 12);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
         //program.Task_2_6();
@@ -94,11 +94,13 @@ public class Program
         double answer = 0;
 
         // code here
+        double a = 1;
         if (x != 0)
         {
             for (int i = 1; i <= 9; i++)
             {
-                answer = answer + Math.Cos(i * x) / Math.Pow(x, i - 1);
+                answer = answer + Math.Cos(i * x) / a;
+                a *= x;
             }
         }
         answer = Math.Round(answer, 2);
@@ -145,16 +147,12 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
-
+        int summer = 1;
         // code here;
         for (int i = 1; i <= 6; i++)
         {
-            int k = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                k = k * j;
-            }
-            answer = answer + k;
+            summer *= i;
+            answer += summer;
         }
         // end
         return answer;
@@ -164,14 +162,15 @@ public class Program
         double answer = 0;
 
         // code here;
+        double a = -1;
+        double b = 5;
+        double c = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int k = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                k = k * j;
-            }
-            answer = answer + Math.Pow(-1, i) * Math.Pow(5, i) / k;
+            c *= i;
+            answer += a * b / c;
+            a *= -1;
+            b *= 5;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -194,7 +193,29 @@ public class Program
     public void Task_1_11()
     {
         // There is no test for this task
-
+        for (int i = 1; i <= 6; i++)
+        {
+            Console.Write(i);
+            if (i != 6)
+            {
+                Console.Write(' ');
+            } else
+            {
+                Console.WriteLine();
+            }
+        }
+        for (int i = 1; i <= 6; i++)
+        {
+            Console.Write(5);
+            if (i != 6)
+            {
+                Console.Write(' ');
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+        }
         // code here
 
     }
@@ -203,11 +224,13 @@ public class Program
         double answer = 0;
 
         // code here
+        double a = 1;
         if (x != 0)
         {
             for (int i = 0; i <= 10; i++)
             {
-                answer += 1 / Math.Pow(x, i);
+                answer += 1 / a;
+                a *= x;
             }
         }
         answer = Math.Round(answer, 2);
@@ -237,7 +260,24 @@ public class Program
     public void Task_1_14()
     {
         // There is no test for this task
-
+        int a = 1;
+        int b = 1;
+        int c;
+        Console.Write(a);
+        Console.Write(' ');
+        Console.Write(b);
+        Console.Write(' ');
+        for(int i = 0; i < 6; i++)
+        {
+            c = a + b;
+            Console.Write(c);
+            if (i != 6)
+            {
+                Console.Write(" ");
+            }
+            a = b;
+            b = c;
+        }
         // code here
 
     }
@@ -315,9 +355,9 @@ public class Program
         {
             e = Math.Cos(x * i) / Math.Pow(i, 2);
             i++;
+            if (Math.Abs(e) >= 0.0001)
             answer += e;
-        } while (Math.Abs(e) > 0.0001);
-        answer = Math.Round(answer, 2);
+        } while (Math.Abs(e) >= 0.0001);
         // end
         return answer;
     }
@@ -346,7 +386,11 @@ public class Program
                 answer++;
                 i++;
             }
-
+            if ((a + h * i) < 0)
+            {
+                answer = 0;
+                break;
+            }
         }
         // end
         return answer;
@@ -496,22 +540,20 @@ public class Program
 
         // code here
         y = Math.Pow(Math.E, Math.Cos(x)) * Math.Cos(Math.Sin(x));
-        y = Math.Round(y, 2);
         int i = 1;
         double summer = 0;
         S++;
+        int fact = 1;
         do
         {
-            int fact = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                fact = fact * j;
-            }
+            fact *= i;
             summer = Math.Cos(i * x) / fact;
-            S += summer;
+            if (Math.Abs(summer) > 0.0001)
+            {
+                S += summer;
+            }
             i++;
         } while (Math.Abs(summer) > 0.0001);
-        S = Math.Round(S, 2);
         // end
         return (S, y);
     }
