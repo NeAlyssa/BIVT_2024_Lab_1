@@ -41,7 +41,7 @@ public class Program
         program.Task_2_8();
         //program.Task_2_9();
         program.Task_2_10();
-        //program.Task_3_1(0.1);
+        program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
@@ -97,22 +97,13 @@ public class Program
         double answer = 0;
 
         // code here
-        double my_pow(double x, double y)
-        {
-            double p = 1;
-            for (int i = 0; i < y; i++)
-            {
-                p *= x;
-            }
-
-            return p;
-        }
-
+        double powered_x = 1;
         if (x > 0)
         {
             for (double p = 1; p < 10; p++)
             {
-                answer += Math.Cos((x * p)) / (my_pow(x, p - 1));
+                answer += Math.Cos((x * p)) / powered_x;
+                powered_x *= x;
             }
         }
         answer = Math.Round(answer, 2);
@@ -170,13 +161,10 @@ public class Program
         int answer = 0;
 
         // code here;
+        int f = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int f = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                f *= j;
-            }
+            f *= i;
             answer += f;
         }
         // end
@@ -188,29 +176,15 @@ public class Program
         double answer = 0;
 
         // code here;
-        double my_pow(double x, double y)
-        {
-            double p = 1;
-            for (int i = 0; i < y; i++)
-            {
-                p *= x;
-            }
-
-            return p;
-        }
-
-        double fact(double x) {
-            int f = 1;
-            for (int i = 1; i <= x; i++)
-            {
-                f *= i;
-            }
-            return f;
-        }
-
+        int one = 1;
+        int five = 1;
+        double f = 1;
         for (double i = 1; i <= 6; i += 1)
         {
-            answer += my_pow(-1, i) * my_pow(5, i) / fact(i);
+            one *= -1;
+            five *= 5;
+            f *= i;
+            answer += one * five / f;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -252,22 +226,14 @@ public class Program
         double answer = 0;
 
         // code here
-        double my_pow(double x, double y)
-        {
-            double p = 1;
-            for (int i = 0; i < y; i++)
-            {
-                p *= x;
-            }
-
-            return p;
-        }
-
+        double powered = 1;
         if (x != 0)
         {
-            for (double i = 0; i <= 10; i++)
+            answer += 1;
+            for (double i = 1; i <= 10; i++)
             {
-                answer += 1 / (my_pow(x, i));
+                powered *= x;
+                answer += 1 / powered;
             }
             answer = Math.Round(answer, 2);
         }
@@ -433,26 +399,15 @@ public class Program
         double answer = 0;
 
         // code here
-        double my_pow(double x, double y)
-        {
-            double p = 1;
-            for (int i = 0; i < y; i++)
-            {
-                p *= x;
-            }
-
-            return p;
-        }
-
-        double power = 2;
+        double powered = 1;
         if (x == 1)
         {
             return 0;
         }
         answer += 1.0;
-        while (my_pow(x, power) >= 0.0001) {
-            answer += my_pow(x, power);
-            power += 2;
+        while (powered >= 0.0001) {
+            powered *= x * x;
+            answer += powered;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -568,47 +523,18 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-        double my_pow(double x, double y)
-        {
-            double p = 1;
-            for (int i = 0; i < y; i++)
-            {
-                p *= x;
-            }
-
-            return p;
-        }
-
-        double f(double x)
-        {
-            double p = 1;
-            for (int i = 1; i <= x; i++)
-            {
-                p *= i;
-            }
-            return p;
-        }
-
-        double el = 0;
-        double znak = -1, power = 0, fact = 0, e = 0.0001, powered = 1;
+        double znak = 1, powered = 1, f = 1, eps = 0.0001;
+        double el = znak * powered / f;
         int i = 0;
-        do
+        while (Math.Abs(el) >= eps)
         {
-            znak *= -1;
-            power = 2 * i;
-            if (fact == 0)
-            {
-                el = znak * 1 / 1;
-                S += el;
-            }
-            else
-            {
-                fact = f(2 * i);
-                el = znak * my_pow(x, power) / fact;
-                S += el;
-            }
+            S += el;
             i++;
-        } while (Math.Abs(el) >= e);
+            znak *= -1;
+            powered *= x * x;
+            f *= (2 * i - 1) * (2 * i);
+            el = znak * powered / f;
+        }
         S = Math.Round(S, 2);
         y = Math.Round(Math.Cos(x), 2);
         // end
