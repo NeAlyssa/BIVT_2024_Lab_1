@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Metrics;
@@ -139,13 +139,13 @@ public class Program
         int answer = 0;
         int slagaemoe = 1;
         for (int i = 1; i <= 6; i++)
-            {
-                answer += slagaemoe;
-                slagaemoe *= (i + 1);
-            }
+        { 
+            answer += slagaemoe;
+            slagaemoe *= (i + 1);
+        }
 
         return answer;
-    
+    }
     public double Task_1_9()
     {
         double answer = 0;
@@ -302,7 +302,7 @@ public class Program
             }
             answer += slagaemoe;  
         }
-        return Math.Round(answer, 2);
+        return answer;
     }
     public int Task_2_2()
     {
@@ -549,21 +549,21 @@ public class Program
     {
         double S = 0, y = 0;
         double one = 1;
-        for (int i = 0; ; i++)
+        double chislitel = x;
+        for (int i = 0;;i++)
         {
             double znamenatel = 2 * i + 1;
-            double chislitel = x;
             double slagaemoe = one * chislitel / znamenatel;
             if (Math.Abs(slagaemoe) < 0.0001)
-            {
+            { 
                 break;
             }
-            y = Math.Round(Math.Atan(x), 2);
             S += slagaemoe;
             one *= -1;
             chislitel *= x * x;
         }
-        return (Math.Round(S, 2), y);
+        y = Math.Atan(x);
+        return (S, y);
     }
     #endregion
 }
