@@ -12,7 +12,7 @@ public class Program
         //program.Task_1_1();
         //program.Task_1_2();
         //program.Task_1_3();
-        //program.Task_1_4(0.9);
+        //program.Task_1_4(0.5);
         //program.Task_1_5(0, 2);
         //program.Task_1_6(4);
         //program.Task_1_7();
@@ -32,7 +32,7 @@ public class Program
         //program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
         //program.Task_2_5(11, 5);
-        program.Task_2_6();
+        //program.Task_2_6();
         //program.Task_2_7a();
         //program.Task_2_7b();
         //program.Task_2_7c();
@@ -95,14 +95,20 @@ public class Program
         double answer = 0;
 
         // code here
-        double x1 = 1.0;
-        for (int i = 1; i < 10; i++)
+        if (x != 0)
         {
-            answer += Math.Cos(i * x) / x1;
-            x1 *= x;
+            double x1 = 1.0;
+            for (int i = 1; i < 10; i++)
+            {
+                answer += Math.Cos(i * x) / x1;
+                x1 *= x;
+            }
+            answer = Math.Round(answer, 2);
         }
-        answer = Math.Round(answer, 2);
+        else
+            answer = 0;
         // end
+        Console.WriteLine(answer);
 
         return answer;
     }
@@ -591,8 +597,26 @@ public class Program
     {
         double S = 0, y = 0;
 
-        // code here
+        double ans = 1;
+        int faq = 1;
+        int cnt = 1;
+        double p = 1;
 
+        // code here
+        S += 1;
+        while (Math.Abs(ans) > 0.0001)
+        {
+            faq *= cnt;
+            p *= (2 * x);
+            ans = p / faq;
+            S += ans;
+            cnt++;
+        }
+        y = Math.Round(Math.Exp(2*x), 2);
+        S = Math.Round(S, 2);
+
+        Console.WriteLine(S);
+        Console.WriteLine(y);
         // end
 
         return (S, y);
