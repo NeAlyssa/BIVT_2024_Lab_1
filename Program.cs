@@ -355,23 +355,16 @@ public class Program
 
     #region Level 2
     public double Task_2_1(double x)
-    {
+    {  
         double s = 0;
-
-        int n = 1;
-
-        double variable1 = 1;
-
-        while (Math.Abs(variable1) >= 0.0001)
+        for (int i = 1;; i++)
         {
-            s += Math.Cos(n * x) / (n * n);
-
-            variable1 = Math.Cos(n * x) / (n * n);
-
-            n += 1;
+            double variable = Math.Cos(i * x) / (i * i);
+            if (Math.Abs(variable) < 0.0001)
+                break;
+            s += variable;
         }
-
-        return Math.Round(s, 2);
+        return s;
     }
     public int Task_2_2()
     {
@@ -563,8 +556,7 @@ public class Program
             part = n1 * n2 / factorial;
         }
         y = Math.Cos(x);
-        S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
+
         Console.WriteLine("sum = {0}", S);
 
         Console.WriteLine("y = {0}", y);
