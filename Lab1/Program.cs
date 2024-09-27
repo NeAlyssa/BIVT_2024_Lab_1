@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Formats.Asn1;
@@ -104,7 +104,7 @@ public class Program
         for (double c = 1; c<10; c++ ) {
             answer += Math.Pow(p + c * h, 2);
         }
-        return Math.Round(answer);
+        return Math.Round(answer,2);
     }
     public double Task_1_6(double x)
     {
