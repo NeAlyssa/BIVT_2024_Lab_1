@@ -503,10 +503,11 @@ public class Program
         {
             if (i > 0)
                 top *= x * x;
-            if (i % 2 != 0)
-                top = -top;
             element = top / ((2 * i) + 1);
-            S += element;
+            if (i % 2 == 1)
+                element = -element;
+            if (Math.Abs(element) >= 0.0001)
+                S += element;
         }
 
         return (S, y);
