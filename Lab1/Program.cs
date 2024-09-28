@@ -103,11 +103,16 @@ public class Program
 
         // code here
         double s = 0;
-        if (x != 0) 
+        double currentPower = 1;
+        if (x != 0)
         {
             for (double i = 1; i <= 9; i++)
             {
-                s += Math.Cos(i * x) / Math.Pow(x, i - 1);
+                if (i > 1)
+                {
+                    currentPower *= x;
+                }
+                s += Math.Cos(i * x) / currentPower;
             }
         }
         else
@@ -167,14 +172,12 @@ public class Program
 
         // code here;
         int s = 0;
-        for (int j = 1; j <= 6; j++)
+        int factorial = 1;
+
+        for (int i = 1; i <= 6; i++)
         {
-            int chislo = 1;
-            for (int i = 1; i <= j; i++)
-            {
-                chislo *= i;
-            }
-            s += chislo;
+            factorial *= i; // Вычисляем факториал
+            s += factorial; // Добавляем его к сумме
         }
         answer = s;
         // end
@@ -187,16 +190,16 @@ public class Program
 
         // code here;
         double s = 0;
+        double factorial = 1;
+        double powerOfFive = 1;
         for (int j = 1; j <= 6; j++)
         {
-            int chislo = 1;
-            for (int i = 1; i <= j; i++)
-            {
-                chislo *= i;
-            }
-            s += Math.Pow(-1, j) * Math.Pow(5, j) / chislo;
+            factorial *= j;
+            powerOfFive *= 5;
+            s += (j % 2 == 0 ? 1 : -1) * (powerOfFive / factorial);
         }
         answer = Math.Round(s, 2);
+
         // end
 
         return answer;
@@ -236,18 +239,14 @@ public class Program
         double answer = 0;
 
         // code here
-        double s = 0;
-        if (x!=0)
+        double s = 1;
+        double term = 1;
+        for (int i = 1; i <= 10; i++)
         {
-            for (double i = 0; i <= 10; i++)
-            {
-                s += 1 / Math.Pow(x, i);
-            }
+            term /= (x != 0 ? x : 1);
+            s += term;
         }
-        else
-        {
-            s = 0;
-        }
+        s *= (x != 0 ? 1 : 0);
         answer = Math.Round(s, 2);
         // end
 
@@ -321,13 +320,20 @@ public class Program
 
         // code here
         double summa = 0;
-        for (int i = 0; i<=63; i++)
+        double currentPowerOfTwo = 1;
+        for (int i = 0; i <= 63; i++)
         {
-            summa += Math.Pow(2, i);
+            summa += currentPowerOfTwo;
+            currentPowerOfTwo *= 2;
         }
         summa = summa / 15;
         power = (int)Math.Floor(Math.Log10(summa));
-        answer = Math.Round((summa / Math.Pow(10, power)), 2);
+        double powerOfTen = 1;
+        for (int i = 0; i < power; i++)
+        {
+            powerOfTen *= 10;
+        }
+        answer = Math.Round((summa / powerOfTen), 2);
         // end
 
         return (answer, power);
@@ -447,8 +453,8 @@ public class Program
         double answer = 0;
 
         // code here
-        double s = 1;
-        int n = 1;
+        double s = 0;
+        double term = 1;
         const double eps = 0.0001;
         if (Math.Abs(x) >= 1)
         {
@@ -456,13 +462,14 @@ public class Program
         }
         else
         {
-            while (Math.Pow(x, 2*n) >= eps)
+            for (int n = 0; Math.Abs(term) >= eps; n++)
             {
-                s += Math.Pow(x, 2*n);
-                n++;
+                s += term;
+                term *= x * x;
             }
         }
         answer = Math.Round(s, 2);
+
         // end
 
         return answer;
@@ -514,14 +521,14 @@ public class Program
         // code here
         int nachalo = 10;
         int kolvo = 10;
-        int i = 0;
-        while (kolvo < 100_000)
+        int i;
+        int step = 1;
+        for (i = 0; kolvo < 100_000; i++)
         {
-            kolvo = (int) (nachalo * Math.Pow(2, i));
-            i++;
+            kolvo = nachalo * step;
+            step *= 2;
         }
-        answer = (i-1)*3;
-        
+        answer = (i - 1) * 3;
         // end
 
         return answer;
@@ -726,15 +733,18 @@ public class Program
         // code here
         S = -1;
         double a_n = 1;
+        double factorial = 1;
+        double xPower = 1;
+
         for (int n = 0; Math.Abs(a_n) >= 0.0001; n++)
         {
-            double factorial = 1;
-            for (int i = 1; i <= n; i++)
+            if (n > 0)
             {
-                factorial *= i;
+                factorial *= n;
+                xPower *= x * x;
             }
             S += a_n;
-            a_n = (2 * n + 1) * Math.Pow(x, 2 * n) / factorial;
+            a_n = (2 * n + 1) * xPower / factorial;
         }
         y = (1 + 2 * x * x) * Math.Pow(Math.E, x * x);
         // end
