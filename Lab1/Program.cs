@@ -512,7 +512,15 @@ public class Program
         int answer = 0;
 
         // code here;
-
+        double t = 1;
+        for (int i = 1; i <= 10; i++) t /= 10;
+        double l = 0.1;
+        int ans = 0;
+        while (l > t)
+        {
+            l /= 2;
+            answer++;
+        }
         // end
 
         return answer;
@@ -576,12 +584,12 @@ public class Program
 
         // code here
 
-        double i = 1;
+        double i = -1;
 
-        while (Math.Abs(Math.Pow(-1, i) * Math.Cos(i * x) / (i * i)) >= 0.0001)
+        while (Math.Abs(i * Math.Cos(i * x) / (i * i)) >= 0.0001)
         {
-            S += Math.Pow(-1, i) * Math.Cos(i * x) / (i * i);
-            i++;
+            S += i * Math.Cos(i * x) / (i * i);
+            i *= (-1);
         }
         y = (x * x - Math.PI * Math.PI / 3)/4;
         // end
