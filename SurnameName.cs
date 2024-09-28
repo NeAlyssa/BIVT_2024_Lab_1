@@ -55,7 +55,9 @@ public class Program
         int answer = 0;
 
         // code here
-        Console.WriteLine("GOAAAAAAAAAAAAL");
+        Console.WriteLine("Hello world");
+        Console.WriteLine(answer);
+        answer = 222;
         // end
 
         return answer;
