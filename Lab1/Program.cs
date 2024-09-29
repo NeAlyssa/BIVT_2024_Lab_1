@@ -177,10 +177,14 @@ public class Program
 
         // code here;
         int factorial = 1;
+        int five = 5;
+        double minus = -1;
         for (int i = 1; i <= 6; i++)
         {
             factorial *= i;
-            answer += (((-1)^i) * 5^i) / factorial;
+            answer += minus * five / factorial;
+            five *= 5;
+            minus *= -1;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -282,15 +286,15 @@ public class Program
         double answer = 0;
 
         // code here
-               int numerator1 = 1;
-        int denominator1 = 1;
-        int numerator2 = 2;
-        int denominator2 = 1;
+        double numerator1 = 1;
+        double denominator1 = 1;
+        double numerator2 = 2;
+        double denominator2 = 1;
 
         for (int i = 0; i < 3; i++)
         {
-            int numeratorNext = numerator1 + numerator2;
-            int denominatorNext = denominator1 + denominator2;
+            double numeratorNext = numerator1 + numerator2;
+            double denominatorNext = denominator1 + denominator2;
 
             answer = numeratorNext / denominatorNext;
 
@@ -312,21 +316,21 @@ public class Program
         double answer = 0;
         int power = 0;
 
-        // code here
-        long multiplier = 1;
+        //code here
+        double multiplier = 1;
         for (int i = 0; i < 64; i++)
         {
             answer += multiplier;
             multiplier *= 2;
         }
-        answer = answer / 15;
-        power = (int)Math.Floor(Math.Log10(Math.Abs(answer)));
-        long divisor = 1;
+        answer /= 15;
+        power = (int)Math.Floor(Math.Log10(answer));
+        double divisor = 1;
         for (int i = 0; i < power; i++)
         {
             divisor *= 10;
         }
-        answer = Math.Round(Math.Abs(answer) / divisor, 2);
+        answer = Math.Round(answer / divisor, 2);
         // end
 
         return (answer, power);
