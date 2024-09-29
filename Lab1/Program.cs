@@ -380,15 +380,14 @@ public class Program
 
         // code here
         {
-            double part;
+            double part=1;
             int n = 1;
-            do
+            while (Math.Abs(part) >= 0.0001)
             {
                 part = Math.Cos(n * x) / (n * n);
                 n++;
                 answer += part;
             }
-            while (Math.Abs(part) >= 0.0001);
         }
 
         // end
