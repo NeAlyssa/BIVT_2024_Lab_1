@@ -46,7 +46,7 @@ public class Program
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
-        //program.Task_3_8(0.1);
+        program.Task_3_8(0.1);
         //program.Task_3_9(0.1);
     }
     #region Level 1
@@ -153,14 +153,11 @@ public class Program
         int answer = 0;
 
         // code here;
+        int faq = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int ans = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                ans *= j;
-            }
-            answer += ans;
+            faq *= i;
+            answer += faq;
         }
         Console.WriteLine(answer);
         // end
@@ -596,24 +593,24 @@ public class Program
     public (double, double) Task_3_8(double x)
     {
         double S = 0, y = 0;
-
         double ans = 1;
         int faq = 1;
         int cnt = 1;
         double p = 1;
+        S += ans;
 
         // code here
-        S += 1;
-        while (Math.Abs(ans) > 0.0001)
+        while (1 == 1)
         {
             faq *= cnt;
             p *= (2 * x);
             ans = p / faq;
+            if (Math.Abs(ans) < 0.0001)
+                break;
             S += ans;
             cnt++;
         }
-        y = Math.Round(Math.Exp(2*x), 2);
-        S = Math.Round(S, 2);
+        y = Math.Exp(2 * x);
 
         Console.WriteLine(S);
         Console.WriteLine(y);
