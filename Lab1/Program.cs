@@ -42,7 +42,7 @@ public class Program
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        program.Task_3_4(0.3);
+        //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -527,20 +527,14 @@ public class Program
 
         double N = (2*i+1)*X/f;
         while (Math.Abs(N) >= 0.0001){
-            //is calculated for i:
             S += N;
 
-            //calculating for i+1:
             i++;
             X *= x*x;
             f *= i;
-
             N = (2*i+1)*X/f;
-            Console.WriteLine($"for i={i} :  f={f}   x2i = {X} and N = {N} while S = {S}");
-            //check for >0.0001
         }
-        S = Math.Round(S, 2);
-        y = Math.Round((1+2*x*x)*Math.Exp(x*x), 2);
+        y = (1+2*x*x)*Math.Exp(x*x);
         // end
 
         return (S, y);
