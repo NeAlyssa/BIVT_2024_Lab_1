@@ -24,7 +24,7 @@ public class Program
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
-        program.Task_1_16();
+        //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
         //program.Task_2_1(0);
@@ -39,7 +39,7 @@ public class Program
         //program.Task_2_8();
         //program.Task_2_9();
         //program.Task_2_10();
-        //program.Task_3_1(1);
+        program.Task_3_1(1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
@@ -95,14 +95,11 @@ public class Program
         double answer = 0;
         // code here
         if (x == 0) return 0;
+        double powX = 1;
         for (int i = 1; i <= 9; i++)
         {
-            double powX = 1;
-            for (int j = 1; j < i; j++)
-            {
-                powX *= x;
-            }
             answer += Math.Cos(i*x) / powX;
+            powX *= x;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -150,14 +147,11 @@ public class Program
         int answer = 1;
 
         // code here;
+        int currentFactorial = 1;
         for (int i = 2; i <= 6; i++)
         {
-            int currentResult = 1;
-            for (int j = 2; j <= i; j++)
-            {
-                currentResult *= j;
-            }
-            answer += currentResult;
+            currentFactorial *= i;
+            answer += currentFactorial;
         }
         // end
 
@@ -215,14 +209,11 @@ public class Program
 
         // code here
         if (x == 0) return 0;
+        double powX = 1;
         for (int i = 0; i <= 10; i++)
         {
-            double powX = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                powX *= x;
-            }
             answer += 1.0 / powX;
+            powX *= x;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -511,19 +502,16 @@ public class Program
     #region Level 3
     public (double, double) Task_3_1(double x)
     {
-        double S = 0, y = 0;
+        double S = 1, y = 0;
         // code here
-        for (int i = 0; ; i++)
+        double chisl = 1;
+        double znam = 1;
+        for (int i = 1; ; i++)
         {
-            double chisl = 1;
-            double znam = 1;
             int k = 1;
             if (i % 2 == 1) k = -1;
-            for (int j = 1; j <= 2*i; j++)
-            {
-                chisl *= x;
-                znam *= j;
-            }
+            chisl *= x * x;
+            znam *= (2 * i - 1) * (2 * i);
             double res = k * chisl / znam;
             if (Math.Abs(res) < 0.0001) break;
             S += res;
