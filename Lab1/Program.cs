@@ -358,17 +358,15 @@ public class Program
         double answer = 0;
 
         // code here
+        double slag = Math.Cos(x);
         int i = 1;
-        double ch = 1;
         do
         {
-            ch = (Math.Cos(i * x)) / (i * i);
-                answer += ch;
-
-            i++;
-
-        } while (Math.Abs(ch) >= 0.0001);
-        answer = Math.Round(answer, 2);
+            answer += slag;
+            i += 1;
+            slag = (Math.Cos(i * x)) / (i * i);
+        }
+        while (Math.Abs(slag) >= 0.0001);
 
         // end
 
@@ -591,15 +589,15 @@ public class Program
             {
                 if (i % 2 == 0) ch = Math.Cos(i * x) / (i * i);
                 else ch = -1 * Math.Cos(i * x) / (i * i);
-                if (Math.Abs(ch) <= 0.0001) break;
+                if (Math.Abs(ch) < 0.0001) break;
                 S = S + ch;
                 i++;
                 
             } 
             y = (x * x - Math.PI* Math.PI / 3) / 4;
        
-        y = Math.Round(y, 2);
-        S = Math.Round(S, 2);
+        //y = Math.Round(y, 2);
+        //S = Math.Round(S, 2);
         // end
 
         return (S, y);
