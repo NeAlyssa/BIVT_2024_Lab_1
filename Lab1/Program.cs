@@ -42,7 +42,7 @@ public class Program
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
-        //program.Task_3_4(0.1);
+        program.Task_3_4(0.3);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
@@ -93,17 +93,11 @@ public class Program
         double answer = 0;
         
         // code here
+        double n = 1;
         if (x>0){
         for (int i = 1; i<= 9; i++){
-
-            double result = 1;
-            double num = x;
-            for (int j = 1; j <= i-1; ++j)
-            {
-                result *= num;
-            }
-
-            answer += Math.Cos(x*i)/result;
+            answer += Math.Cos(x*i)/n;
+            n *= x;
         }
         }
         answer = Math.Round(answer, 2);
@@ -156,11 +150,8 @@ public class Program
         // code here;
         int f = 1;
         for (int i=1; i<=6; i++){
-            for (int j = 2; j<=i; j++){
-                f *= j;
-            }
             answer += f;
-            f = 1;
+            f *= i+1;
         }
         // end
 
@@ -171,20 +162,14 @@ public class Program
         double answer = 0;
 
         // code here;
-        int p = 1, f = 1;
-        for (int n=1; n<=6; n++){
-            p = -p;
-            for (int j = 2; j<=n; j++){
-                f *= j;
-            }
-            double result = 1;
-            double num = 5;
-            for (int j = 1; j <= n; ++j)
-            {
-                result *= num;
-            }
-            answer += (p*result)/f;
-            f = 1;
+        double f = 1;
+        double p = 5;
+        int n = -1;
+        for (int i=1; i<=6; i++){
+            answer += p/f*n;
+            n = -n;
+            p *= 5;
+            f *= i+1;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -224,15 +209,11 @@ public class Program
         double answer = 0;
 
         // code here
+        double n = 1;
         if (x > 0){
         for (int i = 0; i <=10; i++){
-        double result = 1;
-        double num = x;
-        for (int j = 1; j <= i; ++j)
-        {
-            result *= num;
-        }
-            answer += 1/result;
+            answer += 1/n;
+            n *= x;
         }
         }
         answer = Math.Round(answer, 2);
@@ -296,20 +277,17 @@ public class Program
         double answer = 0;
         int power = 0;
         // code here
+        double ten = 1;
+        double n = 1;
         for (int i = 0; i<64; i++){
-            double result = 1;
-            double num = 10;
-            for (int j = 1; j <= power+1; ++j)
-            {
-                result *= num;
-            }
-
-            if (answer > result){
+            if (answer > ten*10){
+                ten *= 10;
                 power++;
             }
-            answer += Math.Pow(2, i);
+            answer += n;
+            n *= 2;
         }
-        answer /= Math.Pow(10, power)*15.0;
+        answer /= 15*ten;
         answer = Math.Round(answer, 2);
         // end
 
@@ -335,9 +313,7 @@ public class Program
         // code here
         answer = 10;
         for (int i = 3; i <= x; i+=3){
-            if (i%3==0){
                 answer *= 2;
-            }
         }
         // end
 
@@ -351,12 +327,7 @@ public class Program
         double answer = 0;
 
         // code here
-        int n = 1;
-        while (Math.Abs(Math.Cos(n*x)/(n*n)) >= 0.0001){
-            answer += Math.Cos(n*x)/(n*n);
-            n++;
-        }
-        answer = Math.Round(answer, 2);
+        
         // end
 
         return answer;
@@ -366,19 +337,18 @@ public class Program
         int answer = 0;
 
         // code here
-        int p = 0;
+        int p = 1;
+        int n = 4;
         answer = 1;
         while (p <= 30_000){
-            p = 1;
-            for(int i=4; i<=answer; i+=3){
-                p *= i;
-            }
             if (p*(answer+3) < 30_000){
                 answer += 3;
             }
             else{
                 break;
             }
+            p *= n;
+            n += 3;
         }
         // end
 
@@ -553,17 +523,24 @@ public class Program
         // code here
         int i = 0;
         int f = 1;
-        while (Math.Abs((2*i + 1)*Math.Pow(x, 2*i)/f) >= 0.0001 && x <= 1){
-            f = 1;
-            for (int j = 2; j <= i; j++){
-                f *= j;
-            }
-            S += (2*i + 1)*Math.Pow(x, 2*i)/f;
-            y = (1+2*x*x)*Math.Exp(x*x);
+        double X = 1;
+
+        double N = (2*i+1)*X/f;
+        while (Math.Abs(N) >= 0.0001){
+            //is calculated for i:
+            S += N;
+
+            //calculating for i+1:
             i++;
+            X *= x*x;
+            f *= i;
+
+            N = (2*i+1)*X/f;
+            Console.WriteLine($"for i={i} :  f={f}   x2i = {X} and N = {N} while S = {S}");
+            //check for >0.0001
         }
         S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
+        y = Math.Round((1+2*x*x)*Math.Exp(x*x), 2);
         // end
 
         return (S, y);
