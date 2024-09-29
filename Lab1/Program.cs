@@ -603,30 +603,23 @@ public class Program
 
         // code here
         double st = x * x, factorial = 1, n = 1;
+        int i = 1;
         S = 1;
-        for (double i = 1; Math.Abs(n) > 0.0001; i++)
+        while (Math.Abs(n) >=0.0001)
         {
             factorial *= i;
             n = (2 * i + 1) * st / factorial;
+            if (Math.Abs(n) < 0.0001)
+            {
+                break;
+            }
             S += n;
             st *= x * x;
-        }
-        double ex2 = 1;  
-        double term = 1;  
-        double power = x*x;  
-
-        for (int i = 1; Math.Abs(term) > 0.0001; i++)
-        {
-            term *= power / i;  
-            ex2 += term;     
+            i++;
         }
 
-        y = (1 + 2 * x * x) * ex2;
-        S = Math.Round(S, 2);
-        y = Math.Round(y, 2);
-
-
-        
+        double e = Math.Pow(Math.E,x*x);
+        y = (1 + 2 * x * x) * e;
         // end
 
         return (S, y);
