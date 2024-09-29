@@ -362,7 +362,7 @@ public class Program
             answer += Math.Cos(i * x) / (i * i);
             i++;
         }
-        answer = Math.Round((double)answer, 2); 
+        
         // end
 
         return answer;
