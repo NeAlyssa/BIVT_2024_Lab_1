@@ -43,7 +43,7 @@ public class Program
         //program.Task_2_8();
         //program.Task_2_9();
         //program.Task_2_10();
-        program.Task_3_1(0.1);
+        //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
@@ -103,15 +103,12 @@ public class Program
         double answer = 0;
 
         // code here
+        double den = 1;
         if (x == 0) return answer;
         else for (int i = 1; i <= 9; i ++)
             {
-                double den = 1;
-                for (int k = 1; k <= i-1; k++)
-                {
-                    den *= x;
-                }
                 answer += Math.Cos(x * i) / den;
+                den *= x;
             }
   
         answer = Math.Round(answer, 2);
@@ -167,13 +164,10 @@ public class Program
         int answer = 0;
 
         // code here;
+        int f = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int f = 1;
-            for(int j = 1; j <= i; j++)
-            {
-                f *= j;
-            }
+            f *= i;
             answer += f;
         }
         // end
@@ -185,13 +179,10 @@ public class Program
         double answer = 0;
 
         // code here;
+        int f = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int f = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                f *= j;
-            }
+            f *= i;
 
             double n_1 = 1;
             double n_5 = 1;
@@ -245,17 +236,13 @@ public class Program
         double answer = 0;
 
         // code here
+        double den = 1;
         if (x == 0) return answer;
         else for (double i = 0; i <= 10; i += 1)
         {
-            double den = 1;
-            for (int k = 1; k <= i; k++)
-                {
-                    den *= x;
-                }
-
             answer += 1 / den;
-        }
+            den *= x;
+            }
         answer = Math.Round(answer, 2);
         // end
 
@@ -544,9 +531,12 @@ public class Program
         {
             power_x *= x * x;
             n = k * power_x / factorial;
-            S += n;
+            if (Math.Abs(n) >= 0.0001)
+            {
+                S += n;
+            }
             i++;
-            factorial *= (2 * i) * (2*i - 1);
+            factorial *= (2 * i) * (2 * i - 1);
             k = -k;
         }
         y = Math.Cos(x);
