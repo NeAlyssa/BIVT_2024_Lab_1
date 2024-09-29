@@ -152,13 +152,10 @@ public class Program
         int answer = 0;
 
         // code here;
+        int factorial_count = 1;
         for (int i=1; i<=6; i++)
         {
-            int factorial_count = 1;
-            for (int j=1; j<=i; j++)
-            {
-                factorial_count *= j;
-            }
+            factorial_count *= i;
             answer += factorial_count;
         }
         // end
@@ -524,29 +521,26 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-        for (double a=0.1; a<1; a+=0.1)
+        for (double a = 0.1; a < 1; a += 0.1)
         {
-            
-            y = (1 + 2*x*x)*Math.Pow(Math.E, Math.Pow(x, 2));
+            y = (1 + 2 * x * x) * Math.Exp(x * x);
             S = 1;
             double i = 1;
-            double num = 3*x*x;
+            double num = 3 * x * x;
             double den = 1;
-            double part = num/den;
+            double part = num / den;
+            double x2i = x * x;
+
             while (Math.Abs(part) >= 0.0001)
             {
                 S += part;
                 i++;
-                num = (2*i+1)*Math.Pow(x, 2*i);
-                den = 1;
-                for (int j=2; j<=i; j++)
-                {
-                    den *= j;
-                }
-                part = num/den;
+                x2i *= x*x;
+                num = (2 * i + 1) * x2i;
+                den *= i;
+
+                part = num / den;
             }
-
-
         }
         // end
         return (S, y);
