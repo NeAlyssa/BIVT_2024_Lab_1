@@ -163,16 +163,13 @@ public class Program
     public int Task_1_8()
     {
         int answer = 0;
+        int factorial = 1;
 
         // code here;
         for (int i = 1; i <= 6; i++)
         {
-            int dopoln = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                dopoln *= j;
-            }
-            answer += dopoln;
+            factorial *= i;
+            answer += factorial;
         }
         Console.WriteLine(answer);
         // end
@@ -186,15 +183,12 @@ public class Program
         // code here;
         double minus_one = 1;
         double five = 1;
+        double factorial = 1;
         for (double i = 1; i <= 6; i++)
         {
+            factorial *= i;
             minus_one *= -1;
             five *= 5;
-            double factorial = 1;
-            for (double j = 1; j <= i; j++)
-            {
-                factorial *= j;
-            }
             answer += minus_one * five / factorial;
         }
         answer = Math.Round(answer, 2);
