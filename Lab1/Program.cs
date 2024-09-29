@@ -14,13 +14,13 @@ public class Program
         //program.Task_1_1();
         //program.Task_1_2();
         //program.Task_1_3();
-        //Console.WriteLine(program.Task_1_4(0));
+        //Console.WriteLine(program.Task_1_4(0.5));
         //Console.WriteLine(program.Task_1_5(0.5, 2));
         //program.Task_1_6(-4);
         //Console.WriteLine(program.Task_1_7());
         //program.Task_1_7();
         //program.Task_1_8();
-        //program.Task_1_9();
+        program.Task_1_9();
         //program.Task_1_10();
         //program.Task_1_11();
         //program.Task_1_12(0.9);
@@ -48,11 +48,6 @@ public class Program
         //program.Task_2_10();
         //program.Task_3_1(0.1);
         //program.Task_3_2(0.1);
-        for (double i = 0.1; i <= 1; i += 0.1)
-        {
-            program.Task_3_3(i);
-        }
-        
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
@@ -102,10 +97,12 @@ public class Program
         {
             return 0;
         }
-
+        double rec = 1/x;
         for (int i = 1; i <= 9; i += 1)
         {
-            answer += (Math.Cos(x * i)) / Math.Pow(x, i - 1);
+            rec *= x;
+            answer += (Math.Cos(x * i)) / (rec);
+            
         }
 
         return Math.Round(answer, 2);
@@ -158,25 +155,24 @@ public class Program
 
         return answer;
     }
-    public double Task_1_9()
+    public double Task_1_9()    
     {
         double answer = 0;
-
-        int factorial(int n)
-        {
-            int res = 1;
-            for (int i = 1; i <= n; i++)
-            {
-                res *= i;
-            }
-            return res;
-        }
+        double one = -1;
+        double n = 5;
+        double fact = 1;
 
         for (int i = 1; i <= 6; i++)
         {
-            answer += Math.Pow(-1, i) * Math.Pow(5, i) / factorial(i);
+            answer += one * n / fact;
+            one *= -1;
+            n *= 5;
+            fact *= (i+1);
+            //Console.WriteLine(n);
+            //Console.WriteLine(fact);
         }
 
+        Console.WriteLine(Math.Round(answer, 2));
         return Math.Round(answer, 2);
     }
     public int Task_1_10()
@@ -210,13 +206,15 @@ public class Program
     public double Task_1_12(double x)
     {
         double answer = 0;
+        double rec = 1/x;
         if (x == 0)
         {
             return 0;
         }
         for (int i = 0; i <= 10; i++)
         {
-            answer += 1 / Math.Pow(x, i);
+            rec *= x;
+            answer += 1 / rec;
         }
 
         return Math.Round(answer, 2);
