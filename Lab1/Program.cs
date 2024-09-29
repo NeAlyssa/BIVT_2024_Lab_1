@@ -161,16 +161,26 @@ public class Program
         int answer = 0;
 
         // code here;
-        int another_answer = 1;
-        for (int i = 1; i <= 6; i++)
+        int factorial = 1, i = 2, j =0 ;
+        while (j < 6)
         {
-            for (int j = 2; j <= i; j++)
-            {
-                another_answer *= j;
-            }
-            answer += another_answer;
-            another_answer = 1;
+            answer += factorial;
+            factorial *= i;
+            i++;
+            j++;
         }
+
+
+        //int another_answer = 1;
+        //for (int i = 1; i <= 6; i++)
+        //{
+        //    for (int j = 2; j <= i; j++)
+        //    {
+        //        another_answer *= j;
+        //    }
+        //    answer += another_answer;
+        //    another_answer = 1;
+        //}
         Console.WriteLine(answer);
         // end
 
@@ -182,19 +192,33 @@ public class Program
         double answer = 0;
 
         // code here;
-        double number_five = 1;
-        int factorial = 1, p = 1;
-        for (int i = 1; i <= 6; i++)
+        int i = 1;
+        double  minus_one = -1, up_num=5, down_num =1;
+        double part = minus_one * up_num / down_num;
+        while (i <= 6)
         {
-            p = -p;
-            for (int j = 2; j <= i; j++)
-            {
-                factorial *= j;
-            }
-            number_five *= 5;
-            answer += (p*number_five) / factorial;
-            factorial = 1;
+            answer += part;
+            i++;
+            minus_one *= -1;
+            up_num *= 5;
+            down_num *= (i);
+            part = minus_one * up_num / down_num;
         }
+
+
+        //double number_five = 1;
+        //int factorial = 1, p = 1;
+        //for (int i = 1; i <= 6; i++)
+        //{
+        //    p = -p;
+        //    for (int j = 2; j <= i; j++)
+        //    {
+        //        factorial *= j;
+        //    }
+        //    number_five *= 5;
+        //    answer += (p*number_five) / factorial;
+        //    factorial = 1;
+        //}
         answer = Math.Round(answer, 2);
         // end
 
