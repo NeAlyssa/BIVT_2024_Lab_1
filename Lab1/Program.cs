@@ -553,7 +553,7 @@ public class Program
         double chl = (ch1*ch2)/zn;
         S += chl;
         int i = 0;
-        while (Math.Abs(chl) > 0.0001)
+        while (Math.Abs(chl) >= 0.0001)
         {
             Console.WriteLine($"{i}:{ch1*ch2}/{zn} = {chl}");
             i++;
@@ -561,7 +561,7 @@ public class Program
             ch2 *= (x * x);
             zn *= i;
             chl = ch1*ch2 / zn;
-            if (Math.Abs(chl) > 0.0001) S += chl;
+            if (Math.Abs(chl) >= 0.0001) S += chl;
             y = (1 + 2 * x * x) * Math.Exp(x*x);
 
         }
