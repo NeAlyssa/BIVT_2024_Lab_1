@@ -43,7 +43,7 @@ public class Program
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
-        //program.Task_3_5(double.Pi/5);
+        program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
@@ -55,7 +55,7 @@ public class Program
         int answer = 0;
 
         // code here
-        for(int i = 2; i <= 35; i += 3)
+        for (int i = 2; i <= 35; i += 3)
         {
             answer += i;
         }
@@ -70,7 +70,7 @@ public class Program
         // code here
         for (int i = 1; i <= 10; i++)
         {
-            answer += 1.0/i;
+            answer += 1.0 / i;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -98,7 +98,7 @@ public class Program
         double powX = 1;
         for (int i = 1; i <= 9; i++)
         {
-            answer += Math.Cos(i*x) / powX;
+            answer += Math.Cos(i * x) / powX;
             powX *= x;
         }
         answer = Math.Round(answer, 2);
@@ -162,17 +162,15 @@ public class Program
         double answer = 0;
 
         // code here;
+        int pow1 = 1;
+        int pow5 = 1;
+        double factorialI = 1;
         for (int i = 1; i <= 6; i++)
         {
-            int pow1 = 1;
-            float pow5 = 1;
-            int factorialI = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                pow1 *= -1;
-                pow5 *= 5;
-                factorialI *= j;
-            }
+            pow1 *= -1;
+            pow5 *= 5;
+            factorialI *= i;
+        
             answer += pow1 * pow5 / factorialI;
         }
         answer = Math.Round(answer, 2);
@@ -302,7 +300,7 @@ public class Program
 
         // code here
         int r = 6350;
-        answer = Math.Round(Math.Sqrt((r + x) * (r + x) - r*r), 2);
+        answer = Math.Round(Math.Sqrt((r + x) * (r + x) - r * r), 2);
         // end
 
         return answer;
@@ -312,7 +310,7 @@ public class Program
         int answer = 10;
 
         // code here
-        for (int i = 1; i <= x/3; i++)
+        for (int i = 1; i <= x / 3; i++)
         {
             answer *= 2;
         }
