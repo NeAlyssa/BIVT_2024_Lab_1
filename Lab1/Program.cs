@@ -28,7 +28,7 @@ public class Program
         //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
-        //program.Task_2_1(0);
+        program.Task_2_1(0);
         //program.Task_2_2();
         //program.Task_2_3(8, 2, 0);
         //program.Task_2_4(0.8);
@@ -382,11 +382,12 @@ public class Program
         {
             double part=1;
             int n = 1;
-            while (Math.Abs(part) >= 0.0001)
+            while (Math.Abs(Math.Cos(n * x) / (n * n)) >= 0.0001)
             {
                 part = Math.Cos(n * x) / (n * n);
                 n++;
                 answer += part;
+                Console.WriteLine(part);
             }
         }
 
