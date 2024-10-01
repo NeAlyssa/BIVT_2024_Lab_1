@@ -180,17 +180,13 @@ public class Program
 
         // code here;
         int f = 1;
+        double n_1 = 1;
+            double n_5 = 1;
         for (int i = 1; i <= 6; i++)
         {
             f *= i;
-
-            double n_1 = 1;
-            double n_5 = 1;
-            for (int k = 1; k <= i; k++)
-            {
-                n_1 *= (-1);
-                n_5 *= 5;
-            }
+            n_1 *= (-1);
+            n_5 *= 5;
             answer += n_1*n_5/f;
         }
         answer = Math.Round(answer, 2);
