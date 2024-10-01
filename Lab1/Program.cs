@@ -405,20 +405,35 @@ public class Program
     }
     public int Task_2_3(double a, double h, double p)
     {
-        int answer = 1;
-        double s = a;
-        double summa = s;
+    int answer = 0;
+    double s = a;
+    double summa = s;
+    double summa1 = summa;
+    if (p < a)
+    {
+        answer = 0;
+    }
+    else
+    {
         while (summa <= p)
-        {   
+        {
             answer++;
             s = s + h;
-            summa = summa +  s;
-            Console.WriteLine(s);
+            summa = summa + s;
+            if (summa1 > summa)
+            {
+                answer = 0;
+                break;
+            }
+            summa1 = summa;
         }
-
-        Console.WriteLine(answer);
-        return answer;
+        
     }
+    
+
+    Console.WriteLine(answer);
+    return answer;
+    {
     public double Task_2_4(double x)
     {
         double answer = 0;
@@ -630,8 +645,7 @@ public class Program
     {
         double S = 0, y = 0;
         double e = 0.0001;
-        for (x = 0.1; x <= 1; x += 0.05)
-        {
+        
             double chl = 0, chs = 1, zn = 1, i = 0;
             S = 0;
             y = 0;
@@ -656,7 +670,7 @@ public class Program
             S = Math.Round(S, 2);
             Console.WriteLine($"S = {S}, y = {y}");
 
-        }
+        
         
 
         return (S, y);
