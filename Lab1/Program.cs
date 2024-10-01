@@ -597,31 +597,21 @@ public class Program
         // code here
         double S = 0;
         double y = 0;
-        double f(double x)
+        double a = 1;
+        int i = 0;
+        double eps = 0.0001;
+        
+            
+        while (Math.Abs(a) >= eps)
         {
-            return Math.Round(Math.Exp(2 * x), 4);
+            S += a;
+            i += 1;
+            a = a * 2 * x / i;
         }
-        double h = 0, eps = 0.000005;
-        double p2x = 1; int factorial = 1;
-        for (int i = 0; ; i++)
-        {
-            h = p2x / factorial;
-            p2x *= 2 * x; factorial *= (i + 1);
-            if (Math.Abs(h) < eps) break;
-            S += h;
-        }
-        double g(double v, int d)
-        {
-            int vl = (int)(v * Math.Pow(10, d + 1));
-            if (vl % 10 >= 5)
-            {
-                vl += 10;
-            }
-            vl /= 10;
-            return (double)v / Math.Pow(10, d);
-        }
-        S = Math.Round(S, 2);
-        y = Math.Round(f(x), 2);
+            
+        y = Math.Exp(2 * x);
+    
+       
 
         // end
         return (S, y);
