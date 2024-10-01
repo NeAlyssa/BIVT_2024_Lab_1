@@ -172,12 +172,11 @@ public class Program
         double answer = 0;
 
         // code here;
-        double f;
-        for (double i = 1; i <= 6; i++)
+        double a = 1;
+        for (int i = 1; i <= 6; i++)
         {
-            f = 1;
-            for (double a = 2; a <= i; a++) f *= a;
-            answer += Math.Pow(-1, i) * Math.Pow(5, i) / f;
+            a = a * (-1) * 5 / i;
+            answer += a;
         }
         answer = Math.Round(answer, 2);
         // end
