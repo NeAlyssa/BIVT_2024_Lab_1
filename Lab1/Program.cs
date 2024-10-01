@@ -666,8 +666,7 @@ public class Program
             } while (Math.Abs(chl) > e);
             S -= chl;
             y = Math.Pow(Math.E, 2 * x);
-            y = Math.Round(y, 2);
-            S = Math.Round(S, 2);
+            
             Console.WriteLine($"S = {S}, y = {y}");
 
         
