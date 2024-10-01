@@ -403,21 +403,27 @@ public class Program
     {
         int answer = 0;
         double s = 0;
-        do
+        if (p>=a+h & h > 0)
         {
-            if (p > a + answer * h)
+            while (s<=p)
             {
                 answer++;
                 s += a + answer * h;
-
             }
-            else
-            {
-                answer = 0;
-                break;
-           }
-        } while (s <= p);
+                
+            
+        }
+         else
+         {
+              answer = 0;
+         }
+            
+        
+     
         // end
+           
+           
+
 
         return answer;
     }
