@@ -153,16 +153,14 @@ public class Program
     {
         double answer = 0;
         double f = 1;
-        double v = 5;
-        double c = -1;
-        for (double i = 1; i <= 6; i++)
+        double v = 1; 
+        double c = 1;
+        for (int i = 1; i <= 6; i++)
         {
-            for (double j = 1; j <= i; j++)
-                f *= j;
-            answer += (c * v) / f;
             c *= -1;
             v *= 5;
-            f = 1;
+            f *= i;
+            answer += c * v / f;
         }
         answer = Math.Round(answer, 2);
 
