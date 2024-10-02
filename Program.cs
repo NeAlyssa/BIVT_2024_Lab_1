@@ -160,14 +160,16 @@ public class Program
         double answer = 0;
 
         // code here;
-        double pow = 1;
-        double pow2 = 1;
-        double factorial = 1;
-        for (int j = 1; j <= 6; j++){
-            pow *= -1;
-            pow2 *= 5;
-            factorial *= j;
-            answer += (pow * pow2) / factorial;
+        for (int i = 1; i <= 6; i++){
+            int pow = 1;
+            float pow2 = 1;
+            int factorial = 1;
+            for (int j = 1; j <= i; j++){
+                pow *= -1;
+                pow2 *= 5;
+                factorial *= j;
+            }
+            answer += pow * pow2 / factorial;
         }
         answer = Math.Round(answer, 2);
         // end
@@ -200,15 +202,20 @@ public class Program
     }
     public double Task_1_12(double x)
     {
-        double answer = 1;
+        double answer = 0;
 
         // code here
-        if (x==0) return 0;
-        double t = 1.0;
-        for (int i = 1; i <= 10; i++)
+        if (x == 0){
+        return 0;
+        }
+        for (int i = 0; i <= 10; i++)
         {
-            t /= x;
-            answer += t;
+            double pow = 1;
+            for (int j = 1; j <= i; j++)
+            {
+                pow *= x;
+            }
+            answer += 1.0 / pow;
         }
         answer = Math.Round(answer, 2);
         // end
