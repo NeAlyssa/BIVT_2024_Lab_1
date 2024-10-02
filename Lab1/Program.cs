@@ -28,7 +28,7 @@ public class Program
         //program.Task_1_14();
         //program.Task_1_15();
         //program.Task_1_16();
-        program.Task_1_17(10);
+        //program.Task_1_17(10);
         //program.Task_1_18(24);
         //program.Task_2_1(0);
         //program.Task_2_2();
@@ -43,7 +43,7 @@ public class Program
         //program.Task_2_9();
         //program.Task_2_10();
         //program.Task_3_1(0.1);
-        //program.Task_3_2(0.1);
+        //program.Task_3_2(x);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
         //program.Task_3_5(double.Pi/5);
@@ -182,6 +182,10 @@ public class Program
         double quest = x;
         for (int i = 1; i < 11; i++)
         {
+            if (x == 0)
+            {
+                return 0;
+            }
             answer += (1 / quest);
             quest *= x;
         }
@@ -468,12 +472,20 @@ public class Program
     }
     public (double, double) Task_3_2(double x)
     {
-        double S = 0, y = 0;
+        double S = 0;
+        double y = 0;
+        int i = 1;
+        double term = x;
 
-        // code here
+        while (Math.Abs(term) >= 0.0001)
+        {
+            double n_step = term * Math.Sin(i * Math.PI / 4);
+            S += n_step;
+            term *= x;
+            i++;
 
-        // end
-
+        }
+        y = (x * Math.Sin(Math.PI / 4)) / (1 - (2 * x * Math.Cos(Math.PI / 4)) + x * x);
         return (S, y);
     }
     public (double, double) Task_3_3(double x)
