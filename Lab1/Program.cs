@@ -584,12 +584,13 @@ public class Program
 
         // code here
 
-        double i = -1;
-
-        while (Math.Abs(i * Math.Cos(i * x) / (i * i)) >= 0.0001)
+        double i = 1;
+        double t = -1;
+        while (Math.Abs(t * Math.Cos(i * x) / (i * i)) >= 0.0001)
         {
-            S += i * Math.Cos(i * x) / (i * i);
-            i *= (-1);
+            S += t * Math.Cos(i * x) / (i * i);
+            t *= (-1);
+            i++;
         }
         y = (x * x - Math.PI * Math.PI / 3)/4;
         // end
