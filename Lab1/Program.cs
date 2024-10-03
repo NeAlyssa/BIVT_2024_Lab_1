@@ -433,7 +433,7 @@ public class Program
 
     Console.WriteLine(answer);
     return answer;
-    {
+    }
     public double Task_2_4(double x)
     {
         double answer = 0;
