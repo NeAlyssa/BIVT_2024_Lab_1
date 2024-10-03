@@ -12,7 +12,7 @@
         //program.Task_1_6(4);
         //program.Task_1_7();
         //program.Task_1_8();
-        //program.Task_1_9();
+        program.Task_1_9();
         //program.Task_1_10();
         //program.Task_1_11();
         //program.Task_1_12(0.9);
@@ -148,22 +148,21 @@
     public double Task_1_9()
     {
         double answer = 0;
+        double p1 = 1.0;
+        double p5 = 1.0;
+        double ft = 1.0;
 
         // code here;
         for (int i = 1; i <= 6; i++)
         {
-            int p1 = 1;
-            float p5 = 1;
-            int fi = 1;
-            for (int j = 1; j <= i; j++)
-            {
-                p1 *= -1;
-                p5 *= 5;
-                fi *= j;
-            }
-            answer += p1 * p5 / fi;
+            p1 *= -1.0;
+            p5 *= 5.0;
+            ft *= i;
+            answer += p1 * p5 / ft;
+            Console.WriteLine(p1 * p5 / ft);
         }
         answer = Math.Round(answer, 2);
+        Console.WriteLine(answer);
         // end
 
         return answer;
