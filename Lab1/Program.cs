@@ -2,14 +2,16 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 public class Program
 {
     public static void Main()
     {
         Program program = new Program();
-        Console.WriteLine("Hello world!");
+        //Console.WriteLine("Hello world!");
         //program.Task_1_1();
         //program.Task_1_2();
         //program.Task_1_3();
@@ -25,7 +27,7 @@ public class Program
         //program.Task_1_13(-1.5);
         //program.Task_1_14();
         //program.Task_1_15();
-        program.Task_1_16();
+        //program.Task_1_16();
         //program.Task_1_17(10);
         //program.Task_1_18(24);
         //program.Task_2_1(1);
@@ -140,9 +142,9 @@ public class Program
     public double Task_1_6(double x)
     {
         double answer = 0;
-
         // code here
-
+        answer = 0.5 * x * x - 7 * x;
+        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -256,7 +258,21 @@ public class Program
         double answer = 0;
 
         // code here
-
+        while (x <= -1)
+        {
+            answer = 1;
+            break;
+        }
+        while ((x > -1) && (x <= 1))
+        {
+            answer = -x;
+            break;
+        }
+        while (x > 1)
+        {
+            answer = -1;
+            break;
+        }
         // end
 
         return answer;
@@ -281,19 +297,21 @@ public class Program
         double answer = 0;
 
         // code here
-        int ch = 1;
-        int zn = 1;
-        int n = 1;
-        int a = 1;
-        int b = 1;
-        for (int i = 1; i <= 5; i++)
+        double a = 1;
+        double b = 1;
+        double c = 0;
+        int i = 0;
+        while (i <= (5 - 2))
         {
-            n = ch / zn;
-            ch = ch + zn;
-            a = a + b;
-            b = a + b;
+            c = a + b;
+            a = b;
+            b = c;
+            i++;
         }
-
+        answer = b / a;
+        //Console.WriteLine(a);
+        //Console.WriteLine(b);
+        Console.WriteLine(answer);
         // end
 
         return answer;
@@ -393,11 +411,13 @@ public class Program
         int answer = 0;
 
         // code here
-        /*double s = 0;
+
+        double s = 0;
         double slagaemoe = 0;
         
         while (s < p)
         {
+            if ((a>0&&h<0&&p>a)||(a<0&&h<0&&p>a)||(a>0&&h>0&&p<0)) return 0;
             slagaemoe = a + answer * h;
             s += slagaemoe;
             //Console.WriteLine(s);
@@ -408,9 +428,10 @@ public class Program
             { 
                 answer--; 
             }
-        //answer--;
-        Console.WriteLine(answer);*/
-        //Console.WriteLine(answer);        
+        
+        Console.WriteLine(answer);
+        //Console.WriteLine(answer);
+        
         // end
 
         return answer;
@@ -604,16 +625,18 @@ public class Program
         double n1 = -1;
         double n2 = Math.Cos(x);
         double d = 1;
-        double part = n1 * n2 / d;
+        double part=1;
         while (Math.Abs(part) >= 0.0001)
         {
+            part = n1 * n2 / d;
             S += part;
             i++;
             n1 *= -1;
             n2 = Math.Cos(i * x);
             d = i * i;
-            part = n1 * n2 / d;
+            
         }
+        
         Console.WriteLine(S);
         Console.WriteLine(y);
         // end
