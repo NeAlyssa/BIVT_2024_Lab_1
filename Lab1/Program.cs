@@ -173,23 +173,16 @@ public class Program
 
 
         // code here;
-        double coef = -1;
-        double fivv = 5;
-        double fact = 1;
-        for (double i = 1; i <= 6; ++i)
+        double pr = -1, n = 5, f = 1;
+        for (double i = 1; i <= 6; i++)
         {
-            for (double j = 1; j <= i; ++j)
-            {
-                fact *= j;
-            }
-            answer += (coef * fivv) / fact;
-            coef *= -1;
-            fivv *= 5;
-            fact = 1;
+            f *= i;
+            answer += (pr * n) / f;
+            pr *= -1;
+            n *= 5;
         }
-        answer = Math.Round(answer, 2);
         // end
-
+        answer = Math.Round(answer, 2);
         return answer;
     }
     public int Task_1_10()
