@@ -414,10 +414,9 @@ public class Program
 
         double s = 0;
         double slagaemoe = 0;
-        
+        if ((a>0&&h<0&&p>a)||(a<0&&h<0&&p>a)||(a>0&&h>0&&p<0)) return 0;
         while (s < p)
         {
-            if ((a>0&&h<0&&p>a)||(a<0&&h<0&&p>a)||(a>0&&h>0&&p<0)) return 0;
             slagaemoe = a + answer * h;
             s += slagaemoe;
             //Console.WriteLine(s);
