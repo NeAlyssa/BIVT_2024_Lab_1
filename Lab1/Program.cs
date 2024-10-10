@@ -153,16 +153,13 @@ public class Program
         int answer = 0;
 
         // code here;
-        int interm_sum = 1;
-        for (int i = 1; i <= 6; ++i)
-        {
-            for (int j = 1; j <= i; ++j)
-            {
-                interm_sum *= j;
-            }
-            answer += interm_sum;
-            interm_sum = 1;
-        }
+        int f = 1; 
+        for(int i = 1;i <= 6; ++i) 
+        { 
+            f = f * i; 
+            answer += f; 
+             
+        } 
         // end
 
         return answer;
