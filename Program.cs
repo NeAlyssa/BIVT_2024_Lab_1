@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
@@ -153,13 +153,16 @@ public class Program
         int answer = 0;
 
         // code here;
-        int f = 1; 
-        for(int i = 1;i <= 6; ++i) 
-        { 
-            f = f * i; 
-            answer += f; 
-             
-        } 
+        int interm_sum = 1;
+        for (int i = 1; i <= 6; ++i)
+        {
+            for (int j = 1; j <= i; ++j)
+            {
+                interm_sum *= j;
+            }
+            answer += interm_sum;
+            interm_sum = 1;
+        }
         // end
 
         return answer;
@@ -170,16 +173,23 @@ public class Program
 
 
         // code here;
-        double pr = -1, n = 5, f = 1;
-        for (double i = 1; i <= 6; i++)
+        double coef = -1;
+        double fivv = 5;
+        double fact = 1;
+        for (double i = 1; i <= 6; ++i)
         {
-            f *= i;
-            answer += (pr * n) / f;
-            pr *= -1;
-            n *= 5;
+            for (double j = 1; j <= i; ++j)
+            {
+                fact *= j;
+            }
+            answer += (coef * fivv) / fact;
+            coef *= -1;
+            fivv *= 5;
+            fact = 1;
         }
-        // end
         answer = Math.Round(answer, 2);
+        // end
+
         return answer;
     }
     public int Task_1_10()
@@ -333,13 +343,7 @@ public class Program
         double answer = 0;
 
         // code here
-        double s = 0;
-        double epsillon = 0.0001;
-        for (int i = 1; Math.Abs(Math.Cos(i * x) / (Math.Pow(i, 2))) >= epsillon; i++)
-        {
-            s += Math.Cos(i * x) / (Math.Pow(i, 2));
-        }
-        answer = s;
+
         // end
 
         return answer;
@@ -349,15 +353,7 @@ public class Program
         int answer = 0;
 
         // code here
-        int p = 1;
-        int L = 30_000;
-        int count = 0;
-        for (int i = 0; p <= L; i++)
-        {
-            count = 3 * i - 2;
-            p *= (3 * (i + 1) - 2);
-        }
-        answer = count;
+
         // end
 
         return answer;
@@ -367,41 +363,7 @@ public class Program
         int answer = 0;
 
         // code here
-        double s = 0;
-        int count = 0;
-        while (true)
-        {
-            if (a < p)
-            {
-                if (h > 0)
-                {
-                    s += a + count * h;
-                    count++;
-                    if (s > p)
-                    {
-                        count--;
-                        break;
-                    }
-                }
-                else
-                {
-                    count = 0;
-                    break;
-                }
-            }
-            else if (a == p)
-            {
-                count = 1;
-                break;
-            }
-            else if (a > p)
-            {
-                count = 0;
-                break;
-            }
-        }
 
-        answer = count;
         // end
 
         return answer;
@@ -411,22 +373,6 @@ public class Program
         double answer = 0;
 
         // code here
-        double s = 0;
-        double term = 1;
-        const double eps = 0.0001;
-        if (Math.Abs(x) >= 1)
-        {
-            s = 0;
-        }
-        else
-        {
-            for (int n = 0; Math.Abs(term) >= eps; n++)
-            {
-                s += term;
-                term *= x * x;
-            }
-        }
-        answer = Math.Round(s, 2);
 
         // end
 
@@ -437,37 +383,7 @@ public class Program
         int quotient = 0, remainder = 0;
 
         // code here
-        int n = N;
-        int m = M;
-        int chisl = Math.Abs(N);
-        N = Math.Abs(N);
-        M = Math.Abs(M);
-        if (M == 0)
-        {
-            quotient = 0;
-            remainder = 0;
-        }
-        else
-        {
-            if (N < M)
-            {
-                quotient = 0;
-                remainder = M;
-            }
-            else
-            {
-                while (N - M >= 0)
-                {
-                    N -= M;
-                    quotient++;
-                }
-                remainder = chisl - M * quotient;
-            }
-        }
-        if (n * m < 0)
-        {
-            quotient = -quotient;
-        }
+
         // end
 
         return (quotient, remainder);
@@ -477,16 +393,7 @@ public class Program
         int answer = 0;
 
         // code here
-        int nachalo = 10;
-        int kolvo = 10;
-        int i;
-        int step = 1;
-        for (i = 0; kolvo < 100_000; i++)
-        {
-            kolvo = nachalo * step;
-            step *= 2;
-        }
-        answer = (i - 1) * 3;
+
         // end
 
         return answer;
@@ -496,15 +403,7 @@ public class Program
         double answer = 0;
 
         // code here
-        double nachalo = 10;
-        double den = nachalo;
-        double summ = nachalo;
-        for (int i = 1; i <= 6; i++)
-        {
-            den += den * 0.1;
-            summ += den;
-        }
-        answer = Math.Round(summ, 2);
+
         // end
 
         return answer;
@@ -514,17 +413,7 @@ public class Program
         int answer = 0;
 
         // code here
-        double nachalo = 10;
-        double den = nachalo;
-        double summ = nachalo;
-        int otvet = 0;
-        for (int i = 1; summ < 100; i++)
-        {
-            den += den * 0.1;
-            summ += den;
-            otvet = i;
-        }
-        answer = otvet + 1;
+
         // end
 
         return answer;
@@ -534,17 +423,7 @@ public class Program
         int answer = 0;
 
         // code here
-        double nachalo = 10;
-        double den = nachalo;
-        double summ = nachalo;
-        int otvet = 0;
-        for (int i = 1; den <= 20; i++)
-        {
-            den += den * 0.1;
-            summ += den;
-            otvet = i;
-        }
-        answer = otvet;
+
         // end
 
         return answer;
@@ -554,18 +433,7 @@ public class Program
         int answer = 0;
 
         // code here;
-        double nachalo = 10_000;
-        double uvel = 0.08;
-        double mesyac = nachalo;
-        double summ = nachalo;
-        int otvet = 0;
-        for (int i = 1; summ < 20_000; i++)
-        {
-            mesyac = summ * uvel;
-            summ += mesyac;
-            otvet = i;
-        }
-        answer = otvet;
+
         // end
 
         return answer;
@@ -575,15 +443,7 @@ public class Program
         int answer = 0;
 
         // code here;
-        double L = 0.1;
-        double D_A = Math.Pow(10, -10);
-        int otvet = 0;
-        for (int i = 1; L > D_A; i++)
-        {
-            L = L * 0.5;
-            otvet = i;
-        }
-        answer = otvet;
+
         // end
 
         return answer;
@@ -593,25 +453,7 @@ public class Program
         int answer = 0;
 
         // code here;
-        double a_1 = 1.0, b_1 = 1.0;
-        double a_2 = 2.0, b_2 = 1.0;
-        int otvet = 2;
-        while (true)
-        {
-            otvet++;
-            double a_n = a_1 + a_2;
-            double b_n = b_1 + b_2;
-            double currValue = a_n / b_n;
-            if (Math.Abs(currValue - (a_2 / b_2)) <= 0.001)
-            {
-                break;
-            }
-            a_1 = a_2;
-            b_1 = b_2;
-            a_2 = a_n;
-            b_2 = b_n;
-        }
-        answer = otvet;
+
         // end
 
         return answer;
@@ -634,24 +476,7 @@ public class Program
         double S = 0, y = 0;
 
         // code here
-        const double e = 0.0001;
 
-        //lastelement and chetchik
-        double ch = 1;
-        double b = x;
-        double q = b * Math.Sin((ch * Math.PI) / 4);
-        //process
-        while (Math.Abs(b) >= e)
-        {
-
-
-            S += q;
-            b *= x;
-            ch += 1;
-            q = b * Math.Sin((ch * Math.PI) / 4);
-
-        }
-        y = (x * Math.Sin(Math.PI / 4)) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x);
         // end
 
         return (S, y);
