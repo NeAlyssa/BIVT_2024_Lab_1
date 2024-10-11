@@ -46,7 +46,7 @@ public class Program
         //program.Task_3_2(0.1);
         //program.Task_3_3(0.1);
         //program.Task_3_4(0.1);
-        //program.Task_3_5(double.Pi/5);
+        program.Task_3_5(double.Pi/5);
         //program.Task_3_6(0.1);
         //program.Task_3_7(0.1);
         //program.Task_3_8(0.1);
@@ -624,16 +624,15 @@ public class Program
         double n1 = -1;
         double n2 = Math.Cos(x);
         double d = 1;
-        double part=1;
+        double part=n1*n2;
         while (Math.Abs(part) >= 0.0001)
         {
-            part = n1 * n2 / d;
             S += part;
             i++;
             n1 *= -1;
             n2 = Math.Cos(i * x);
             d = i * i;
-            
+            part = n1 * n2 / d;
         }
         
         Console.WriteLine(S);
