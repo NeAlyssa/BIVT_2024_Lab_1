@@ -96,29 +96,25 @@ public class Program
         double answer = 0;
 
         // code here
-        if (x ==0)
+        double s = 0;
+        double a = 1;
+        if (x != 0)
         {
-            answer = 0;
+            for (double i = 1; i <= 9; i++)
+            {
+                if (i > 1)
+                {
+                    a *= x;
+                }
+                s += Math.Cos(i * x) / a;
+            }
         }
         else
         {
-            for (double i = 1; i < 10; i++)
-            {
-                answer = answer + (Math.Cos(i * x) / (Power(x, (i - 1))));
-            }
+            s = 0;
         }
-        static double Power(double baseNum, double exp)
-        {
-            if (exp == 0)
-                return 1; 
-            else if (exp < 0)
-                return 1 / Power(baseNum, -exp);
-
-            return baseNum * Power(baseNum, exp - 1);
-        }
-        answer = Math.Round(answer, 2);
+        answer = Math.Round(s, 2);
         // end
-        Console.WriteLine(answer);
         return answer;
     }
     public double Task_1_5(double p, double h)
@@ -165,17 +161,15 @@ public class Program
         int answer = 0;
 
         // code here;
-        for (int i = 1; i <= 6; ++i)
-        {
-            answer = answer + Factorial(i);
-        }
-        static int Factorial(int n)
-        {
-            if (n == 0 || n == 1)
-                return 1;
+        int s = 0;
+        int f = 1;
 
-            return n * Factorial(n - 1);
+        for (int i = 1; i <= 6; i++)
+        {
+            f *= i;
+            s += f;
         }
+        answer = s;
         // end
 
         return answer;
@@ -185,27 +179,16 @@ public class Program
         double answer = 0;
 
         // code here;
-        for (int i = 1; i < 7; i++)
+        double s = 0;
+        double f = 1;
+        double a = 1;
+        for (int i = 1; i <= 6; i++)
         {
-            answer = answer + (Power(-1, i) * Power(5, i)) / Factorial(i);
+            f *= i;
+            a *= -5;
+            s +=(a / f);
         }
-        static double Factorial(int n)
-        {
-            if (n == 0 || n == 1)
-                return 1;
-
-            return n * Factorial(n - 1);
-        }
-        static double Power(double baseNum, double exp)
-        {
-            if (exp == 0)
-                return 1;
-            else if (exp < 0)
-                return 1 / Power(baseNum, -exp);
-
-            return baseNum * Power(baseNum, exp - 1);
-        }
-        answer = Math.Round(answer, 2);
+        answer = Math.Round(s, 2);
         // end
 
         return answer;
@@ -591,21 +574,14 @@ public class Program
 
         S = -1;
         double a_n = 1;
+        double d = -1;
         for (int n = 1; Math.Abs(a_n) >= 0.0001; n++)
         {
             S += a_n;
-            a_n = Power(-1, n) * Math.Cos(n * x) / (n * n);
+            a_n = d * Math.Cos(n * x) / (n * n);
+            d = d * (-1);
         }
-        y = (x * x - Math.Pow(Math.PI, 2) / 3) / 4;
-        static double Power(double baseNum, double exp)
-        {
-            if (exp == 0)
-                return 1;
-            else if (exp < 0)
-                return 1 / Power(baseNum, -exp);
-
-            return baseNum * Power(baseNum, exp - 1);
-        }
+        y = (x * x - (Math.PI* Math.PI) / 3) / 4;
         // end
 
         return (S, y);
